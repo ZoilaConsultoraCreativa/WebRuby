@@ -1,5 +1,7 @@
 import Image from 'next/image';
-import { Check } from 'lucide-react';
+import { Eye, Gem, Goal } from 'lucide-react';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const values = [
   "Humanidad estratégica – Lo emocional como ventaja competitiva.",
@@ -46,35 +48,70 @@ export default function AboutPage() {
       </section>
 
       <section className="py-20 md:py-28 bg-secondary">
-        <div className="container grid md:grid-cols-2 gap-16 items-center">
-          <div className="space-y-6">
-            <h2 className="text-3xl font-bold">Misión y Visión</h2>
-            <div className="space-y-4">
-              <div>
-                <h3 className="text-xl font-bold text-primary">Misión</h3>
-                <p className="mt-2 text-muted-foreground">
-                  Desde mi experiencia como exgerenta en entornos exigentes, acompaño a mujeres líderes a comunicar con confianza, encontrar su voz, establecer límites sin culpa y ejercer autoridad con autenticidad. Mi misión es posicionar la comunicación consciente como herramienta clave para transformar cómo lideramos en contextos técnicos.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-primary">Visión</h3>
-                <p className="mt-2 text-muted-foreground">
-                  Ser una referencia latinoamericana en comunicación consciente para mujeres que lideran en industrias técnicas, mostrando que se puede aprender a liderar y comunicar con confianza, generando impacto sin renunciar a la identidad femenina ni a la calidad profesional.
-                </p>
-              </div>
-            </div>
+        <div className="container">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold">Mi Filosofía</h2>
+            <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
+              Mi enfoque se basa en tres pilares fundamentales que guían cada proceso de transformación.
+            </p>
           </div>
-          <div className="space-y-6">
-            <h2 className="text-3xl font-bold">Valores</h2>
-            <ul className="space-y-3">
-              {values.map((value, index) => (
-                <li key={index} className="flex items-start">
-                  <Check className="h-6 w-6 text-accent flex-shrink-0 mt-1 mr-3" />
-                  <span className="text-muted-foreground">{value}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <Tabs defaultValue="mission" className="max-w-4xl mx-auto">
+            <TabsList className="grid w-full grid-cols-3">
+              <TabsTrigger value="mission">Misión</TabsTrigger>
+              <TabsTrigger value="vision">Visión</TabsTrigger>
+              <TabsTrigger value="values">Valores</TabsTrigger>
+            </TabsList>
+            <TabsContent value="mission">
+              <Card className="shadow-lg">
+                <CardHeader className="flex flex-row items-center gap-4">
+                  <div className="p-3 bg-primary/10 rounded-full">
+                    <Goal className="h-8 w-8 text-primary" />
+                  </div>
+                  <CardTitle className="text-2xl">Misión</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-lg text-muted-foreground">
+                    Desde mi experiencia como exgerenta en entornos exigentes, acompaño a mujeres líderes a comunicar con confianza, encontrar su voz, establecer límites sin culpa y ejercer autoridad con autenticidad. Mi misión es posicionar la comunicación consciente como herramienta clave para transformar cómo lideramos en contextos técnicos.
+                  </p>
+                </CardContent>
+              </Card>
+            </TabsContent>
+            <TabsContent value="vision">
+              <Card className="shadow-lg">
+                <CardHeader className="flex flex-row items-center gap-4">
+                  <div className="p-3 bg-primary/10 rounded-full">
+                    <Eye className="h-8 w-8 text-primary" />
+                  </div>
+                  <CardTitle className="text-2xl">Visión</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-lg text-muted-foreground">
+                    Ser una referencia latinoamericana en comunicación consciente para mujeres que lideran en industrias técnicas, mostrando que se puede aprender a liderar y comunicar con confianza, generando impacto sin renunciar a la identidad femenina ni a la calidad profesional.
+                  </p>
+                </CardContent>
+              </Card>
+            </TabsContent>
+            <TabsContent value="values">
+              <Card className="shadow-lg">
+                 <CardHeader className="flex flex-row items-center gap-4">
+                  <div className="p-3 bg-primary/10 rounded-full">
+                    <Gem className="h-8 w-8 text-primary" />
+                  </div>
+                  <CardTitle className="text-2xl">Valores</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+                    {values.map((value, index) => (
+                      <div key={index} className="flex items-start">
+                        <div className="flex-shrink-0 w-4 h-4 mt-1.5 rounded-full bg-accent" />
+                        <span className="ml-3 text-muted-foreground">{value}</span>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+          </Tabs>
         </div>
       </section>
     </>
