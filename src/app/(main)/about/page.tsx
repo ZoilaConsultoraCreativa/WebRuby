@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Eye, Gem, Goal } from 'lucide-react';
+import { Eye, Gem, Goal, CheckCircle } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
@@ -100,12 +100,14 @@ export default function AboutPage() {
                   <CardTitle className="text-2xl">Valores</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {values.map((value, index) => (
-                      <div key={index} className="flex items-start">
-                        <div className="flex-shrink-0 w-4 h-4 mt-1.5 rounded-full bg-accent" />
-                        <span className="ml-3 text-muted-foreground">{value}</span>
-                      </div>
+                      <Card key={index} className="bg-background/50 shadow-sm">
+                        <CardContent className="p-4 flex items-start">
+                           <CheckCircle className="h-5 w-5 text-primary mt-1 mr-3 flex-shrink-0" />
+                           <span className="text-muted-foreground text-sm">{value}</span>
+                        </CardContent>
+                      </Card>
                     ))}
                   </div>
                 </CardContent>
