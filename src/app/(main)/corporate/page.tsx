@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Building, Lightbulb, Users } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 
 const services = [
@@ -22,20 +21,21 @@ const services = [
     }
 ]
 
-const caseStudies = [
-  {
-    company: "Empresa Minera Top 5",
-    challenge: "El equipo de gerentas de área reportaba baja influencia en comités directivos y alta sobrecarga por dificultades para delegar efectivamente.",
-    solution: "Se implementó un programa de 3 meses de coaching grupal enfocado en comunicación asertiva, negociación y liderazgo situacional.",
-    result: "Aumento del 40% en la participación percibida de las líderes en reuniones. Mejora del 25% en los indicadores de clima del equipo a cargo.",
-  },
-  {
-    company: "Banca de Inversión",
-    challenge: "Falta de cohesión y confianza en un nuevo equipo de líderes, resultando en silos y retrasos en proyectos inter-área.",
-    solution: "Serie de workshops basados en el modelo de Patrick Lencioni, complementado con coaching 1:1 para el director del área.",
-    result: "Reducción de los tiempos de ciclo de proyectos en un 15%. El equipo fue calificado como 'altamente cohesionado' en la siguiente encuesta de pulso.",
-  }
-]
+const CompanyLogo = ({ name }: { name: string }) => (
+    <div className="flex items-center justify-center h-16 text-muted-foreground font-semibold text-lg">
+        {name}
+    </div>
+);
+
+const logos = [
+  { name: "TechCorp" },
+  { name: "Innovate Inc." },
+  { name: "QuantumLeap" },
+  { name: "Strive" },
+  { name: "Apex Global" },
+  { name: "Momentum" },
+  { name: "Nexus" },
+];
 
 
 export default function CorporatePage() {
@@ -79,33 +79,19 @@ export default function CorporatePage() {
       <section className="py-20 md:py-28 bg-secondary">
           <div className="container">
               <div className="text-center mb-16">
-                  <h2 className="text-3xl md:text-4xl font-bold">Historias de Éxito Corporativo</h2>
+                  <h2 className="text-3xl md:text-4xl font-bold">Han confiado en nosotros</h2>
                   <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">
-                      El impacto real de la comunicación consciente en el negocio.
+                      Empresas que ya están transformando su comunicación y liderazgo.
                   </p>
               </div>
-              <div className="max-w-4xl mx-auto space-y-8">
-                  {caseStudies.map((study, index) => (
-                      <Card key={index} className="shadow-lg">
-                          <CardHeader>
-                              <CardTitle className="text-primary">{study.company}</CardTitle>
-                          </CardHeader>
-                          <CardContent className="space-y-4">
-                              <div>
-                                  <h4 className="font-semibold">Desafío</h4>
-                                  <p className="text-muted-foreground">{study.challenge}</p>
-                              </div>
-                              <div>
-                                  <h4 className="font-semibold">Solución</h4>
-                                  <p className="text-muted-foreground">{study.solution}</p>
-                              </div>
-                              <div className="bg-accent/50 p-4 rounded-lg">
-                                  <h4 className="font-semibold text-accent-foreground">Resultado</h4>
-                                  <p className="text-accent-foreground font-medium">{study.result}</p>
-                              </div>
-                          </CardContent>
-                      </Card>
-                  ))}
+              <div className="relative w-full overflow-hidden">
+                <div className="flex animate-scroll-x group">
+                    {[...logos, ...logos].map((logo, index) => (
+                        <div key={index} className="flex-shrink-0 w-48 mx-4 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                           <CompanyLogo name={logo.name} />
+                        </div>
+                    ))}
+                </div>
               </div>
           </div>
       </section>
