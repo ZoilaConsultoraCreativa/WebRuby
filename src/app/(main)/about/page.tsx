@@ -16,7 +16,7 @@ const credentials = [
     { title: "Coach Ontológico Certificado", description: "International Coaching Federation (ICF)" },
     { title: "Magíster en Comunicación Estratégica", description: "Universidad de Los Andes" },
     { title: "+15 años de experiencia corporativa", description: "Roles gerenciales en industrias técnicas" },
-    { title: "Certificación en Liderazgo Femenino", description: "Institución de Liderazgo Global" },
+    { title: "Certificación en Protocolos de Acoso (Ley Karin)", description: "Estrategias de prevención y manejo del acoso laboral." },
     { title: "Especialista en Storytelling", description: "Escuela de Narrativas Poderosas" },
     { title: "Columnista Invitada", description: "Revista 'Líderes Hoy'" },
 ]

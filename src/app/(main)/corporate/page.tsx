@@ -6,7 +6,7 @@ import Link from "next/link";
 const services = [
     {
         title: "Workshops de Comunicación Estratégica",
-        description: "Talleres prácticos y a medida para dotar a los equipos de herramientas de comunicación que generan impacto, confianza y resultados.",
+        description: "Talleres prácticos y a medida para crear culturas de seguridad psicológica y cumplir con normativas como la Ley Karin, fomentando entornos laborales respetuosos.",
         icon: <Users className="h-8 w-8 text-primary" />,
     },
     {
