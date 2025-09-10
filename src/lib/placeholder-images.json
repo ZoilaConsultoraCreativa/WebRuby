@@ -1,3 +1,76 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-woman-leader",
+      "description": "Hero image of a confident woman leader in a modern office.",
+      "imageUrl": "https://picsum.photos/seed/1/1200/800",
+      "imageHint": "woman leader"
+    },
+    {
+      "id": "about-ruby",
+      "description": "Professional and warm portrait of Ruby Villarroel.",
+      "imageUrl": "https://picsum.photos/seed/2/600/800",
+      "imageHint": "professional woman"
+    },
+    {
+      "id": "program-individual",
+      "description": "Image representing a 1-on-1 coaching session.",
+      "imageUrl": "https://picsum.photos/seed/3/600/400",
+      "imageHint": "coaching session"
+    },
+    {
+      "id": "program-group",
+      "description": "Image representing a group workshop or intensive program.",
+      "imageUrl": "https://picsum.photos/seed/4/600/400",
+      "imageHint": "group workshop"
+    },
+    {
+      "id": "program-subscription",
+      "description": "Abstract image representing continuous growth or subscription.",
+      "imageUrl": "https://picsum.photos/seed/5/600/400",
+      "imageHint": "growth abstract"
+    },
+    {
+      "id": "corporate-service",
+      "description": "Image of a corporate team in a meeting, showing collaboration.",
+      "imageUrl": "https://picsum.photos/seed/6/800/600",
+      "imageHint": "team meeting"
+    },
+    {
+      "id": "testimonial-1",
+      "description": "Portrait of a female professional.",
+      "imageUrl": "https://picsum.photos/seed/11/150/150",
+      "imageHint": "woman portrait"
+    },
+    {
+      "id": "testimonial-2",
+      "description": "Portrait of a female professional.",
+      "imageUrl": "https://picsum.photos/seed/12/150/150",
+      "imageHint": "professional portrait"
+    },
+    {
+      "id": "testimonial-3",
+      "description": "Portrait of a female professional.",
+      "imageUrl": "https://picsum.photos/seed/13/150/150",
+      "imageHint": "woman face"
+    },
+    {
+      "id": "tool-client-profile",
+      "description": "Image for the Ideal Client Profile tool.",
+      "imageUrl": "https://picsum.photos/seed/101/600/400",
+      "imageHint": "profile analysis"
+    },
+    {
+      "id": "tool-social-post",
+      "description": "Image for the Social Post Generator tool.",
+      "imageUrl": "https://picsum.photos/seed/102/600/400",
+      "imageHint": "social media"
+    },
+    {
+      "id": "tool-ask-ruby",
+      "description": "Image for the Ask Ruby AI persona tool.",
+      "imageUrl": "https://picsum.photos/seed/103/600/400",
+      "imageHint": "conversation chat"
+    }
+  ]
 }
