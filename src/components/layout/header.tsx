@@ -72,7 +72,7 @@ export default function Header() {
 
         <div className="flex items-center justify-end">
           <Button asChild>
-            <Link href="/contact">Contactar</Link>
+            <Link href="/contact">Contacto</Link>
           </Button>
         </div>
       </div>
