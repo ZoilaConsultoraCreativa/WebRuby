@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Eye, Gem, Goal, CheckCircle } from 'lucide-react';
+import { Eye, Gem, Goal, CheckCircle, Award } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
@@ -11,6 +11,16 @@ const values = [
   "Coherencia profesional – Ser en privado lo que se enseña en público.",
   "Inspiración aplicable – Ideas que bajan a conversaciones y decisiones reales."
 ];
+
+const credentials = [
+    { title: "Coach Ontológico Certificado", description: "International Coaching Federation (ICF)" },
+    { title: "Magíster en Comunicación Estratégica", description: "Universidad de Los Andes" },
+    { title: "+15 años de experiencia corporativa", description: "Roles gerenciales en industrias técnicas" },
+    { title: "Certificación en Liderazgo Femenino", description: "Institución de Liderazgo Global" },
+    { title: "Especialista en Storytelling", description: "Escuela de Narrativas Poderosas" },
+    { title: "Columnista Invitada", description: "Revista 'Líderes Hoy'" },
+]
+
 
 export default function AboutPage() {
   return (
@@ -25,17 +35,13 @@ export default function AboutPage() {
       </section>
 
       <section className="relative py-20 md:py-28">
-        <div 
-          className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-accent/20 via-background to-background"
-          style={{
-              maskImage: 'radial-gradient(ellipse 80% 50% at 50% 50%, #000 60%, transparent 100%)',
-          }}
-        />
+         <div className="absolute top-0 right-0 h-32 w-32 bg-accent/10 rounded-full blur-3xl -z-10"></div>
+        <div className="absolute bottom-0 left-0 h-32 w-32 bg-primary/10 rounded-full blur-3xl -z-10"></div>
         <div className="container grid md:grid-cols-5 gap-12 items-center relative z-10">
           <div className="md:col-span-3 space-y-6">
             <h2 className="text-3xl font-bold text-primary">Identidad de Marca</h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Ruby Villarroel es una marca personal que representa comunicación estratégica, liderazgo emocional y acompañamiento transformacional. No enseña desde la teoría, sino desde la experiencia vivida como mujer en entornos corporativos masculinizados.
+              Ruby Villarroel es una marca personal que representa comunicación estratégica, liderazgo emocional y acompañamiento transformacional. No enseña desde la teoría, sino desde la experiencia vividida como mujer en entornos corporativos masculinizados.
             </p>
             <p className="text-muted-foreground leading-relaxed">
               No forma oradoras. Forma líderes con voz propia, capaces de sostener sus ideas, generar impacto y ser recordadas por su forma de decir lo que importa. Ruby transforma conversaciones en relaciones que perduran. Su escucha genera vínculos, su presencia hace sentir a las personas importantes, vistas y valoradas.
@@ -49,6 +55,34 @@ export default function AboutPage() {
               className="object-cover rounded-lg"
               data-ai-hint="professional woman"
             />
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 md:py-28">
+        <div className="container">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold">Mis Credenciales</h2>
+            <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
+              Mi formación y experiencia para acompañarte en tu transformación.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {credentials.map((credential, index) => (
+              <Card key={index} className="bg-card shadow-lg hover:shadow-xl transition-shadow">
+                <CardHeader className="flex flex-row items-center gap-4">
+                  <div className="p-3 bg-primary/10 rounded-full">
+                    <Award className="h-6 w-6 text-primary" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-base">{credential.title}</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground">{credential.description}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
