@@ -55,39 +55,37 @@ const testimonials = [
 export default function Home() {
   return (
     <div className="flex flex-col">
-      <section className="relative bg-secondary">
-        <div className="container grid lg:grid-cols-2 gap-12 items-center py-20 md:py-32">
-          <div className="space-y-6 text-center lg:text-left">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter">
-              Tu Liderazgo es Real.
-              <br />
-              <span className="text-primary">Comunica con Confianza.</span>
-            </h1>
-            <p className="max-w-xl mx-auto lg:mx-0 text-lg text-muted-foreground">
-              Ayudo a mujeres y equipos a comunicarse de forma estratégica y con claridad, formando líderes con voz propia.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button size="lg" asChild>
-                <Link href="/programs">Explora los Programas</Link>
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <Link href="/contact">Agenda una Sesión</Link>
-              </Button>
-            </div>
-          </div>
-          <div className="relative h-80 lg:h-[450px] w-full">
-             <Image
-                src="https://picsum.photos/seed/1/1200/800"
-                alt="Woman Leader"
-                fill
-                className="rounded-lg object-cover shadow-xl"
-                data-ai-hint="woman leader"
-              />
+      <section className="relative h-screen flex items-center justify-center text-white">
+        <div className="absolute inset-0 bg-black/50 z-10" />
+        <Image
+          src="https://picsum.photos/seed/1/1800/1200"
+          alt="Woman Leader"
+          fill
+          className="object-cover"
+          data-ai-hint="woman leader"
+          priority
+        />
+        <div className="relative z-20 container text-center space-y-6">
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tighter !leading-tight">
+            Tu Liderazgo es Real.
+            <br />
+            <span className="text-primary">Comunica con Confianza.</span>
+          </h1>
+          <p className="max-w-2xl mx-auto text-lg text-white/80">
+            Ayudo a mujeres y equipos a comunicarse de forma estratégica y con claridad, formando líderes con voz propia.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" asChild>
+              <Link href="/programs">Explora los Programas</Link>
+            </Button>
+            <Button size="lg" variant="secondary" asChild>
+              <Link href="/contact">Agenda una Sesión</Link>
+            </Button>
           </div>
         </div>
       </section>
 
-      <section className="py-20 md:py-28">
+      <section className="py-20 md:py-28 bg-background">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold">Formando Líderes con Voz Propia</h2>
@@ -96,27 +94,27 @@ export default function Home() {
             </p>
         </div>
         <div className="container mt-16 grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
-            <Card className="transform hover:scale-105 transition-transform duration-300 shadow-lg">
+            <Card className="transform hover:scale-105 transition-transform duration-300 ease-in-out shadow-xl hover:shadow-2xl">
               <CardHeader>
                 <CardTitle className="text-2xl">Para Personas</CardTitle>
                 <p className="text-muted-foreground pt-2">Acompañamiento 1:1 y grupal para mujeres líderes.</p>
               </CardHeader>
               <CardContent>
                 <p className="mb-4">Procesos diseñados para ayudarte a encontrar tu voz, establecer límites sin culpa y ejercer tu autoridad con autenticidad.</p>
-                <Button variant="link" className="p-0 h-auto font-semibold" asChild>
-                  <Link href="/programs">Ver programas <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                <Button variant="link" className="p-0 h-auto font-semibold group">
+                  <Link href="/programs">Ver programas <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" /></Link>
                 </Button>
               </CardContent>
             </Card>
-            <Card className="transform hover:scale-105 transition-transform duration-300 shadow-lg">
+            <Card className="transform hover:scale-105 transition-transform duration-300 ease-in-out shadow-xl hover:shadow-2xl">
               <CardHeader>
                 <CardTitle className="text-2xl">Para Empresas</CardTitle>
                 <p className="text-muted-foreground pt-2">Potenciando equipos y cultura organizacional.</p>
               </CardHeader>
               <CardContent>
                 <p className="mb-4">Workshops y coaching para equipos que buscan mejorar su comunicación, confianza y efectividad.</p>
-                <Button variant="link" className="p-0 h-auto font-semibold" asChild>
-                  <Link href="/corporate">Conoce más <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                 <Button variant="link" className="p-0 h-auto font-semibold group">
+                  <Link href="/corporate">Conoce más <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" /></Link>
                 </Button>
               </CardContent>
             </Card>
@@ -134,7 +132,7 @@ export default function Home() {
           </div>
           <div className="mt-16 grid gap-8 md:grid-cols-3 max-w-5xl mx-auto">
             {programs.map((program) => (
-              <div key={program.title} className="flex flex-col items-center text-center">
+              <div key={program.title} className="flex flex-col items-center text-center p-6 rounded-lg transition-all hover:bg-card/50 hover:-translate-y-2">
                   <div className="mx-auto bg-primary/10 rounded-full h-16 w-16 flex items-center justify-center">
                     {program.icon}
                   </div>
@@ -170,12 +168,12 @@ export default function Home() {
               {testimonials.map((testimonial, index) => (
                 <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/2">
                   <div className="p-1 h-full">
-                    <Card className="flex flex-col justify-between h-full shadow-lg">
+                    <Card className="flex flex-col justify-between h-full shadow-lg bg-card">
                        <CardContent className="pt-6">
                         <Quote className="h-8 w-8 text-primary mb-4" />
                         <p className="text-muted-foreground italic">"{testimonial.quote}"</p>
                       </CardContent>
-                      <CardHeader className="flex-row items-center gap-4">
+                      <CardHeader className="flex-row items-center gap-4 border-t pt-6 mt-auto">
                          <Avatar className="h-12 w-12">
                             <AvatarImage src={testimonial.image} alt={testimonial.name} data-ai-hint="woman portrait" />
                             <AvatarFallback>{testimonial.initials}</AvatarFallback>
@@ -189,8 +187,8 @@ export default function Home() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
+            <CarouselPrevious className="left-[-50px]"/>
+            <CarouselNext className="right-[-50px]"/>
           </Carousel>
         </div>
       </section>
