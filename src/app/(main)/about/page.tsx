@@ -24,17 +24,14 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-20 md:py-28">
-        <div className="container grid md:grid-cols-5 gap-12 items-center">
-          <div className="md:col-span-2 relative w-full h-96 md:h-[500px] rounded-lg shadow-xl">
-            <Image
-              src="https://picsum.photos/seed/2/600/800"
-              alt="Ruby Villarroel"
-              fill
-              className="object-cover rounded-lg"
-              data-ai-hint="professional woman"
-            />
-          </div>
+      <section className="relative py-20 md:py-28">
+        <div 
+          className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-accent/20 via-background to-background"
+          style={{
+              maskImage: 'radial-gradient(ellipse 80% 50% at 50% 50%, #000 60%, transparent 100%)',
+          }}
+        />
+        <div className="container grid md:grid-cols-5 gap-12 items-center relative z-10">
           <div className="md:col-span-3 space-y-6">
             <h2 className="text-3xl font-bold text-primary">Identidad de Marca</h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
@@ -43,6 +40,15 @@ export default function AboutPage() {
             <p className="text-muted-foreground leading-relaxed">
               No forma oradoras. Forma líderes con voz propia, capaces de sostener sus ideas, generar impacto y ser recordadas por su forma de decir lo que importa. Ruby transforma conversaciones en relaciones que perduran. Su escucha genera vínculos, su presencia hace sentir a las personas importantes, vistas y valoradas.
             </p>
+          </div>
+          <div className="md:col-span-2 relative w-full h-96 md:h-[500px] rounded-lg shadow-xl">
+            <Image
+              src="https://picsum.photos/seed/2/600/800"
+              alt="Ruby Villarroel"
+              fill
+              className="object-cover rounded-lg"
+              data-ai-hint="professional woman"
+            />
           </div>
         </div>
       </section>
