@@ -27,7 +27,7 @@ export default function AboutPage() {
     <>
       <section className="py-20 md:py-28 bg-secondary">
         <div className="container text-center">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tighter">Sobre Ruby Villarroel</h1>
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tighter">Sobre Mí</h1>
           <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">
             Mi marca no solo se recuerda: se siente.
           </p>
@@ -39,12 +39,12 @@ export default function AboutPage() {
         <div className="absolute bottom-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl translate-x-1/2"></div>
         <div className="container grid md:grid-cols-5 gap-12 items-center relative z-10">
           <div className="md:col-span-3 space-y-6">
-            <h2 className="text-3xl font-bold text-primary">Identidad de Marca</h2>
+            <h2 className="text-3xl font-bold text-primary">Mi Identidad de Marca</h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Ruby Villarroel es una marca personal que representa comunicación estratégica, liderazgo emocional y acompañamiento transformacional. No enseña desde la teoría, sino desde la experiencia vividida como mujer en entornos corporativos masculinizados.
+              Mi marca personal representa comunicación estratégica, liderazgo emocional y acompañamiento transformacional. No enseño desde la teoría, sino desde la experiencia vivida como mujer en entornos corporativos masculinizados.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              No forma oradoras. Forma líderes con voz propia, capaces de sostener sus ideas, generar impacto y ser recordadas por su forma de decir lo que importa. Ruby transforma conversaciones en relaciones que perduran. Su escucha genera vínculos, su presencia hace sentir a las personas importantes, vistas y valoradas.
+             No formo oradoras. Formo líderes con voz propia, capaces de sostener sus ideas, generar impacto y ser recordadas por su forma de decir lo que importa. Transformo conversaciones en relaciones que perduran. Mi escucha genera vínculos, mi presencia hace sentir a las personas importantes, vistas y valoradas.
             </p>
           </div>
           <div className="md:col-span-2 relative w-full h-96 md:h-[500px] rounded-lg shadow-xl">
