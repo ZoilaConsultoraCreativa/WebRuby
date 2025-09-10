@@ -36,7 +36,6 @@ export default function Footer() {
             <div className="space-y-2">
               <h4 className="font-headline text-sm font-semibold">Recursos</h4>
               <ul className="space-y-2 text-sm">
-                 <li><Link href="/tools" className="text-muted-foreground hover:text-primary">Herramientas IA</Link></li>
                 <li><Link href="/contact" className="text-muted-foreground hover:text-primary">Contacto</Link></li>
               </ul>
             </div>

@@ -179,14 +179,11 @@ export default function Home() {
         <div className="container text-center">
           <h2 className="text-3xl font-bold">¿Lista para liderar con estrategia desde quien ya eres?</h2>
           <p className="mt-4 max-w-2xl mx-auto text-primary-foreground/80">
-            Descubre si mis programas son para ti o explora las herramientas de IA para un primer diagnóstico.
+            Descubre si mis programas son para ti.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" variant="secondary" asChild>
               <Link href="/contact">Hablemos</Link>
-            </Button>
-            <Button size="lg" variant="outline" className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary" asChild>
-              <Link href="/tools">Probar Herramientas IA</Link>
             </Button>
           </div>
         </div>
