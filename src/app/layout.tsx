@@ -6,7 +6,7 @@ import Footer from '@/components/layout/footer';
 import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
-  title: 'LeadVoice | Ruby Villarroel',
+  title: 'Ruby Villarroel | Comunicación Estratégica',
   description: 'Comunicación estratégica y liderazgo emocional para mujeres y equipos corporativos.',
   icons: {
     icon: '/favicon.ico',

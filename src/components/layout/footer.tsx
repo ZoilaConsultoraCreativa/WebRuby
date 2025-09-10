@@ -49,7 +49,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-8 border-t pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} LeadVoice. Todos los derechos reservados.</p>
+          <p>&copy; {new Date().getFullYear()} Ruby Villarroel. Todos los derechos reservados.</p>
         </div>
       </div>
     </footer>
