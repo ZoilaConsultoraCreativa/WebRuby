@@ -3,24 +3,25 @@ import Link from 'next/link';
 import { ArrowRight, CheckCircle, Quote } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 
 const programs = [
   {
     title: 'Programa 1:1 - 12 Semanas',
     description: 'Acompañamiento personalizado para transformar tu liderazgo y comunicación.',
-    icon: <CheckCircle className="h-6 w-6 text-primary" />,
+    icon: <CheckCircle className="h-8 w-8 text-primary" />,
   },
   {
     title: 'Grupal Intensivo - 4 Semanas',
     description: 'Una inmersión profunda con un grupo de pares para potenciar tus habilidades.',
-    icon: <CheckCircle className="h-6 w-6 text-primary" />,
+    icon: <CheckCircle className="h-8 w-8 text-primary" />,
   },
   {
     title: 'Suscripción Continua',
     description: 'Acceso constante a herramientas y una comunidad para sostener tu crecimiento.',
-    icon: <CheckCircle className="h-6 w-6 text-primary" />,
+    icon: <CheckCircle className="h-8 w-8 text-primary" />,
   },
 ];
 
@@ -43,6 +44,12 @@ const testimonials = [
     image: 'https://picsum.photos/seed/13/150/150',
     initials: 'S',
   },
+  {
+    name: 'Directora de Proyectos',
+    quote: 'Las sesiones con Ruby fueron un antes y un después. No solo mejoré mi comunicación, sino que también aprendí a liderar con más empatía y visión estratégica.',
+    image: 'https://picsum.photos/seed/14/150/150',
+    initials: 'DP',
+  }
 ];
 
 export default function Home() {
@@ -56,7 +63,7 @@ export default function Home() {
               <br />
               <span className="text-primary">Comunica con Confianza.</span>
             </h1>
-            <p className="max-w-2xl mx-auto lg:mx-0 text-lg text-muted-foreground">
+            <p className="max-w-xl mx-auto lg:mx-0 text-lg text-muted-foreground">
               Ayudo a mujeres y equipos a comunicarse de forma estratégica y con claridad, formando líderes con voz propia.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -68,7 +75,7 @@ export default function Home() {
               </Button>
             </div>
           </div>
-          <div className="relative h-80 lg:h-full w-full">
+          <div className="relative h-80 lg:h-[450px] w-full">
              <Image
                 src="https://picsum.photos/seed/1/1200/800"
                 alt="Woman Leader"
@@ -81,21 +88,22 @@ export default function Home() {
       </section>
 
       <section className="py-20 md:py-28">
-        <div className="container text-center">
+        <div className="container">
+          <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold">Formando Líderes con Voz Propia</h2>
-            <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">
+            <p className="mt-4 text-lg text-muted-foreground">
               Mi misión es posicionar la comunicación consciente como la herramienta clave para transformar cómo lideramos en contextos técnicos, generando un impacto personal y organizacional sostenible.
             </p>
         </div>
-        <div className="container mt-16 grid gap-8 md:grid-cols-2">
+        <div className="container mt-16 grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
             <Card className="transform hover:scale-105 transition-transform duration-300 shadow-lg">
               <CardHeader>
                 <CardTitle className="text-2xl">Para Personas</CardTitle>
-                <CardDescription>Acompañamiento 1:1 y grupal para mujeres líderes.</CardDescription>
+                <p className="text-muted-foreground pt-2">Acompañamiento 1:1 y grupal para mujeres líderes.</p>
               </CardHeader>
               <CardContent>
-                <p className="mb-4 text-muted-foreground">Procesos diseñados para ayudarte a encontrar tu voz, establecer límites sin culpa y ejercer tu autoridad con autenticidad.</p>
-                <Button variant="link" className="p-0 h-auto" asChild>
+                <p className="mb-4">Procesos diseñados para ayudarte a encontrar tu voz, establecer límites sin culpa y ejercer tu autoridad con autenticidad.</p>
+                <Button variant="link" className="p-0 h-auto font-semibold" asChild>
                   <Link href="/programs">Ver programas <ArrowRight className="ml-2 h-4 w-4" /></Link>
                 </Button>
               </CardContent>
@@ -103,83 +111,95 @@ export default function Home() {
             <Card className="transform hover:scale-105 transition-transform duration-300 shadow-lg">
               <CardHeader>
                 <CardTitle className="text-2xl">Para Empresas</CardTitle>
-                <CardDescription>Potenciando equipos y cultura organizacional.</CardDescription>
+                <p className="text-muted-foreground pt-2">Potenciando equipos y cultura organizacional.</p>
               </CardHeader>
               <CardContent>
-                <p className="mb-4 text-muted-foreground">Workshops y coaching para equipos corporativos que buscan mejorar su comunicación, confianza y efectividad.</p>
-                <Button variant="link" className="p-0 h-auto" asChild>
+                <p className="mb-4">Workshops y coaching para equipos que buscan mejorar su comunicación, confianza y efectividad.</p>
+                <Button variant="link" className="p-0 h-auto font-semibold" asChild>
                   <Link href="/corporate">Conoce más <ArrowRight className="ml-2 h-4 w-4" /></Link>
                 </Button>
               </CardContent>
             </Card>
         </div>
+        </div>
       </section>
       
       <section className="bg-secondary py-20 md:py-28">
         <div className="container">
-          <div className="text-center">
+          <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold">Programas de Transformación</h2>
-            <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">
+            <p className="mt-4 text-lg text-muted-foreground">
               Procesos que combinan estrategia, emocionalidad aplicada y herramientas conversacionales para escenarios reales.
             </p>
           </div>
-          <div className="mt-16 grid gap-8 md:grid-cols-3">
+          <div className="mt-16 grid gap-8 md:grid-cols-3 max-w-5xl mx-auto">
             {programs.map((program) => (
-              <Card key={program.title} className="text-center">
-                <CardHeader>
-                  <div className="mx-auto bg-primary/10 rounded-full h-12 w-12 flex items-center justify-center">
+              <div key={program.title} className="flex flex-col items-center text-center">
+                  <div className="mx-auto bg-primary/10 rounded-full h-16 w-16 flex items-center justify-center">
                     {program.icon}
                   </div>
-                  <CardTitle className="mt-4">{program.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">{program.description}</p>
-                </CardContent>
-              </Card>
+                  <h3 className="mt-6 text-xl font-bold">{program.title}</h3>
+                  <p className="mt-2 text-muted-foreground">{program.description}</p>
+              </div>
             ))}
+          </div>
+           <div className="text-center mt-12">
+            <Button asChild size="lg">
+              <Link href="/programs">Ver todos los programas</Link>
+            </Button>
           </div>
         </div>
       </section>
 
       <section className="py-20 md:py-28">
         <div className="container">
-          <div className="text-center">
+          <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold">Lo que mis clientas dicen</h2>
-            <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">
+            <p className="mt-4 text-lg text-muted-foreground">
               Historias de mujeres que decidieron liderar desde su propia voz.
             </p>
           </div>
-          <div className="mt-16 grid gap-8 md:grid-cols-1 lg:grid-cols-3">
-            {testimonials.map((testimonial) => (
-              <Card key={testimonial.name} className="flex flex-col justify-between">
-                <CardHeader>
-                  <Quote className="h-8 w-8 text-primary" />
-                </CardHeader>
-                <CardContent className="flex-grow">
-                  <p className="text-muted-foreground italic">"{testimonial.quote}"</p>
-                </CardContent>
-                <CardContent>
-                  <div className="flex items-center space-x-4">
-                    <Avatar>
-                      <AvatarImage src={testimonial.image} alt={testimonial.name} data-ai-hint="woman portrait" />
-                      <AvatarFallback>{testimonial.initials}</AvatarFallback>
-                    </Avatar>
-                    <div>
-                      <p className="font-semibold">{testimonial.name}</p>
-                    </div>
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full max-w-4xl mx-auto mt-16"
+          >
+            <CarouselContent>
+              {testimonials.map((testimonial, index) => (
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/2">
+                  <div className="p-1 h-full">
+                    <Card className="flex flex-col justify-between h-full shadow-lg">
+                       <CardContent className="pt-6">
+                        <Quote className="h-8 w-8 text-primary mb-4" />
+                        <p className="text-muted-foreground italic">"{testimonial.quote}"</p>
+                      </CardContent>
+                      <CardHeader className="flex-row items-center gap-4">
+                         <Avatar className="h-12 w-12">
+                            <AvatarImage src={testimonial.image} alt={testimonial.name} data-ai-hint="woman portrait" />
+                            <AvatarFallback>{testimonial.initials}</AvatarFallback>
+                          </Avatar>
+                          <div>
+                            <p className="font-bold text-lg">{testimonial.name}</p>
+                          </div>
+                      </CardHeader>
+                    </Card>
                   </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
         </div>
       </section>
 
       <section className="bg-primary text-primary-foreground py-20">
-        <div className="container text-center">
+        <div className="container text-center max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold">¿Lista para liderar con estrategia desde quien ya eres?</h2>
-          <p className="mt-4 max-w-2xl mx-auto text-primary-foreground/80">
-            Descubre si mis programas son para ti.
+          <p className="mt-4 max-w-2xl mx-auto text-primary-foreground/80 text-lg">
+            Descubre si mis programas son para ti. Agenda una conversación sin compromiso.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" variant="secondary" asChild>
