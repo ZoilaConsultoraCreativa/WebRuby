@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Building, Lightbulb, Users } from "lucide-react";
+import { Building, Lightbulb, Users, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 
 const services = [
@@ -60,7 +60,7 @@ export default function CorporatePage() {
           </div>
           <div className="grid gap-8 md:grid-cols-3">
               {services.map(service => (
-                  <Card key={service.title}>
+                  <Card key={service.title} className="shadow-lg hover:shadow-xl transition-shadow duration-300">
                       <CardHeader className="items-center text-center">
                           <div className="p-4 bg-primary/10 rounded-full">
                             {service.icon}
@@ -77,6 +77,28 @@ export default function CorporatePage() {
       </section>
 
       <section className="py-20 md:py-28 bg-secondary">
+        <div className="container">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-4 text-center md:text-left">
+              <div className="inline-block bg-primary/10 text-primary p-3 rounded-full mb-4">
+                  <ShieldCheck className="h-10 w-10" />
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold">Cumplimiento y Cultura: Expertos en Ley Karin</h2>
+              <p className="text-lg text-muted-foreground">
+                Nuestros programas están diseñados no solo para cumplir con la normativa, sino para construir culturas de seguridad psicológica y respeto que van más allá de la ley. Prepara a tus líderes para gestionar y prevenir el acoso laboral de manera efectiva.
+              </p>
+              <Button size="lg" asChild>
+                <Link href="/contact">Saber más</Link>
+              </Button>
+            </div>
+            <div className="relative w-full h-80 rounded-lg shadow-xl">
+               <Image src="https://picsum.photos/seed/6/800/600" alt="Entorno laboral seguro" fill className="object-cover rounded-lg" data-ai-hint="safe workplace" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 md:py-28">
           <div className="container">
               <div className="text-center mb-16">
                   <h2 className="text-3xl md:text-4xl font-bold">Han confiado en nosotros</h2>

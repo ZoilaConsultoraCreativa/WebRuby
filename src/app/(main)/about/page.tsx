@@ -34,9 +34,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="relative py-20 md:py-28">
-         <div className="absolute top-0 right-0 h-32 w-32 bg-accent/10 rounded-full blur-3xl -z-10"></div>
-        <div className="absolute bottom-0 left-0 h-32 w-32 bg-primary/10 rounded-full blur-3xl -z-10"></div>
+      <section className="relative py-20 md:py-28 overflow-hidden">
+        <div className="absolute top-1/2 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-x-1/2"></div>
+        <div className="absolute bottom-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl translate-x-1/2"></div>
         <div className="container grid md:grid-cols-5 gap-12 items-center relative z-10">
           <div className="md:col-span-3 space-y-6">
             <h2 className="text-3xl font-bold text-primary">Identidad de Marca</h2>
@@ -59,7 +59,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-20 md:py-28">
+      <section className="py-20 md:py-28 bg-secondary">
         <div className="container">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold">Mis Credenciales</h2>
@@ -87,7 +87,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-20 md:py-28 bg-secondary">
+      <section className="py-20 md:py-28">
         <div className="container">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold">Mi Filosofía</h2>
