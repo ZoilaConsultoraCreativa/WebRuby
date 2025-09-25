@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ArrowRight, CheckCircle, Quote } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { getPlaceholderImage } from '@/lib/placeholder-images';
@@ -101,50 +101,58 @@ export default function Home() {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative w-full h-80 md:h-96 rounded-lg shadow-xl overflow-hidden group">
-                <Image
-                    src={forPeopleImage.imageUrl}
-                    alt={forPeopleImage.description}
-                    fill
-                    className="object-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
-                    data-ai-hint={forPeopleImage.imageHint}
-                />
-                <ImageDimensions image={forPeopleImage} />
-            </div>
-            <div className="space-y-4">
-                <h3 className="text-3xl font-bold text-primary">Para Personas</h3>
-                <p className="text-lg text-muted-foreground">Acompañamiento 1:1 y grupal para mujeres líderes.</p>
-                <p>Procesos diseñados para ayudarte a encontrar tu voz, establecer límites sin culpa y ejercer tu autoridad con autenticidad.</p>
-                <Button asChild>
-                    <Link href="/programs" className="group">
-                        Ver programas <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                </Button>
-            </div>
-          </div>
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <Card className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div className="relative w-full h-64 overflow-hidden group">
+                     <Image
+                        src={forPeopleImage.imageUrl}
+                        alt={forPeopleImage.description}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                        data-ai-hint={forPeopleImage.imageHint}
+                    />
+                    <ImageDimensions image={forPeopleImage} />
+                </div>
+                <CardHeader>
+                    <CardTitle className="text-2xl text-primary">Para Personas</CardTitle>
+                </CardHeader>
+                <CardContent className="flex-1">
+                    <p className="text-muted-foreground">Acompañamiento 1:1 y grupal para mujeres líderes que buscan ejercer su autoridad con autenticidad.</p>
+                </CardContent>
+                <CardFooter>
+                    <Button asChild className="w-full">
+                        <Link href="/programs" className="group">
+                            Ver programas <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        </Link>
+                    </Button>
+                </CardFooter>
+            </Card>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center mt-24">
-            <div className="space-y-4 md:order-last">
-                <h3 className="text-3xl font-bold text-primary">Para Empresas</h3>
-                <p className="text-lg text-muted-foreground">Potenciando equipos y cultura organizacional.</p>
-                <p>Workshops y coaching para equipos que buscan mejorar su comunicación, confianza y efectividad.</p>
-                 <Button asChild>
-                    <Link href="/corporate" className="group">
-                        Conoce más <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                </Button>
-            </div>
-            <div className="relative w-full h-80 md:h-96 rounded-lg shadow-xl overflow-hidden group md:order-first">
-                 <Image
-                    src={forCompaniesImage.imageUrl}
-                    alt={forCompaniesImage.description}
-                    fill
-                    className="object-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
-                    data-ai-hint={forCompaniesImage.imageHint}
-                />
-                <ImageDimensions image={forCompaniesImage} />
-            </div>
+            <Card className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div className="relative w-full h-64 overflow-hidden group">
+                     <Image
+                        src={forCompaniesImage.imageUrl}
+                        alt={forCompaniesImage.description}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                        data-ai-hint={forCompaniesImage.imageHint}
+                    />
+                    <ImageDimensions image={forCompaniesImage} />
+                </div>
+                <CardHeader>
+                    <CardTitle className="text-2xl text-primary">Para Empresas</CardTitle>
+                </CardHeader>
+                <CardContent className="flex-1">
+                    <p className="text-muted-foreground">Potenciamos equipos y cultura organizacional a través de workshops y coaching de comunicación efectiva.</p>
+                </CardContent>
+                <CardFooter>
+                    <Button asChild className="w-full">
+                        <Link href="/corporate" className="group">
+                            Conoce más <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        </Link>
+                    </Button>
+                </CardFooter>
+            </Card>
           </div>
         </div>
       </section>
