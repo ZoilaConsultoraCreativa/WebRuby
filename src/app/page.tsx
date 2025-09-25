@@ -118,15 +118,22 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 md:py-28 bg-background">
+      <section className="py-20 md:py-28 bg-mission text-primary-foreground">
         <div className="container">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold">Formando Líderes con Voz Propia</h2>
-            <p className="mt-4 text-lg text-muted-foreground">
+            <p className="mt-4 text-lg text-primary-foreground/90">
               Mi misión es posicionar la comunicación consciente como herramienta clave para ejercer un liderazgo que inspira, ayudando a construir culturas más seguras y a preparar a las organizaciones para cumplir con normativas como la Ley Karin.
             </p>
           </div>
-          
+        </div>
+      </section>
+      
+      <section className="py-20 md:py-28 bg-background">
+        <div className="container">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold">Formas en que podemos trabajar juntas</h2>
+          </div>
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             <Card className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <div className="relative w-full h-64 overflow-hidden group">
@@ -249,7 +256,7 @@ export default function Home() {
 
       <section className="bg-primary text-primary-foreground py-20">
         <div className="container text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold">¿Lista para liderar con estrategia desde quien ya eres?</h2>
+          <h2 className="text-2xl font-bold">¿Lista para liderar con estrategia desde quien ya eres?</h2>
           <p className="mt-4 max-w-2xl mx-auto text-primary-foreground/80 text-lg">
             Descubre si mis programas son para ti. Agenda una conversación sin compromiso.
           </p>
