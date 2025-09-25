@@ -15,12 +15,12 @@ const values = [
 ];
 
 const credentials = [
-    { title: "Coach Ontológico Certificado", description: "International Coaching Federation (ICF)" },
-    { title: "Magíster en Comunicación Estratégica", description: "Universidad de Los Andes" },
+    { title: "Certificación Actualización Ley Karin N° 21.643", description: "Pontificia Universidad Católica de Valparaíso (2024)" },
+    { title: "Coach en Negocios Femeninos", description: "Fundadoras (2022)" },
+    { title: "Coach Profesional PCC", description: "International Coaching Federation - ICF (2020)" },
+    { title: "Coach Organizacional de Equipos", description: "Universidad Adolfo Ibáñez, Chile (2019)" },
+    { title: "Coach Ontológico Organizacional", description: "A&T Coaching Organizacional, Argentina (2013)" },
     { title: "+15 años de experiencia corporativa", description: "Roles gerenciales en industrias técnicas" },
-    { title: "Certificación en Protocolos de Acoso (Ley Karin)", description: "Estrategias de prevención y manejo del acoso laboral." },
-    { title: "Especialista en Storytelling", description: "Escuela de Narrativas Poderosas" },
-    { title: "Columnista Invitada", description: "Revista 'Líderes Hoy'" },
 ];
 
 const aboutHeroImage = getPlaceholderImage('about-hero');
