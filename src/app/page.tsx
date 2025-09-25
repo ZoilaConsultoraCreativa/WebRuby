@@ -106,7 +106,7 @@ export default function Home() {
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold">Formando Líderes con Voz Propia</h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Mi misión es posicionar la comunicación consciente como la herramienta clave para transformar cómo lideramos en contextos técnicos, generando un impacto personal y organizacional sostenible.
+              Mi misión es posicionar la comunicación consciente como herramienta clave para ejercer un liderazgo que inspira, ayudando a construir culturas más seguras y a preparar a las organizaciones para cumplir con normativas como la Ley Karin.
             </p>
           </div>
           
