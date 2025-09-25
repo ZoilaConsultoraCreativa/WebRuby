@@ -116,7 +116,7 @@ export default function AboutPage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-lg text-muted-foreground">
-                    Desde mi experiencia como exgerenta en entornos exigentes, acompaño a mujeres líderes a comunicar con confianza, encontrar su voz, establecer límites sin culpa y ejercer autoridad con autenticidad. Mi misión es posicionar la comunicación consciente como herramienta clave para transformar cómo lideramos, ayudando a construir culturas de seguridad psicológica y a preparar a las organizaciones para cumplir con normativas como la Ley Karin.
+                    Mi misión es posicionar la comunicación consciente como herramienta clave para ejercer un liderazgo que inspira, ayudando a construir culturas más seguras y a preparar a las organizaciones para cumplir con normativas como la Ley Karin.
                   </p>
                 </CardContent>
               </Card>

@@ -126,7 +126,7 @@ export default function Home() {
                     <CardTitle className="text-2xl text-primary">Para Ti</CardTitle>
                 </CardHeader>
                 <CardContent className="flex-1">
-                    <p className="text-muted-foreground">Acompañamiento 1:1 y grupal para mujeres líderes que buscan ejercer su autoridad con autenticidad.</p>
+                    <p className="text-muted-foreground">Desde mi experiencia como exgerenta en entornos exigentes, te acompaño a comunicar con confianza, encontrar tu voz y ejercer tu autoridad con autenticidad.</p>
                 </CardContent>
                 <CardFooter>
                     <Button asChild className="w-full">
