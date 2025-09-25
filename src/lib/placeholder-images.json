@@ -3,7 +3,7 @@
     {
       "id": "hero-woman-leader",
       "description": "Hero image of a confident woman leader in a modern office.",
-      "imageUrl": "https://picsum.photos/seed/1/1800/1200",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/webruby-d89a9.firebasestorage.app/o/Sitio%20RubyVillarroel.cl%2FCopia%20de%20FONDO%20SITIO%20PRINCIPAL.png?alt=media&token=54c88295-f7a0-4bd3-b95c-897e0be26112",
       "imageHint": "woman leader"
     },
     {
@@ -33,7 +33,7 @@
     {
       "id": "corporate-safe-workplace",
       "description": "Image of a safe and collaborative corporate environment.",
-      "imageUrl": "https://picsum.photos/seed/6/800/600",
+      "imageUrl": "https://images.unsplash.com/photo-1756975274830-29f616adb369?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8c2FmZSUyMHdvcmtwbGFjZXxlbnwwfHx8fDE3NTg4MDY5MDh8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "safe workplace"
     },
     {
