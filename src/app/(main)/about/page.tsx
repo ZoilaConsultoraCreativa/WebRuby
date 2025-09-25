@@ -3,6 +3,7 @@ import { Eye, Gem, Goal, CheckCircle, Award } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { getPlaceholderImage } from '@/lib/placeholder-images';
+import { ImageDimensions } from '@/components/image-dimensions';
 
 const values = [
   "Humanidad estratégica – Lo emocional como ventaja competitiva.",
@@ -58,6 +59,7 @@ export default function AboutPage() {
               className="object-cover rounded-lg"
               data-ai-hint={aboutImage.imageHint}
             />
+            <ImageDimensions image={aboutImage} />
           </div>
         </div>
       </section>

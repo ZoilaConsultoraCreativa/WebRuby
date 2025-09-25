@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { getPlaceholderImage } from '@/lib/placeholder-images';
+import { ImageDimensions } from '@/components/image-dimensions';
 
 const programs = [
   {
@@ -68,6 +69,7 @@ export default function Home() {
           data-ai-hint={heroImage.imageHint}
           priority
         />
+        <ImageDimensions image={heroImage} />
         <div className="relative z-20 container text-center space-y-6">
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tighter !leading-tight">
             Tu Liderazgo es Real.

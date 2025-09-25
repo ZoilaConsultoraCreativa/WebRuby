@@ -4,6 +4,7 @@ import { Building, Lightbulb, Users, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { getPlaceholderImage } from "@/lib/placeholder-images";
+import { ImageDimensions } from "@/components/image-dimensions";
 
 const services = [
     {
@@ -96,6 +97,7 @@ export default function CorporatePage() {
             </div>
             <div className="relative w-full h-80 rounded-lg shadow-xl">
                <Image src={safeWorkplaceImage.imageUrl} alt={safeWorkplaceImage.description} fill className="object-cover rounded-lg" data-ai-hint={safeWorkplaceImage.imageHint} />
+               <ImageDimensions image={safeWorkplaceImage} />
             </div>
           </div>
         </div>

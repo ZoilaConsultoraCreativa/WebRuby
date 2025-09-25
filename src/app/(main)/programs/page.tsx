@@ -5,6 +5,7 @@ import { CheckCircle } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { getPlaceholderImage } from "@/lib/placeholder-images";
+import { ImageDimensions } from "@/components/image-dimensions";
 
 const programsData = [
     {
@@ -85,6 +86,7 @@ export default function ProgramsPage() {
                       className="object-cover"
                       data-ai-hint={program.image.imageHint}
                     />
+                    <ImageDimensions image={program.image} />
                   </div>
                   <div className="md:col-span-3">
                     <CardHeader>
