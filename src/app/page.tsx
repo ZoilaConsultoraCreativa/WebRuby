@@ -114,7 +114,7 @@ export default function Home() {
                     <ImageDimensions image={forPeopleImage} />
                 </div>
                 <CardHeader>
-                    <CardTitle className="text-2xl text-primary">Para Personas</CardTitle>
+                    <CardTitle className="text-2xl text-primary">Para Ti</CardTitle>
                 </CardHeader>
                 <CardContent className="flex-1">
                     <p className="text-muted-foreground">Acompañamiento 1:1 y grupal para mujeres líderes que buscan ejercer su autoridad con autenticidad.</p>
