@@ -60,7 +60,7 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       <section className="relative h-screen flex items-center justify-center text-white">
-        <div className="absolute inset-0 bg-black/50 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/70 to-background/30 z-10" />
         <Image
           src={heroImage.imageUrl}
           alt={heroImage.description}
@@ -71,12 +71,12 @@ export default function Home() {
         />
         <ImageDimensions image={heroImage} />
         <div className="relative z-20 container text-center space-y-6">
-          <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tighter !leading-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tighter !leading-tight" style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.5)' }}>
             Tu Liderazgo es Real.
             <br />
-            <span className="text-primary">Comunica con Confianza.</span>
+            <span className="text-primary-foreground">Comunica con Confianza.</span>
           </h1>
-          <p className="max-w-2xl mx-auto text-lg text-white/80">
+          <p className="max-w-2xl mx-auto text-lg text-white/90" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.4)' }}>
             Ayudo a mujeres y equipos a comunicarse de forma estratégica y con claridad, formando líderes con voz propia.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
