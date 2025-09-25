@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle, Quote, Award, ShieldCheck } from 'lucide-react';
@@ -152,7 +153,7 @@ export default function Home() {
                     <CardTitle className="text-2xl text-primary">Para Empresas</CardTitle>
                 </CardHeader>
                 <CardContent className="flex-1">
-                    <p className="text-muted-foreground">Potenciamos equipos y cultura organizacional a través de workshops y coaching de comunicación efectiva.</p>
+                    <p className="text-muted-foreground">Potenciamos la comunicación de tus equipos y preparamos a tus líderes para la Ley Karin a través de workshops y coaching especializado.</p>
                 </CardContent>
                 <CardFooter>
                     <Button asChild className="w-full">
