@@ -109,7 +109,7 @@ export default function AboutPage() {
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold">Mi Filosofía</h2>
             <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-              Mi enfoque se basa en tres pilares fundamentales que guían cada proceso de transformación.
+              Mi filosofía se basa en tres pilares que guían cada proceso de transformación, dando coherencia y propósito a mi trabajo.
             </p>
           </div>
           <Tabs defaultValue="mission" className="max-w-4xl mx-auto">
