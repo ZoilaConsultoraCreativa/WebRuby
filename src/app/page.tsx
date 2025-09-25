@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, CheckCircle, Quote } from 'lucide-react';
+import { ArrowRight, CheckCircle, Quote, Award, ShieldCheck } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
@@ -81,6 +81,18 @@ export default function Home() {
           <p className="max-w-2xl mx-auto text-lg text-white/90" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.4)' }}>
             Ayudo a mujeres y equipos a comunicarse de forma estratégica y con claridad, formando líderes con voz propia.
           </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+            <div className="flex items-center justify-center gap-2 rounded-full bg-black/20 px-4 py-2 backdrop-blur-sm">
+                <Award className="h-5 w-5 text-white/90" />
+                <span className="text-sm font-medium text-white">Coach Ejecutiva</span>
+            </div>
+             <div className="flex items-center justify-center gap-2 rounded-full bg-black/20 px-4 py-2 backdrop-blur-sm">
+                <ShieldCheck className="h-5 w-5 text-white/90" />
+                <span className="text-sm font-medium text-white">Certificada en Ley Karin</span>
+            </div>
+          </div>
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" asChild>
               <Link href="/programs">Explora los Programas</Link>
