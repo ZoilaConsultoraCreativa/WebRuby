@@ -45,7 +45,7 @@ export default function AboutPage() {
           <div className="md:col-span-3 space-y-6">
             <h2 className="text-3xl font-bold text-primary">Mi Identidad de Marca</h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Mi marca personal representa comunicación estratégica, liderazgo emocional y acompañamiento transformacional. No enseño desde la teoría, sino desde la experiencia vivida como mujer en entornos corporativos masculinizados.
+              Represento comunicación estratégica, liderazgo emocional y acompañamiento transformacional. No enseño desde la teoría, sino desde la experiencia vivida como mujer en entornos corporativos masculinizados.
             </p>
             <p className="text-muted-foreground leading-relaxed">
              No formo oradoras. Formo líderes con voz propia, capaces de sostener sus ideas, generar impacto y ser recordadas por su forma de decir lo que importa. Transformo conversaciones en relaciones que perduran. Mi escucha genera vínculos, mi presencia hace sentir a las personas importantes, vistas y valoradas.
@@ -116,7 +116,7 @@ export default function AboutPage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-lg text-muted-foreground">
-                    Desde mi experiencia como exgerenta en entornos exigentes, acompaño a mujeres líderes a comunicar con confianza, encontrar su voz, establecer límites sin culpa y ejercer autoridad con autenticidad. Mi misión es posicionar la comunicación consciente como herramienta clave para transformar cómo lideramos en contextos técnicos.
+                    Desde mi experiencia como exgerenta en entornos exigentes, acompaño a mujeres líderes a comunicar con confianza, encontrar su voz, establecer límites sin culpa y ejercer autoridad con autenticidad. Mi misión es posicionar la comunicación consciente como herramienta clave para transformar cómo lideramos, ayudando a construir culturas de seguridad psicológica y a preparar a las organizaciones para cumplir con normativas como la Ley Karin.
                   </p>
                 </CardContent>
               </Card>
