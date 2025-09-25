@@ -55,6 +55,8 @@ const testimonials = [
 ];
 
 const heroImage = getPlaceholderImage('hero-woman-leader');
+const forPeopleImage = getPlaceholderImage('program-individual');
+const forCompaniesImage = getPlaceholderImage('corporate-safe-workplace');
 
 export default function Home() {
   return (
@@ -92,38 +94,58 @@ export default function Home() {
 
       <section className="py-20 md:py-28 bg-background">
         <div className="container">
-          <div className="text-center max-w-3xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold">Formando Líderes con Voz Propia</h2>
             <p className="mt-4 text-lg text-muted-foreground">
               Mi misión es posicionar la comunicación consciente como la herramienta clave para transformar cómo lideramos en contextos técnicos, generando un impacto personal y organizacional sostenible.
             </p>
-        </div>
-        <div className="container mt-16 grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
-            <Card className="transform hover:scale-105 transition-transform duration-300 ease-in-out shadow-xl hover:shadow-2xl">
-              <CardHeader>
-                <CardTitle className="text-2xl">Para Personas</CardTitle>
-                <p className="text-muted-foreground pt-2">Acompañamiento 1:1 y grupal para mujeres líderes.</p>
-              </CardHeader>
-              <CardContent>
-                <p className="mb-4">Procesos diseñados para ayudarte a encontrar tu voz, establecer límites sin culpa y ejercer tu autoridad con autenticidad.</p>
-                <Button variant="link" className="p-0 h-auto font-semibold group">
-                  <Link href="/programs">Ver programas <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" /></Link>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="relative w-full h-80 md:h-96 rounded-lg shadow-xl overflow-hidden group">
+                <Image
+                    src={forPeopleImage.imageUrl}
+                    alt={forPeopleImage.description}
+                    fill
+                    className="object-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
+                    data-ai-hint={forPeopleImage.imageHint}
+                />
+                <ImageDimensions image={forPeopleImage} />
+            </div>
+            <div className="space-y-4">
+                <h3 className="text-3xl font-bold text-primary">Para Personas</h3>
+                <p className="text-lg text-muted-foreground">Acompañamiento 1:1 y grupal para mujeres líderes.</p>
+                <p>Procesos diseñados para ayudarte a encontrar tu voz, establecer límites sin culpa y ejercer tu autoridad con autenticidad.</p>
+                <Button asChild>
+                    <Link href="/programs" className="group">
+                        Ver programas <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Link>
                 </Button>
-              </CardContent>
-            </Card>
-            <Card className="transform hover:scale-105 transition-transform duration-300 ease-in-out shadow-xl hover:shadow-2xl">
-              <CardHeader>
-                <CardTitle className="text-2xl">Para Empresas</CardTitle>
-                <p className="text-muted-foreground pt-2">Potenciando equipos y cultura organizacional.</p>
-              </CardHeader>
-              <CardContent>
-                <p className="mb-4">Workshops y coaching para equipos que buscan mejorar su comunicación, confianza y efectividad.</p>
-                 <Button variant="link" className="p-0 h-auto font-semibold group">
-                  <Link href="/corporate">Conoce más <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" /></Link>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12 items-center mt-24">
+            <div className="space-y-4 md:order-last">
+                <h3 className="text-3xl font-bold text-primary">Para Empresas</h3>
+                <p className="text-lg text-muted-foreground">Potenciando equipos y cultura organizacional.</p>
+                <p>Workshops y coaching para equipos que buscan mejorar su comunicación, confianza y efectividad.</p>
+                 <Button asChild>
+                    <Link href="/corporate" className="group">
+                        Conoce más <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Link>
                 </Button>
-              </CardContent>
-            </Card>
-        </div>
+            </div>
+            <div className="relative w-full h-80 md:h-96 rounded-lg shadow-xl overflow-hidden group md:order-first">
+                 <Image
+                    src={forCompaniesImage.imageUrl}
+                    alt={forCompaniesImage.description}
+                    fill
+                    className="object-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
+                    data-ai-hint={forCompaniesImage.imageHint}
+                />
+                <ImageDimensions image={forCompaniesImage} />
+            </div>
+          </div>
         </div>
       </section>
       
