@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Eye, Gem, Goal, CheckCircle, Award } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { getPlaceholderImage } from '@/lib/placeholder-images';
 
 const values = [
   "Humanidad estratégica – Lo emocional como ventaja competitiva.",
@@ -19,7 +20,9 @@ const credentials = [
     { title: "Certificación en Protocolos de Acoso (Ley Karin)", description: "Estrategias de prevención y manejo del acoso laboral." },
     { title: "Especialista en Storytelling", description: "Escuela de Narrativas Poderosas" },
     { title: "Columnista Invitada", description: "Revista 'Líderes Hoy'" },
-]
+];
+
+const aboutImage = getPlaceholderImage('about-ruby');
 
 
 export default function AboutPage() {
@@ -49,11 +52,11 @@ export default function AboutPage() {
           </div>
           <div className="md:col-span-2 relative w-full h-96 md:h-[500px] rounded-lg shadow-xl">
             <Image
-              src="https://picsum.photos/seed/2/600/800"
-              alt="Ruby Villarroel"
+              src={aboutImage.imageUrl}
+              alt={aboutImage.description}
               fill
               className="object-cover rounded-lg"
-              data-ai-hint="professional woman"
+              data-ai-hint={aboutImage.imageHint}
             />
           </div>
         </div>

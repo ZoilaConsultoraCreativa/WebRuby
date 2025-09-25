@@ -3,73 +3,79 @@
     {
       "id": "hero-woman-leader",
       "description": "Hero image of a confident woman leader in a modern office.",
-      "imageUrl": "https://picsum.photos/seed/1/1200/800",
+      "imageUrl": "https://picsum.photos/seed/1/1800/1200",
       "imageHint": "woman leader"
     },
     {
       "id": "about-ruby",
       "description": "Professional and warm portrait of Ruby Villarroel.",
-      "imageUrl": "https://picsum.photos/seed/2/600/800",
+      "imageUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjB3b21hbnxlbnwwfHx8fDE3NTg3OTE1MzR8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional woman"
     },
     {
       "id": "program-individual",
       "description": "Image representing a 1-on-1 coaching session.",
-      "imageUrl": "https://picsum.photos/seed/3/600/400",
+      "imageUrl": "https://images.unsplash.com/photo-1623932078836-5784c12e5250?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjb2FjaGluZyUyMHNlc3Npb258ZW58MHx8fHwxNzU4ODA2NDIwfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "coaching session"
     },
     {
       "id": "program-group",
       "description": "Image representing a group workshop or intensive program.",
-      "imageUrl": "https://picsum.photos/seed/4/600/400",
+      "imageUrl": "https://images.unsplash.com/photo-1685609235425-6f78df6e1f6e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxncm91cCUyMHdvcmtzaG9wfGVufDB8fHx8MTc1ODgwNjQyMnww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "group workshop"
     },
     {
       "id": "program-subscription",
       "description": "Abstract image representing continuous growth or subscription.",
-      "imageUrl": "https://picsum.photos/seed/5/600/400",
+      "imageUrl": "https://images.unsplash.com/photo-1738736322315-dff5e0051529?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxncm93dGglMjBhYnN0cmFjdHxlbnwwfHx8fDE3NTg4MDY0MjB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "growth abstract"
     },
     {
-      "id": "corporate-service",
-      "description": "Image of a corporate team in a meeting, showing collaboration.",
+      "id": "corporate-safe-workplace",
+      "description": "Image of a safe and collaborative corporate environment.",
       "imageUrl": "https://picsum.photos/seed/6/800/600",
-      "imageHint": "team meeting"
+      "imageHint": "safe workplace"
     },
     {
       "id": "testimonial-1",
       "description": "Portrait of a female professional.",
-      "imageUrl": "https://picsum.photos/seed/11/150/150",
+      "imageUrl": "https://images.unsplash.com/photo-1557053908-4793c484d06f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc1ODc1MTMyM3ww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "woman portrait"
     },
     {
       "id": "testimonial-2",
       "description": "Portrait of a female professional.",
-      "imageUrl": "https://picsum.photos/seed/12/150/150",
+      "imageUrl": "https://images.unsplash.com/photo-1544168190-79c17527004f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cHJvZmVzc2lvbmFsJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzU4Nzk4ODkyfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "testimonial-3",
       "description": "Portrait of a female professional.",
-      "imageUrl": "https://picsum.photos/seed/13/150/150",
+      "imageUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8d29tYW4lMjBmYWNlfGVufDB8fHx8MTc1ODc3MTc4Mnww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "woman face"
+    },
+    {
+      "id": "testimonial-4",
+      "description": "Portrait of a female professional for testimonials.",
+      "imageUrl": "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc1ODc1MTMyM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "woman portrait"
     },
     {
       "id": "tool-client-profile",
       "description": "Image for the Ideal Client Profile tool.",
-      "imageUrl": "https://picsum.photos/seed/101/600/400",
+      "imageUrl": "https://images.unsplash.com/photo-1557844681-b0da6a516dc9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxwcm9maWxlJTIwYW5hbHlzaXN8ZW58MHx8fHwxNzU4ODA2NDIwfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "profile analysis"
     },
     {
       "id": "tool-social-post",
       "description": "Image for the Social Post Generator tool.",
-      "imageUrl": "https://picsum.photos/seed/102/600/400",
+      "imageUrl": "https://images.unsplash.com/photo-1535303311164-664fc9ec6532?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzb2NpYWwlMjBtZWRpYXxlbnwwfHx8fDE3NTg3MzQyNTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "social media"
     },
     {
       "id": "tool-ask-ruby",
       "description": "Image for the Ask Ruby AI persona tool.",
-      "imageUrl": "https://picsum.photos/seed/103/600/400",
+      "imageUrl": "https://images.unsplash.com/photo-1604881991108-a3a35673b7c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxjb252ZXJzYXRpb24lMjBjaGF0fGVufDB8fHx8MTc1ODgwNjQyMnww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "conversation chat"
     }
   ]

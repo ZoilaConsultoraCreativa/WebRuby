@@ -4,9 +4,11 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { CheckCircle } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { getPlaceholderImage } from "@/lib/placeholder-images";
 
-const programs = [
+const programsData = [
     {
+        id: "individual",
         value: "item-1",
         title: "Programa 1:1 - 12 Semanas",
         subtitle: "Acompañamiento Estratégico y Personalizado",
@@ -18,10 +20,10 @@ const programs = [
             "Toolkits 'torpedo' para aplicación inmediata.",
         ],
         ideal_for: "Líderes que buscan un acompañamiento profundo, confidencial y con resultados medibles para navegar una transición de rol, potenciar su influencia o resolver desafíos complejos de comunicación.",
-        image: "https://picsum.photos/seed/3/600/400",
-        imageHint: "coaching session",
+        imageId: "program-individual",
     },
     {
+        id: "group",
         value: "item-2",
         title: "Programa Grupal Intensivo - 4 Semanas",
         subtitle: "Inmersión y Crecimiento en Comunidad",
@@ -33,10 +35,10 @@ const programs = [
             "Contenido enfocado en quick-wins visibles.",
         ],
         ideal_for: "Mujeres líderes que quieren obtener herramientas concretas rápidamente, aprender de las experiencias de otras y construir una red de apoyo profesional sólida en un entorno de confianza.",
-        image: "https://picsum.photos/seed/4/600/400",
-        imageHint: "group workshop",
+        imageId: "program-group",
     },
     {
+        id: "subscription",
         value: "item-3",
         title: "Suscripción 'Líder con Voz'",
         subtitle: "Crecimiento Continuo y Sostenible",
@@ -48,10 +50,14 @@ const programs = [
             "Descuentos en otros programas y workshops.",
         ],
         ideal_for: "Líderes que ya han completado un proceso de coaching y buscan un acompañamiento continuo, o para aquellas que desean empezar a integrar nuevas herramientas de forma gradual y sostenida.",
-        image: "https://picsum.photos/seed/5/600/400",
-        imageHint: "growth abstract",
+        imageId: "program-subscription",
     },
 ]
+
+const programs = programsData.map(p => ({
+    ...p,
+    image: getPlaceholderImage(p.imageId)
+}))
 
 export default function ProgramsPage() {
   return (
@@ -73,11 +79,11 @@ export default function ProgramsPage() {
                 <div className="grid md:grid-cols-5">
                   <div className="md:col-span-2 relative h-60 md:h-full w-full">
                     <Image
-                      src={program.image}
-                      alt={program.title}
+                      src={program.image.imageUrl}
+                      alt={program.image.description}
                       fill
                       className="object-cover"
-                      data-ai-hint={program.imageHint}
+                      data-ai-hint={program.image.imageHint}
                     />
                   </div>
                   <div className="md:col-span-3">

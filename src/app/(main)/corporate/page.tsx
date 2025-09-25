@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Building, Lightbulb, Users, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { getPlaceholderImage } from "@/lib/placeholder-images";
 
 const services = [
     {
@@ -38,6 +39,7 @@ const logos = [
   { name: "Nexus", id: 27 },
 ];
 
+const safeWorkplaceImage = getPlaceholderImage('corporate-safe-workplace');
 
 export default function CorporatePage() {
   return (
@@ -93,7 +95,7 @@ export default function CorporatePage() {
               </Button>
             </div>
             <div className="relative w-full h-80 rounded-lg shadow-xl">
-               <Image src="https://picsum.photos/seed/6/800/600" alt="Entorno laboral seguro" fill className="object-cover rounded-lg" data-ai-hint="safe workplace" />
+               <Image src={safeWorkplaceImage.imageUrl} alt={safeWorkplaceImage.description} fill className="object-cover rounded-lg" data-ai-hint={safeWorkplaceImage.imageHint} />
             </div>
           </div>
         </div>

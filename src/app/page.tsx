@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import { getPlaceholderImage } from '@/lib/placeholder-images';
 
 const programs = [
   {
@@ -29,28 +30,30 @@ const testimonials = [
   {
     name: 'Gerenta de Área',
     quote: 'Ruby me ayudó a encontrar mi voz y a comunicar con una confianza que no sabía que tenía. El cambio fue notorio no solo para mí, sino para todo mi equipo.',
-    image: 'https://picsum.photos/seed/11/150/150',
+    image: getPlaceholderImage('testimonial-1'),
     initials: 'GA',
   },
   {
     name: 'Senior Manager',
     quote: 'El proceso fue transformador. Pasé de sentirme invisible en reuniones clave a liderar las conversaciones más importantes de mi área.',
-    image: 'https://picsum.photos/seed/12/150/150',
+    image: getPlaceholderImage('testimonial-2'),
     initials: 'SM',
   },
   {
     name: 'Superintendente',
     quote: 'Aprendí herramientas prácticas que apliqué desde el primer día. El acompañamiento de Ruby es estratégico, humano y, sobre todo, efectivo.',
-    image: 'https://picsum.photos/seed/13/150/150',
+    image: getPlaceholderImage('testimonial-3'),
     initials: 'S',
   },
   {
     name: 'Directora de Proyectos',
     quote: 'Las sesiones con Ruby fueron un antes y un después. No solo mejoré mi comunicación, sino que también aprendí a liderar con más empatía y visión estratégica.',
-    image: 'https://picsum.photos/seed/14/150/150',
+    image: getPlaceholderImage('testimonial-4'),
     initials: 'DP',
   }
 ];
+
+const heroImage = getPlaceholderImage('hero-woman-leader');
 
 export default function Home() {
   return (
@@ -58,11 +61,11 @@ export default function Home() {
       <section className="relative h-screen flex items-center justify-center text-white">
         <div className="absolute inset-0 bg-black/50 z-10" />
         <Image
-          src="https://picsum.photos/seed/1/1800/1200"
-          alt="Woman Leader"
+          src={heroImage.imageUrl}
+          alt={heroImage.description}
           fill
           className="object-cover"
-          data-ai-hint="woman leader"
+          data-ai-hint={heroImage.imageHint}
           priority
         />
         <div className="relative z-20 container text-center space-y-6">
@@ -175,7 +178,7 @@ export default function Home() {
                       </CardContent>
                       <CardHeader className="flex-row items-center gap-4 border-t pt-6 mt-auto">
                          <Avatar className="h-12 w-12">
-                            <AvatarImage src={testimonial.image} alt={testimonial.name} data-ai-hint="woman portrait" />
+                            <AvatarImage src={testimonial.image.imageUrl} alt={testimonial.name} data-ai-hint={testimonial.image.imageHint} />
                             <AvatarFallback>{testimonial.initials}</AvatarFallback>
                           </Avatar>
                           <div>
