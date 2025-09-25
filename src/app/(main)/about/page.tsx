@@ -67,6 +67,7 @@ export default function AboutPage() {
               src={aboutRubyImage.imageUrl}
               alt={aboutRubyImage.description}
               fill
+              quality={100}
               className="object-cover rounded-lg"
               data-ai-hint={aboutRubyImage.imageHint}
             />
