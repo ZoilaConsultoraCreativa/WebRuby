@@ -23,16 +23,27 @@ const credentials = [
     { title: "Columnista Invitada", description: "Revista 'Líderes Hoy'" },
 ];
 
-const aboutImage = getPlaceholderImage('about-ruby');
+const aboutHeroImage = getPlaceholderImage('about-hero');
+const aboutRubyImage = getPlaceholderImage('about-ruby');
 
 
 export default function AboutPage() {
   return (
     <>
-      <section className="py-20 md:py-28 bg-secondary">
-        <div className="container text-center">
+      <section className="relative py-28 md:py-40 text-center text-white">
+        <div className="absolute inset-0 bg-black/50 z-10" />
+        <Image
+          src={aboutHeroImage.imageUrl}
+          alt={aboutHeroImage.description}
+          fill
+          className="object-cover"
+          priority
+          data-ai-hint={aboutHeroImage.imageHint}
+        />
+        <ImageDimensions image={aboutHeroImage} />
+        <div className="container relative z-20">
           <h1 className="text-4xl md:text-5xl font-bold tracking-tighter">Sobre Mí</h1>
-          <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">
+          <p className="mt-4 max-w-3xl mx-auto text-lg text-white/90">
             Mi marca no solo se recuerda: se siente.
           </p>
         </div>
@@ -53,13 +64,13 @@ export default function AboutPage() {
           </div>
           <div className="md:col-span-2 relative w-full h-96 md:h-[500px] rounded-lg shadow-xl">
             <Image
-              src={aboutImage.imageUrl}
-              alt={aboutImage.description}
+              src={aboutRubyImage.imageUrl}
+              alt={aboutRubyImage.description}
               fill
               className="object-cover rounded-lg"
-              data-ai-hint={aboutImage.imageHint}
+              data-ai-hint={aboutRubyImage.imageHint}
             />
-            <ImageDimensions image={aboutImage} />
+            <ImageDimensions image={aboutRubyImage} />
           </div>
         </div>
       </section>
