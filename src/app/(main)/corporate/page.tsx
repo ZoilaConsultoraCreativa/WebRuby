@@ -22,20 +22,20 @@ const services = [
     }
 ]
 
-const CompanyLogo = ({ name }: { name: string }) => (
+const CompanyLogo = ({ name, id }: { name: string, id: number }) => (
     <div className="flex items-center justify-center h-16 text-muted-foreground font-semibold text-lg">
-        {name}
+        <Image src={`https://picsum.photos/seed/${id}/144/64`} alt={name} width={144} height={64} className="object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300" data-ai-hint="company logo"/>
     </div>
 );
 
 const logos = [
-  { name: "TechCorp" },
-  { name: "Innovate Inc." },
-  { name: "QuantumLeap" },
-  { name: "Strive" },
-  { name: "Apex Global" },
-  { name: "Momentum" },
-  { name: "Nexus" },
+  { name: "TechCorp", id: 21 },
+  { name: "Innovate Inc.", id: 22 },
+  { name: "QuantumLeap", id: 23 },
+  { name: "Strive", id: 24 },
+  { name: "Apex Global", id: 25 },
+  { name: "Momentum", id: 26 },
+  { name: "Nexus", id: 27 },
 ];
 
 
@@ -110,8 +110,8 @@ export default function CorporatePage() {
               <div className="relative w-full overflow-hidden">
                 <div className="flex animate-scroll-x group">
                     {[...logos, ...logos].map((logo, index) => (
-                        <div key={index} className="flex-shrink-0 w-48 mx-4 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-                           <CompanyLogo name={logo.name} />
+                        <div key={index} className="flex-shrink-0 w-48 mx-4 group">
+                           <CompanyLogo name={logo.name} id={logo.id} />
                         </div>
                     ))}
                 </div>
