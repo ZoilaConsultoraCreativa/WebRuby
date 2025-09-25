@@ -118,7 +118,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 md:py-28 bg-mission text-primary-foreground fade-in-up">
+      <section className="py-20 md:py-28 bg-mission text-primary-foreground">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold">Formando Líderes con Voz Propia</h2>
@@ -129,7 +129,7 @@ export default function Home() {
         </div>
       </section>
       
-      <section className="py-20 md:py-28 bg-background fade-in-up">
+      <section className="py-20 md:py-28 bg-background">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold">Formas en que podemos trabajar juntas</h2>
@@ -190,7 +190,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-secondary py-20 md:py-28 fade-in-up">
+      <section className="bg-secondary py-20 md:py-28">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold">Lo que mis clientas dicen</h2>
@@ -234,7 +234,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-background py-20 md:py-28 fade-in-up">
+      <section className="bg-background py-20 md:py-28">
           <div className="container">
               <div className="text-center mb-16">
                   <h2 className="text-3xl md:text-4xl font-bold">Han confiado en nosotros</h2>
