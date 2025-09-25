@@ -55,7 +55,7 @@ const testimonials = [
 ];
 
 const heroImage = getPlaceholderImage('hero-woman-leader');
-const forPeopleImage = getPlaceholderImage('program-individual');
+const forYouImage = getPlaceholderImage('program-individual');
 const forCompaniesImage = getPlaceholderImage('corporate-safe-workplace');
 
 export default function Home() {
@@ -94,7 +94,7 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" asChild>
+            <Button size="lg" variant="secondary" className="hover:bg-primary hover:text-primary-foreground" asChild>
               <Link href="/contact">Agenda una Sesión</Link>
             </Button>
           </div>
@@ -114,13 +114,13 @@ export default function Home() {
             <Card className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <div className="relative w-full h-64 overflow-hidden group">
                      <Image
-                        src={forPeopleImage.imageUrl}
-                        alt={forPeopleImage.description}
+                        src={forYouImage.imageUrl}
+                        alt={forYouImage.description}
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-300"
-                        data-ai-hint={forPeopleImage.imageHint}
+                        data-ai-hint={forYouImage.imageHint}
                     />
-                    <ImageDimensions image={forPeopleImage} />
+                    <ImageDimensions image={forYouImage} />
                 </div>
                 <CardHeader>
                     <CardTitle className="text-2xl text-primary">Para Ti</CardTitle>
