@@ -55,6 +55,22 @@ const testimonials = [
   }
 ];
 
+const CompanyLogo = ({ name, id }: { name: string, id: number }) => (
+    <div className="flex items-center justify-center h-16 text-muted-foreground font-semibold text-lg">
+        <Image src={`https://picsum.photos/seed/${id}/144/64`} alt={name} width={144} height={64} className="object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300" data-ai-hint="company logo"/>
+    </div>
+);
+
+const logos = [
+  { name: "TechCorp", id: 21 },
+  { name: "Innovate Inc.", id: 22 },
+  { name: "QuantumLeap", id: 23 },
+  { name: "Strive", id: 24 },
+  { name: "Apex Global", id: 25 },
+  { name: "Momentum", id: 26 },
+  { name: "Nexus", id: 27 },
+];
+
 const heroImage = getPlaceholderImage('hero-woman-leader');
 const forYouImage = getPlaceholderImage('program-individual');
 const forCompaniesImage = getPlaceholderImage('corporate-safe-workplace');
@@ -166,33 +182,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
-      <section className="bg-secondary py-20 md:py-28">
-        <div className="container">
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold">Programas de Transformación</h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              Procesos que combinan estrategia, emocionalidad aplicada y herramientas conversacionales para escenarios reales.
-            </p>
-          </div>
-          <div className="mt-16 grid gap-8 md:grid-cols-3 max-w-5xl mx-auto">
-            {programs.map((program) => (
-              <div key={program.title} className="flex flex-col items-center text-center p-6 rounded-lg transition-all hover:bg-card/50 hover:-translate-y-2">
-                  <div className="mx-auto bg-primary/10 rounded-full h-16 w-16 flex items-center justify-center">
-                    {program.icon}
-                  </div>
-                  <h3 className="mt-6 text-xl font-bold">{program.title}</h3>
-                  <p className="mt-2 text-muted-foreground">{program.description}</p>
-              </div>
-            ))}
-          </div>
-           <div className="text-center mt-12">
-            <Button asChild size="lg">
-              <Link href="/programs">Ver todos los programas</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
 
       <section className="py-20 md:py-28">
         <div className="container">
@@ -236,6 +225,26 @@ export default function Home() {
             <CarouselNext className="right-[-50px]"/>
           </Carousel>
         </div>
+      </section>
+
+      <section className="bg-secondary py-20 md:py-28">
+          <div className="container">
+              <div className="text-center mb-16">
+                  <h2 className="text-3xl md:text-4xl font-bold">Han confiado en nosotros</h2>
+                  <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">
+                      Empresas que ya están transformando su comunicación y liderazgo.
+                  </p>
+              </div>
+              <div className="relative w-full overflow-hidden">
+                <div className="flex animate-scroll-x group">
+                    {[...logos, ...logos].map((logo, index) => (
+                        <div key={index} className="flex-shrink-0 w-48 mx-4 group">
+                           <CompanyLogo name={logo.name} id={logo.id} />
+                        </div>
+                    ))}
+                </div>
+              </div>
+          </div>
       </section>
 
       <section className="bg-primary text-primary-foreground py-20">
