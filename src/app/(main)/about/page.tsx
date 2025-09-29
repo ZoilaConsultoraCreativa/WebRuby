@@ -89,8 +89,8 @@ export default function AboutPage() {
             {credentials.map((credential, index) => (
               <Card key={index} className="bg-card shadow-lg hover:shadow-xl transition-shadow" style={{backgroundColor: '#b5c5a0'}}>
                 <CardHeader className="flex flex-row items-center gap-4">
-                  <div className="p-3 bg-primary/10 rounded-full">
-                    <Award className="h-6 w-6 text-primary" />
+                  <div className="p-3 rounded-full" style={{backgroundColor: '#475f4d'}}>
+                    <Award className="h-6 w-6 text-white" />
                   </div>
                   <div>
                     <CardTitle className="text-base">{credential.title}</CardTitle>
