@@ -66,10 +66,10 @@ export default function AboutPage() {
             <h2 className="text-3xl font-bold text-[#475f4d]">Coach Organizacional,  de Equipos y Ontológica</h2>
             <p className="text-xl text-muted-foreground -mt-4">especializada en Comunicación Estratégica y Liderazgo Gerencial.</p>
             <p className="text-lg text-foreground leading-relaxed text-justify">
-              Represento <strong>comunicación estratégica</strong>, <strong>liderazgo emocional</strong> y <strong>acompañamiento transformacional</strong>. No enseño desde la teoría, sino desde la <strong>experiencia vivida</strong> como mujer en entornos corporativos masculinizados.
+              Coach Organizacional Profesional con más de 8.000 horas en procesos de coaching ejecutivo, liderazgo estratégico, formación de equipos de alto desempeño y facilitación de talleres y charlas.
             </p>
             <p className="text-foreground leading-relaxed text-justify">
-             No formo oradoras. Formo <strong>líderes con voz propia</strong>, capaces de <strong>sostener sus ideas</strong>, <strong>generar impacto</strong> y ser recordadas por su forma de <strong>decir lo que importa</strong>. <strong>Transformo conversaciones en relaciones que perduran</strong>. <strong>Mi escucha genera vínculos</strong>, mi presencia hace sentir a las personas <strong>importantes, vistas y valoradas</strong>.
+              He trabajado con líderes de primer nivel en LATAM, impulsando transformación cultural, comunicación efectiva y gestión emocional en contextos corporativos complejos.
             </p>
           </div>
           <div className="md:col-span-2 relative group w-full h-[550px] rounded-3xl shadow-xl hover:shadow-2xl transition-shadow duration-300">
