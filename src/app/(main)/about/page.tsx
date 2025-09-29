@@ -116,30 +116,29 @@ Cuento con más de <strong>8.000 horas</strong> en procesos de <strong>coaching 
                 </ul>
               </CardContent>
             </Card>
-          </div>
-        </div>
-      </section>
 
-      <section className="py-20 md:py-28 bg-[#475f4d]">
-        <div className="container">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white">Mis Credenciales</h2>
-            <p className="mt-4 max-w-2xl mx-auto text-lg text-white/90">
-              Mi formación y experiencia para acompañarte en tu transformación.
-            </p>
-          </div>
-          <div className="max-w-3xl mx-auto border border-white/20 rounded-xl">
-            {credentials.map((credential, index) => (
-              <div key={index} className="flex items-center gap-6 p-6 transition-colors duration-300 hover:bg-white/10 group not-last:border-b not-last:border-white/20">
-                <div className="p-3 rounded-full bg-white/20 group-hover:bg-white/30 transition-colors">
-                  <Award className="h-6 w-6 text-white" />
+            <Card className="p-6 rounded-2xl shadow-lg h-full">
+              <CardHeader>
+                <CardTitle className="text-primary">Mis Credenciales</CardTitle>
+                <p className="text-muted-foreground">Formación y experiencia para acompañarte.</p>
+              </CardHeader>
+              <CardContent>
+                <div className="border border-border rounded-xl">
+                  {credentials.map((credential, index) => (
+                    <div key={index} className="flex items-center gap-6 p-6 transition-colors duration-300 hover:bg-secondary/50 group not-last:border-b not-last:border-border">
+                      <div className="p-3 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                        <Award className="h-6 w-6 text-primary" />
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-foreground text-lg">{credential.title}</h3>
+                        <p className="text-muted-foreground">{credential.description}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-                <div>
-                  <h3 className="font-bold text-white text-lg">{credential.title}</h3>
-                  <p className="text-white/80">{credential.description}</p>
-                </div>
-              </div>
-            ))}
+              </CardContent>
+            </Card>
+
           </div>
         </div>
       </section>
