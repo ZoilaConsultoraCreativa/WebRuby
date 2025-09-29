@@ -55,11 +55,11 @@ export default function AboutPage() {
         <div className="container grid md:grid-cols-5 gap-12 items-center relative z-10">
           <div className="md:col-span-3 space-y-6">
             <h2 className="text-3xl font-bold text-[#475f4d]">Mi Identidad de Marca</h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Represento comunicación estratégica, liderazgo emocional y acompañamiento transformacional. No enseño desde la teoría, sino desde la experiencia vivida como mujer en entornos corporativos masculinizados.
+            <p className="text-lg text-muted-foreground leading-relaxed text-justify">
+              Represento <strong>comunicación estratégica</strong>, <strong>liderazgo emocional</strong> y <strong>acompañamiento transformacional</strong>. No enseño desde la teoría, sino desde la <strong>experiencia vivida</strong> como mujer en entornos corporativos masculinizados.
             </p>
-            <p className="text-muted-foreground leading-relaxed">
-             No formo oradoras. Formo líderes con voz propia, capaces de sostener sus ideas, generar impacto y ser recordadas por su forma de decir lo que importa. Transformo conversaciones en relaciones que perduran. Mi escucha genera vínculos, mi presencia hace sentir a las personas importantes, vistas y valoradas.
+            <p className="text-muted-foreground leading-relaxed text-justify">
+             No formo oradoras. Formo <strong>líderes con voz propia</strong>, capaces de <strong>sostener sus ideas</strong>, <strong>generar impacto</strong> y ser recordadas por su forma de <strong>decir lo que importa</strong>. <strong>Transformo conversaciones en relaciones que perduran</strong>. <strong>Mi escucha genera vínculos</strong>, mi presencia hace sentir a las personas <strong>importantes, vistas y valoradas</strong>.
             </p>
           </div>
           <div className="md:col-span-2 relative group w-full h-[550px] rounded-3xl shadow-xl hover:shadow-2xl transition-shadow duration-300">
