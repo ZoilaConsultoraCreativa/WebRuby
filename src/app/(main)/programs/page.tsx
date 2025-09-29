@@ -63,10 +63,19 @@ const programs = programsData.map(p => ({
 export default function ProgramsPage() {
   return (
     <>
-      <section className="py-20 md:py-28 bg-secondary">
-        <div className="container text-center">
+      <section className="relative py-28 md:py-40 text-center text-white">
+        <div className="absolute inset-0 bg-black/50 z-10" />
+        <Image
+          src="https://firebasestorage.googleapis.com/v0/b/webruby-d89a9.firebasestorage.app/o/Sitio%20RubyVillarroel.cl%2FBanner%20Sobre%20mi%20(4).png?alt=media&token=4d767079-3fa1-4778-afed-4993c5dfd0d1"
+          alt="Banner de programas"
+          fill
+          className="object-cover"
+          priority
+          data-ai-hint="people working"
+        />
+        <div className="container relative z-20">
           <h1 className="text-4xl md:text-5xl font-bold tracking-tighter">Programas para Personas</h1>
-          <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">
+          <p className="mt-4 max-w-3xl mx-auto text-lg text-white/90">
             Procesos que combinan lo estratégico y lo humano sin perder rigurosidad, para mujeres líderes listas para transformar su impacto.
           </p>
         </div>
