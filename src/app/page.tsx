@@ -83,7 +83,7 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       <section className="relative h-screen flex items-center justify-center text-white overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent z-10" />
+        <div className="absolute inset-0 bg-black/50 z-10" />
         <Image
           src={heroImage.imageUrl}
           alt={heroImage.description}
@@ -94,21 +94,21 @@ export default function Home() {
         />
         <ImageDimensions image={heroImage} />
         <div className="relative z-20 container text-center space-y-6">
-          <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tighter !leading-tight animate-fade-in-up" style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.5)' }}>
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tighter !leading-tight animate-fade-in-up" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.7)' }}>
             Tu Liderazgo es Real.
             <br />
             <span className="text-primary-foreground">Comunica con Confianza.</span>
           </h1>
-          <p className="max-w-2xl mx-auto text-lg text-white/90 animate-fade-in-up [animation-delay:200ms]" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.4)' }}>
+          <p className="max-w-2xl mx-auto text-lg text-white/90 animate-fade-in-up [animation-delay:200ms]" style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.5)' }}>
             Ayudo a mujeres y equipos a comunicarse de forma estratégica y con claridad, formando líderes con voz propia.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4 animate-fade-in-up [animation-delay:400ms]">
-            <div className="flex items-center justify-center gap-2 rounded-full bg-black/20 px-4 py-2 backdrop-blur-sm">
+            <div className="flex items-center justify-center gap-2 rounded-full bg-black/20 px-4 py-2">
                 <Award className="h-5 w-5 text-white/90" />
                 <span className="text-sm font-medium text-white">Coach Ejecutiva</span>
             </div>
-             <div className="flex items-center justify-center gap-2 rounded-full bg-black/20 px-4 py-2 backdrop-blur-sm">
+             <div className="flex items-center justify-center gap-2 rounded-full bg-black/20 px-4 py-2">
                 <ShieldCheck className="h-5 w-5 text-white/90" />
                 <span className="text-sm font-medium text-white">Certificada en Ley Karin</span>
             </div>
