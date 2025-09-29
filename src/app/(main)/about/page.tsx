@@ -111,7 +111,7 @@ export default function AboutPage() {
             <h2 className="text-3xl md:text-4xl font-bold">Mi Filosofía</h2>
           </div>
           <Tabs defaultValue="mission" className="max-w-4xl mx-auto">
-            <TabsList className="grid w-full grid-cols-3">
+            <TabsList className="grid w-full grid-cols-3 bg-secondary/80">
               <TabsTrigger value="mission">Misión</TabsTrigger>
               <TabsTrigger value="vision">Visión</TabsTrigger>
               <TabsTrigger value="values">Valores</TabsTrigger>
@@ -119,8 +119,8 @@ export default function AboutPage() {
             <TabsContent value="mission">
               <Card className="shadow-lg">
                 <CardHeader className="flex flex-row items-center gap-4">
-                  <div className="p-3 bg-primary/10 rounded-full">
-                    <Goal className="h-8 w-8 text-primary" />
+                  <div className="p-3 bg-secondary rounded-full">
+                    <Goal className="h-8 w-8 text-[#475f4d]" />
                   </div>
                   <CardTitle className="text-2xl">Misión</CardTitle>
                 </CardHeader>
@@ -134,8 +134,8 @@ export default function AboutPage() {
             <TabsContent value="vision">
               <Card className="shadow-lg">
                 <CardHeader className="flex flex-row items-center gap-4">
-                  <div className="p-3 bg-primary/10 rounded-full">
-                    <Eye className="h-8 w-8 text-primary" />
+                  <div className="p-3 bg-secondary rounded-full">
+                    <Eye className="h-8 w-8 text-[#475f4d]" />
                   </div>
                   <CardTitle className="text-2xl">Visión</CardTitle>
                 </CardHeader>
@@ -149,8 +149,8 @@ export default function AboutPage() {
             <TabsContent value="values">
               <Card className="shadow-lg">
                  <CardHeader className="flex flex-row items-center gap-4">
-                  <div className="p-3 bg-primary/10 rounded-full">
-                    <Gem className="h-8 w-8 text-primary" />
+                  <div className="p-3 bg-secondary rounded-full">
+                    <Gem className="h-8 w-8 text-[#475f4d]" />
                   </div>
                   <CardTitle className="text-2xl">Valores</CardTitle>
                 </CardHeader>
