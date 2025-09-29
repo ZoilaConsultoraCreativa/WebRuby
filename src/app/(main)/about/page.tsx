@@ -15,11 +15,11 @@ const values = [
 ];
 
 const credentials = [
-    { title: "Certificación en Diseño Instruccional", description: "Pontificia Universidad Católica de Chile (2024)" },
+    { title: "Certificación Internacional en Cultura Organizacional", description: "Executing Growth, EE.UU. (2024)" },
+    { title: "Certificación en Liderazgo y Equipos", description: "Executing Growth, EE.UU. (2024)" },
     { title: "Certificación en Storytelling", description: "Pontificia Universidad Católica de Chile (2024)" },
     { title: "Certificación en Negociación", description: "Pontificia Universidad Católica de Chile (2023)" },
     { title: "Coach Profesional PCC", description: "International Coaching Federation - ICF (2020)" },
-    { title: "Coach Organizacional de Equipos", description: "Universidad Adolfo Ibáñez, Chile (2019)" },
     { title: "+15 años de experiencia corporativa", description: "Roles gerenciales en industrias técnicas" },
 ];
 
@@ -76,11 +76,11 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-20 md:py-28">
+      <section className="py-20 md:py-28 bg-[#475f4d]">
         <div className="container">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold">Mis Credenciales</h2>
-            <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
+            <h2 className="text-3xl md:text-4xl font-bold text-white">Mis Credenciales</h2>
+            <p className="mt-4 max-w-2xl mx-auto text-lg text-white/90">
               Mi formación y experiencia para acompañarte en tu transformación.
             </p>
           </div>
