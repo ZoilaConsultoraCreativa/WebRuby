@@ -15,6 +15,7 @@ const values = [
 ];
 
 const credentials = [
+    { title: "Magíster en Comunicación Estratégica y Sostenibilidad", description: "Universidad Adolfo Ibáñez (2025)" },
     { title: "Certificación Internacional en Cultura Organizacional", description: "Executing Growth, EE.UU. (2024)" },
     { title: "Certificación en Liderazgo y Equipos", description: "Executing Growth, EE.UU. (2024)" },
     { title: "Certificación en Storytelling", description: "Pontificia Universidad Católica de Chile (2024)" },
@@ -86,7 +87,7 @@ export default function AboutPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {credentials.map((credential, index) => (
-              <Card key={index} className="bg-card shadow-lg hover:shadow-xl transition-shadow">
+              <Card key={index} className="bg-card shadow-lg hover:shadow-xl transition-shadow" style={{backgroundColor: '#b5c5a0'}}>
                 <CardHeader className="flex flex-row items-center gap-4">
                   <div className="p-3 bg-primary/10 rounded-full">
                     <Award className="h-6 w-6 text-primary" />
