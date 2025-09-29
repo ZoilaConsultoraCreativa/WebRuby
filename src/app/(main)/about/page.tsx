@@ -15,11 +15,11 @@ const values = [
 ];
 
 const credentials = [
-    { title: "Certificación Actualización Ley Karin N° 21.643", description: "Pontificia Universidad Católica de Valparaíso (2024)" },
-    { title: "Coach en Negocios Femeninos", description: "Fundadoras (2022)" },
+    { title: "Certificación en Diseño Instruccional", description: "Pontificia Universidad Católica de Chile (2024)" },
+    { title: "Certificación en Storytelling", description: "Pontificia Universidad Católica de Chile (2024)" },
+    { title: "Certificación en Negociación", description: "Pontificia Universidad Católica de Chile (2023)" },
     { title: "Coach Profesional PCC", description: "International Coaching Federation - ICF (2020)" },
     { title: "Coach Organizacional de Equipos", description: "Universidad Adolfo Ibáñez, Chile (2019)" },
-    { title: "Coach Ontológico Organizacional", description: "A&T Coaching Organizacional, Argentina (2013)" },
     { title: "+15 años de experiencia corporativa", description: "Roles gerenciales en industrias técnicas" },
 ];
 
@@ -55,10 +55,10 @@ export default function AboutPage() {
         <div className="container grid md:grid-cols-5 gap-12 items-center relative z-10">
           <div className="md:col-span-3 space-y-6">
             <h2 className="text-3xl font-bold text-[#475f4d]">Mi Identidad de Marca</h2>
-            <p className="text-lg text-muted-foreground leading-relaxed text-justify">
+            <p className="text-lg text-foreground leading-relaxed text-justify">
               Represento <strong>comunicación estratégica</strong>, <strong>liderazgo emocional</strong> y <strong>acompañamiento transformacional</strong>. No enseño desde la teoría, sino desde la <strong>experiencia vivida</strong> como mujer en entornos corporativos masculinizados.
             </p>
-            <p className="text-muted-foreground leading-relaxed text-justify">
+            <p className="text-foreground leading-relaxed text-justify">
              No formo oradoras. Formo <strong>líderes con voz propia</strong>, capaces de <strong>sostener sus ideas</strong>, <strong>generar impacto</strong> y ser recordadas por su forma de <strong>decir lo que importa</strong>. <strong>Transformo conversaciones en relaciones que perduran</strong>. <strong>Mi escucha genera vínculos</strong>, mi presencia hace sentir a las personas <strong>importantes, vistas y valoradas</strong>.
             </p>
           </div>
