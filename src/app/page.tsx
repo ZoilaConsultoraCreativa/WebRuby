@@ -83,7 +83,7 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       <section className="relative h-screen flex items-center justify-center text-white overflow-hidden">
-        <div className="absolute inset-0 bg-black/50 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent z-10" />
         <Image
           src={heroImage.imageUrl}
           alt={heroImage.description}
@@ -125,7 +125,7 @@ export default function Home() {
       <section className="py-20 md:py-28 bg-mission text-primary-foreground">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold">Formando Líderes con Voz Propia</h2>
+            <h2 className="text-3xl md:text-4xl font-bold">Donde la Estrategia se Encuentra con la Humanidad</h2>
             <p className="mt-4 text-lg text-primary-foreground/90">
               Con más de <strong>8.000 horas de experiencia</strong>, mi misión es impulsar una <strong>transformación real y sostenible</strong> en líderes y equipos. Fusiono una <strong>mirada estratégica</strong> con una profunda <strong>sensibilidad humana</strong> para diseñar <strong>conversaciones de alto impacto</strong>, potenciar la <strong>inteligencia relacional</strong> y construir <strong>culturas de confianza</strong> en los entornos más exigentes.
             </p>
