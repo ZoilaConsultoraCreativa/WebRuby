@@ -62,13 +62,13 @@ export default function AboutPage() {
              No formo oradoras. Formo líderes con voz propia, capaces de sostener sus ideas, generar impacto y ser recordadas por su forma de decir lo que importa. Transformo conversaciones en relaciones que perduran. Mi escucha genera vínculos, mi presencia hace sentir a las personas importantes, vistas y valoradas.
             </p>
           </div>
-          <div className="md:col-span-2 relative w-full h-[500px] md:h-[600px] rounded-lg shadow-xl">
+          <div className="md:col-span-2 relative group w-full h-[450px] md:h-[500px] rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300">
             <Image
               src={aboutRubyImage.imageUrl}
               alt={aboutRubyImage.description}
               fill
               quality={100}
-              className="object-cover rounded-lg"
+              className="object-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
               data-ai-hint={aboutRubyImage.imageHint}
             />
             <ImageDimensions image={aboutRubyImage} />
