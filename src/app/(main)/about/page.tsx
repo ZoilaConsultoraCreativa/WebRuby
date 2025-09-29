@@ -66,7 +66,7 @@ export default function AboutPage() {
             <h2 className="text-3xl font-bold text-[#475f4d]">Coach Organizacional,  de Equipos y Ontológica</h2>
             <p className="text-xl text-muted-foreground -mt-4">especializada en Comunicación Estratégica y Liderazgo Gerencial.</p>
             <p className="text-lg text-foreground leading-relaxed text-justify">
-              <strong>Coach Organizacional Profesional</strong> con más de <strong>8.000 horas</strong> en procesos de <strong>coaching ejecutivo, liderazgo estratégico, formación de equipos de alto desempeño</strong> y facilitación de talleres y charlas. He trabajado con <strong>líderes de primer nivel en LATAM</strong>, impulsando <strong>transformación cultural, comunicación efectiva y gestión emocional</strong> en contextos corporativos complejos.
+Cuento con más de 8.000 horas en procesos de coaching ejecutivo, liderazgo estratégico, formación de equipos de alto desempeño y facilitación de talleres y charlas. He trabajado con líderes de primer nivel en LATAM, impulsando transformación cultural, comunicación efectiva y gestión emocional en contextos corporativos complejos.
             </p>
           </div>
           <div className="md:col-span-2 relative group w-full h-[550px] rounded-3xl shadow-xl hover:shadow-2xl transition-shadow duration-300">
