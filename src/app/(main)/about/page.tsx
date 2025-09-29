@@ -91,8 +91,8 @@ Cuento con más de <strong>8.000 horas</strong> en procesos de <strong>coaching 
                 <CardHeader>
                 <CardTitle style={{color: '#475f4d'}}>Especialista</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4 text-secondary-foreground/90">
-                <p>
+              <CardContent className="space-y-4">
+                <p style={{color: '#475f4d'}}>
                   Especialista en <strong>diseñar conversaciones de alto impacto</strong>, potenciar la inteligencia relacional y construir confianza en entornos de alta exigencia.
                 </p>
               </CardContent>
