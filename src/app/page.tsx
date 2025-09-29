@@ -83,7 +83,7 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       <section className="relative h-screen flex items-center justify-center text-white overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/70 to-background/30 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/70 to-black/30 z-10" />
         <Image
           src={heroImage.imageUrl}
           alt={heroImage.description}
