@@ -91,39 +91,36 @@ Cuento con más de <strong>8.000 horas</strong> en procesos de <strong>coaching 
               Coach Organizacional y de Equipos especializada en Comunicación Estratégica y Liderazgo Gerencial.
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <div className="md:col-span-1 space-y-8">
-              <Card className="bg-secondary text-secondary-foreground p-6 rounded-2xl shadow-lg">
-                 <CardHeader>
-                  <CardTitle>Especialista</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4 text-secondary-foreground/90">
-                  <p>
-                    Especialista en <strong>diseñar conversaciones de alto impacto</strong>, potenciar la inteligencia relacional y construir confianza en entornos de alta exigencia.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-            <div className="md:col-span-2">
-              <Card className="p-6 rounded-2xl shadow-lg h-full">
+          <div className="max-w-4xl mx-auto space-y-8">
+            <Card className="bg-secondary text-secondary-foreground p-6 rounded-2xl shadow-lg">
                 <CardHeader>
-                  <CardTitle className="text-primary">Experiencia Destacada</CardTitle>
-                  <p className="text-muted-foreground">Logros y Resultados Concretos</p>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-6">
-                    {experience.map((item, index) => (
-                      <li key={index} className="flex items-start gap-4">
-                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center mt-1">
-                          {item.icon}
-                        </div>
-                        <p className="text-muted-foreground">{item.text}</p>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            </div>
+                <CardTitle>Especialista</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4 text-secondary-foreground/90">
+                <p>
+                  Especialista en <strong>diseñar conversaciones de alto impacto</strong>, potenciar la inteligencia relacional y construir confianza en entornos de alta exigencia.
+                </p>
+              </CardContent>
+            </Card>
+            
+            <Card className="p-6 rounded-2xl shadow-lg h-full">
+              <CardHeader>
+                <CardTitle className="text-primary">Experiencia Destacada</CardTitle>
+                <p className="text-muted-foreground">Logros y Resultados Concretos</p>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-6">
+                  {experience.map((item, index) => (
+                    <li key={index} className="flex items-start gap-4">
+                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center mt-1">
+                        {item.icon}
+                      </div>
+                      <p className="text-muted-foreground">{item.text}</p>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
