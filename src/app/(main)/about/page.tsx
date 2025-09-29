@@ -49,7 +49,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="relative py-20 md:py-28 overflow-hidden bg-secondary">
+      <section className="relative py-20 md:py-28 bg-secondary">
         <div className="absolute top-1/2 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-x-1/2"></div>
         <div className="absolute bottom-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl translate-x-1/2"></div>
         <div className="container grid md:grid-cols-5 gap-12 items-center relative z-10">
@@ -62,7 +62,7 @@ export default function AboutPage() {
              No formo oradoras. Formo líderes con voz propia, capaces de sostener sus ideas, generar impacto y ser recordadas por su forma de decir lo que importa. Transformo conversaciones en relaciones que perduran. Mi escucha genera vínculos, mi presencia hace sentir a las personas importantes, vistas y valoradas.
             </p>
           </div>
-          <div className="md:col-span-2 relative group w-full h-[450px] md:h-[500px] rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300">
+          <div className="md:col-span-2 relative group w-full h-[550px] rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300">
             <Image
               src={aboutRubyImage.imageUrl}
               alt={aboutRubyImage.description}
