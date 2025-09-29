@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Building, Lightbulb, Users, ShieldCheck } from "lucide-react";
@@ -49,10 +50,19 @@ const safeWorkplaceImage = getPlaceholderImage('corporate-safe-workplace');
 export default function CorporatePage() {
   return (
     <>
-      <section className="py-20 md:py-28 bg-secondary">
-        <div className="container text-center">
+      <section className="relative py-28 md:py-40 text-center text-white">
+        <div className="absolute inset-0 bg-black/50 z-10" />
+        <Image
+          src="https://firebasestorage.googleapis.com/v0/b/webruby-d89a9.firebasestorage.app/o/Sitio%20RubyVillarroel.cl%2FBanner%20Sobre%20mi%20(3).png?alt=media&token=4389e43b-62f3-40f3-9504-53761bd24cb9"
+          alt="Corporate solutions background"
+          fill
+          className="object-cover"
+          priority
+          data-ai-hint="corporate meeting"
+        />
+        <div className="container relative z-20">
           <h1 className="text-4xl md:text-5xl font-bold tracking-tighter">Soluciones para Empresas</h1>
-          <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">
+          <p className="mt-4 max-w-3xl mx-auto text-lg text-white/90">
             Transformando la comunicación de tus equipos para construir culturas de alto desempeño, confianza y colaboración.
           </p>
         </div>
