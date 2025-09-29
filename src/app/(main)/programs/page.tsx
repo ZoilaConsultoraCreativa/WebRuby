@@ -130,6 +130,8 @@ export default function ProgramsPage() {
                           <Link href="https://www.mercadopago.cl/subscriptions/checkout?preapproval_plan_id=1f259e3a9a464ad6a0ecec39f3102440" target="_blank" rel="noopener noreferrer">
                             Suscribirme
                           </Link>
+                        ) : program.id === 'individual' ? (
+                            <Link href="/contact">Agendar sesión inicial gratuita</Link>
                         ) : (
                           <Link href="/contact">Quiero más información</Link>
                         )}
