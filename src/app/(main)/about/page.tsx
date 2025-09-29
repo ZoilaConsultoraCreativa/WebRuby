@@ -54,7 +54,7 @@ export default function AboutPage() {
         <div className="container relative z-20">
           <h1 className="text-4xl md:text-5xl font-bold tracking-tighter">Sobre Mí</h1>
           <p className="mt-4 max-w-3xl mx-auto text-lg text-white/90">
-            Mi marca no solo se recuerda: se siente.
+            Transformando la comunicación en tu mayor activo de liderazgo.
           </p>
         </div>
       </section>
