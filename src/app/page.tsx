@@ -83,7 +83,7 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       <section className="relative h-screen flex items-center justify-center text-white overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/70 to-black/30 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent z-10" />
         <Image
           src={heroImage.imageUrl}
           alt={heroImage.description}
@@ -104,11 +104,11 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4 animate-fade-in-up [animation-delay:400ms]">
-            <div className="flex items-center justify-center gap-2 rounded-full bg-black/20 px-4 py-2">
+            <div className="flex items-center justify-center gap-2 rounded-full bg-black/20 px-4 py-2 backdrop-blur-sm">
                 <Award className="h-5 w-5 text-white/90" />
                 <span className="text-sm font-medium text-white">Coach Ejecutiva</span>
             </div>
-             <div className="flex items-center justify-center gap-2 rounded-full bg-black/20 px-4 py-2">
+             <div className="flex items-center justify-center gap-2 rounded-full bg-black/20 px-4 py-2 backdrop-blur-sm">
                 <ShieldCheck className="h-5 w-5 text-white/90" />
                 <span className="text-sm font-medium text-white">Certificada en Ley Karin</span>
             </div>
