@@ -99,11 +99,11 @@ export default function Home() {
             <br />
             <span className="text-primary-foreground">Comunica con Confianza.</span>
           </h1>
-          <p className="max-w-2xl mx-auto text-lg text-white/90 animate-fade-in-up [animation-delay:200ms]" style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.5)' }}>
+          <p className="max-w-2xl mx-auto text-lg text-white/90 animate-fade-in-up [animation-delay:300ms]" style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.5)' }}>
             Ayudo a mujeres y equipos a comunicarse de forma estratégica y con claridad, formando líderes con voz propia.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4 animate-fade-in-up [animation-delay:400ms]">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4 animate-fade-in-up [animation-delay:600ms]">
             <div className="flex items-center justify-center gap-2 rounded-full bg-black/20 px-4 py-2">
                 <Award className="h-5 w-5 text-white/90" />
                 <span className="text-sm font-medium text-white">Coach Ejecutiva</span>
@@ -114,7 +114,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up [animation-delay:600ms]">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up [animation-delay:900ms]">
             <Button size="lg" variant="secondary" className="hover:bg-primary hover:text-primary-foreground" asChild>
               <Link href="/contact">Agenda una Sesión</Link>
             </Button>
