@@ -50,7 +50,7 @@ export default function Footer() {
         </div>
         <div className="mt-8 border-t pt-8 text-center text-sm text-muted-foreground">
           <p>&copy; {new Date().getFullYear()} Ruby Villarroel. Todos los derechos reservados.</p>
-          <p className="mt-2">Sitio creado con ♡ por Zoila Consultora Creativa</p>
+          <p className="mt-2">Sitio creado con ♥ por Zoila Consultora Creativa.</p>
         </div>
       </div>
     </footer>
