@@ -85,21 +85,17 @@ export default function AboutPage() {
               Mi formación y experiencia para acompañarte en tu transformación.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="max-w-3xl mx-auto border border-white/20 rounded-xl">
             {credentials.map((credential, index) => (
-              <Card key={index} className="shadow-lg hover:shadow-xl transition-shadow" style={{backgroundColor: '#d9e2d0'}}>
-                <CardHeader className="flex flex-row items-center gap-4">
-                  <div className="p-3 rounded-full" style={{backgroundColor: '#475f4d'}}>
-                    <Award className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <CardTitle className="text-base">{credential.title}</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground">{credential.description}</p>
-                </CardContent>
-              </Card>
+              <div key={index} className="flex items-center gap-6 p-6 transition-colors duration-300 hover:bg-white/10 group not-last:border-b not-last:border-white/20">
+                <div className="p-3 rounded-full bg-white/20 group-hover:bg-white/30 transition-colors">
+                  <Award className="h-6 w-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-white text-lg">{credential.title}</h3>
+                  <p className="text-white/80">{credential.description}</p>
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -111,7 +107,7 @@ export default function AboutPage() {
             <h2 className="text-3xl md:text-4xl font-bold">Mi Filosofía</h2>
           </div>
           <Tabs defaultValue="mission" className="max-w-4xl mx-auto">
-            <TabsList className="grid w-full grid-cols-3 bg-secondary/80">
+            <TabsList className="grid w-full grid-cols-3 bg-white/60">
               <TabsTrigger value="mission">Misión</TabsTrigger>
               <TabsTrigger value="vision">Visión</TabsTrigger>
               <TabsTrigger value="values">Valores</TabsTrigger>
