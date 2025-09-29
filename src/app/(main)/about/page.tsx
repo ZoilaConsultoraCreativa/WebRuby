@@ -93,19 +93,6 @@ Cuento con más de <strong>8.000 horas</strong> en procesos de <strong>coaching 
           </div>
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <div className="md:col-span-1 space-y-8">
-              <Card className="bg-primary text-primary-foreground p-6 rounded-2xl shadow-lg">
-                <CardHeader>
-                  <CardTitle>Perfil Profesional</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4 text-primary-foreground/90">
-                  <p>
-                    <strong>Coach Organizacional Profesional</strong> con más de <strong>8.000 horas</strong> en procesos de coaching ejecutivo, liderazgo estratégico, formación de equipos de alto desempeño y facilitación de talleres y charlas.
-                  </p>
-                  <p>
-                    He trabajado con líderes de primer nivel en LATAM, impulsando transformación cultural, comunicación efectiva y gestión emocional en contextos corporativos complejos.
-                  </p>
-                </CardContent>
-              </Card>
               <Card className="bg-secondary text-secondary-foreground p-6 rounded-2xl shadow-lg">
                  <CardHeader>
                   <CardTitle>Especialista</CardTitle>
