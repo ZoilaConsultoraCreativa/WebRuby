@@ -104,11 +104,11 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4 animate-fade-in-up [animation-delay:400ms]">
-            <div className="flex items-center justify-center gap-2 rounded-full bg-black/20 px-4 py-2 backdrop-blur-sm">
+            <div className="flex items-center justify-center gap-2 rounded-full bg-black/20 px-4 py-2">
                 <Award className="h-5 w-5 text-white/90" />
                 <span className="text-sm font-medium text-white">Coach Ejecutiva</span>
             </div>
-             <div className="flex items-center justify-center gap-2 rounded-full bg-black/20 px-4 py-2 backdrop-blur-sm">
+             <div className="flex items-center justify-center gap-2 rounded-full bg-black/20 px-4 py-2">
                 <ShieldCheck className="h-5 w-5 text-white/90" />
                 <span className="text-sm font-medium text-white">Certificada en Ley Karin</span>
             </div>
