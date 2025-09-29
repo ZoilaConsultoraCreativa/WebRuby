@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Eye, Gem, Goal, CheckCircle, Award } from 'lucide-react';
+import { Eye, Gem, Goal, CheckCircle, Award, Target, Users, Handshake, School, MessageCircle } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { getPlaceholderImage } from '@/lib/placeholder-images';
@@ -26,6 +26,14 @@ const credentials = [
 
 const aboutHeroImage = getPlaceholderImage('about-hero');
 const aboutRubyImage = getPlaceholderImage('about-ruby');
+
+const experience = [
+    { text: "Coaching en Liderazgo Gerencial para más de 200 líderes en LATAM.", icon: <Target /> },
+    { text: "Formación de equipos de Alto Desempeño para más de 100 empresas en LATAM.", icon: <Users /> },
+    { text: "Experiencia cliente y habilidades comerciales para más de 50 empresas en LATAM.", icon: <Handshake /> },
+    { text: "Academias de liderazgo y Programas de Diplomado Empresarial en Industrias de Servicios Financieros y Minería.", icon: <School /> },
+    { text: "Estrategias de storytelling y desarrollo de habilidades comunicacionales para mujeres influyentes y líderes de opinión LATAM.", icon: <MessageCircle /> }
+];
 
 
 export default function AboutPage() {
@@ -73,6 +81,64 @@ export default function AboutPage() {
               data-ai-hint={aboutRubyImage.imageHint}
             />
             <ImageDimensions image={aboutRubyImage} />
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 md:py-28">
+        <div className="container">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold">Enfoque y Experiencia</h2>
+            <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
+              Coach Organizacional y de Equipos especializada en Comunicación Estratégica y Liderazgo Gerencial.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div className="md:col-span-1 space-y-8">
+              <Card className="bg-primary text-primary-foreground p-6 rounded-2xl shadow-lg">
+                <CardHeader>
+                  <CardTitle>Perfil Profesional</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4 text-primary-foreground/90">
+                  <p>
+                    <strong>Coach Organizacional Profesional</strong> con más de <strong>8.000 horas</strong> en procesos de coaching ejecutivo, liderazgo estratégico, formación de equipos de alto desempeño y facilitación de talleres y charlas.
+                  </p>
+                  <p>
+                    He trabajado con líderes de primer nivel en LATAM, impulsando transformación cultural, comunicación efectiva y gestión emocional en contextos corporativos complejos.
+                  </p>
+                </CardContent>
+              </Card>
+              <Card className="bg-secondary text-secondary-foreground p-6 rounded-2xl shadow-lg">
+                 <CardHeader>
+                  <CardTitle>Especialista</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4 text-secondary-foreground/90">
+                  <p>
+                    Especialista en <strong>diseñar conversaciones de alto impacto</strong>, potenciar la inteligencia relacional y construir confianza en entornos de alta exigencia.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+            <div className="md:col-span-2">
+              <Card className="p-6 rounded-2xl shadow-lg h-full">
+                <CardHeader>
+                  <CardTitle className="text-primary">Experiencia Destacada</CardTitle>
+                  <p className="text-muted-foreground">Logros y Resultados Concretos</p>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-6">
+                    {experience.map((item, index) => (
+                      <li key={index} className="flex items-start gap-4">
+                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center mt-1">
+                          {item.icon}
+                        </div>
+                        <p className="text-muted-foreground">{item.text}</p>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
