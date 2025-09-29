@@ -157,7 +157,7 @@ export default function AboutPage() {
                 <CardContent>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {values.map((value, index) => (
-                      <Card key={index} className="shadow-sm" style={{backgroundColor: '#b5c5a0'}}>
+                      <Card key={index} className="shadow-sm" style={{backgroundColor: '#d9e2d0'}}>
                         <CardContent className="p-4 flex items-start">
                            <CheckCircle className="h-5 w-5 text-[#475f4d] mt-1 mr-3 flex-shrink-0" />
                            <span className="text-muted-foreground text-sm">{value}</span>
