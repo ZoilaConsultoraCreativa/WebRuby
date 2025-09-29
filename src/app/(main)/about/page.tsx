@@ -85,12 +85,6 @@ Cuento con más de <strong>8.000 horas</strong> en procesos de <strong>coaching 
 
       <section className="py-20 md:py-28">
         <div className="container">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold">Enfoque y Experiencia</h2>
-            <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-              Coach Organizacional y de Equipos especializada en Comunicación Estratégica y Liderazgo Gerencial.
-            </p>
-          </div>
           <div className="max-w-4xl mx-auto space-y-8">
             <Card className="bg-secondary text-secondary-foreground p-6 rounded-2xl shadow-lg">
                 <CardHeader>
