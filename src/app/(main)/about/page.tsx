@@ -63,7 +63,8 @@ export default function AboutPage() {
         <div className="absolute bottom-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl translate-x-1/2"></div>
         <div className="container grid md:grid-cols-5 gap-12 items-center relative z-10">
           <div className="md:col-span-3 space-y-6">
-            <h2 className="text-3xl font-bold text-[#475f4d]">Mi Identidad de Marca</h2>
+            <h2 className="text-3xl font-bold text-[#475f4d]">Coach Organizacional,  de Equipos y Ontológica</h2>
+            <p className="text-xl text-muted-foreground -mt-4">especializada en Comunicación Estratégica y Liderazgo Gerencial.</p>
             <p className="text-lg text-foreground leading-relaxed text-justify">
               Represento <strong>comunicación estratégica</strong>, <strong>liderazgo emocional</strong> y <strong>acompañamiento transformacional</strong>. No enseño desde la teoría, sino desde la <strong>experiencia vivida</strong> como mujer en entornos corporativos masculinizados.
             </p>
