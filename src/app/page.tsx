@@ -103,7 +103,7 @@ export default function Home() {
             Ayudo a mujeres y equipos a comunicarse de forma estratégica y con claridad, formando líderes con voz propia.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4 animate-fade-in-up [animation-delay:400ms]">
             <div className="flex items-center justify-center gap-2 rounded-full bg-black/20 px-4 py-2 backdrop-blur-sm">
                 <Award className="h-5 w-5 text-white/90" />
                 <span className="text-sm font-medium text-white">Coach Ejecutiva</span>
@@ -114,7 +114,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up [animation-delay:600ms]">
             <Button size="lg" variant="secondary" className="hover:bg-primary hover:text-primary-foreground" asChild>
               <Link href="/contact">Agenda una Sesión</Link>
             </Button>
