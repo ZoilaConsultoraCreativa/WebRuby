@@ -87,7 +87,7 @@ export default function AboutPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {credentials.map((credential, index) => (
-              <Card key={index} className="bg-card shadow-lg hover:shadow-xl transition-shadow" style={{backgroundColor: '#b5c5a0'}}>
+              <Card key={index} className="shadow-lg hover:shadow-xl transition-shadow" style={{backgroundColor: '#b5c5a0'}}>
                 <CardHeader className="flex flex-row items-center gap-4">
                   <div className="p-3 rounded-full" style={{backgroundColor: '#475f4d'}}>
                     <Award className="h-6 w-6 text-white" />
@@ -157,9 +157,9 @@ export default function AboutPage() {
                 <CardContent>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {values.map((value, index) => (
-                      <Card key={index} className="bg-background/50 shadow-sm">
+                      <Card key={index} className="shadow-sm" style={{backgroundColor: '#b5c5a0'}}>
                         <CardContent className="p-4 flex items-start">
-                           <CheckCircle className="h-5 w-5 text-primary mt-1 mr-3 flex-shrink-0" />
+                           <CheckCircle className="h-5 w-5 text-[#475f4d] mt-1 mr-3 flex-shrink-0" />
                            <span className="text-muted-foreground text-sm">{value}</span>
                         </CardContent>
                       </Card>
