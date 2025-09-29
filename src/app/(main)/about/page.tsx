@@ -54,7 +54,7 @@ export default function AboutPage() {
         <div className="absolute bottom-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl translate-x-1/2"></div>
         <div className="container grid md:grid-cols-5 gap-12 items-center relative z-10">
           <div className="md:col-span-3 space-y-6">
-            <h2 className="text-3xl font-bold text-primary">Mi Identidad de Marca</h2>
+            <h2 className="text-3xl font-bold text-[#475f4d]">Mi Identidad de Marca</h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
               Represento comunicación estratégica, liderazgo emocional y acompañamiento transformacional. No enseño desde la teoría, sino desde la experiencia vivida como mujer en entornos corporativos masculinizados.
             </p>
