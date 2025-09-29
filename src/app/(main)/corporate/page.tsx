@@ -137,13 +137,13 @@ export default function CorporatePage() {
           </div>
       </section>
 
-      <section className="py-20">
+      <section className="py-20 bg-primary text-primary-foreground">
         <div className="container text-center max-w-3xl">
             <h2 className="text-3xl font-bold">¿Tu equipo necesita potenciar su comunicación?</h2>
-            <p className="mt-4 text-lg text-muted-foreground">
+            <p className="mt-4 text-lg text-primary-foreground/90">
                 Conversemos sobre cómo podemos diseñar una solución a la medida de tu organización para llevar a tus líderes y equipos al siguiente nivel.
             </p>
-            <Button size="lg" asChild className="mt-8">
+            <Button size="lg" variant="secondary" asChild className="mt-8">
                 <Link href="/contact">Contacto para Empresas</Link>
             </Button>
         </div>
