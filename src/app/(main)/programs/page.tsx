@@ -126,7 +126,13 @@ export default function ProgramsPage() {
                         </AccordionItem>
                       </Accordion>
                       <Button asChild className="mt-6">
-                        <Link href="/contact">Quiero más información</Link>
+                         {program.id === 'subscription' ? (
+                          <Link href="https://www.mercadopago.cl/subscriptions/checkout?preapproval_plan_id=1f259e3a9a464ad6a0ecec39f3102440" target="_blank" rel="noopener noreferrer">
+                            Suscribirme
+                          </Link>
+                        ) : (
+                          <Link href="/contact">Quiero más información</Link>
+                        )}
                       </Button>
                     </CardContent>
                   </div>
