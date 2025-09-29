@@ -127,7 +127,7 @@ export default function Home() {
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold">Formando Líderes con Voz Propia</h2>
             <p className="mt-4 text-lg text-primary-foreground/90">
-              Mi misión es posicionar la <strong>comunicación consciente</strong> como herramienta clave para ejercer un <strong>liderazgo que inspira</strong>, ayudando a construir <strong>culturas más seguras</strong> y a preparar a las organizaciones para cumplir con normativas como la <strong>Ley Karin</strong>.
+              Con más de <strong>8.000 horas de experiencia</strong>, mi misión es impulsar una <strong>transformación real y sostenible</strong> en líderes y equipos. Fusiono una <strong>mirada estratégica</strong> con una profunda <strong>sensibilidad humana</strong> para diseñar <strong>conversaciones de alto impacto</strong>, potenciar la <strong>inteligencia relacional</strong> y construir <strong>culturas de confianza</strong> en los entornos más exigentes.
             </p>
           </div>
         </div>
