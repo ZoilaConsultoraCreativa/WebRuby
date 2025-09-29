@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import { Eye, Gem, Goal, CheckCircle, Award, Target, Users, Handshake, School, MessageCircle } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -88,7 +89,7 @@ Cuento con más de <strong>8.000 horas</strong> en procesos de <strong>coaching 
           <div className="max-w-4xl mx-auto space-y-8">
             <Card className="bg-secondary text-secondary-foreground p-6 rounded-2xl shadow-lg">
                 <CardHeader>
-                <CardTitle>Especialista</CardTitle>
+                <CardTitle style={{color: '#475f4d'}}>Especialista</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4 text-secondary-foreground/90">
                 <p>
