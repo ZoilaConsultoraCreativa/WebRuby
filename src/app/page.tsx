@@ -1,7 +1,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, CheckCircle, Quote, Award, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Quote, Award, ShieldCheck } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
@@ -64,132 +64,140 @@ const forCompaniesImage = getPlaceholderImage('corporate-safe-workplace');
 export default function Home() {
   return (
     <div className="flex flex-col bg-background overflow-x-hidden">
-      <section className="relative py-28 md:py-40">
-        <div className="absolute inset-0 bg-grid-pattern opacity-50"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-transparent"></div>
+      <section className="relative pt-24 pb-24 md:pt-40 md:pb-32">
+        <div className="container grid md:grid-cols-2 gap-8 items-center">
+            <div className="max-w-xl space-y-8 text-center md:text-left">
+              <div className="inline-block animate-fade-in-up [animation-delay:100ms]">
+                  <div className="flex flex-wrap gap-x-6 gap-y-2 justify-center text-sm text-muted-foreground">
+                      <div className="flex items-center gap-2">
+                          <Award className="h-5 w-5 text-primary" />
+                          <span>Coach Ejecutiva Certificada</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                          <ShieldCheck className="h-5 w-5 text-primary" />
+                          <span>Experta en Ley Karin</span>
+                      </div>
+                  </div>
+              </div>
 
-        <div className="container text-center relative z-10">
-          <div className="max-w-4xl mx-auto">
-             <div className="inline-block animate-fade-in-up [animation-delay:100ms] mb-6">
-                <div className="flex flex-wrap gap-x-6 gap-y-2 justify-center text-sm text-muted-foreground">
-                    <div className="flex items-center gap-2">
-                        <Award className="h-5 w-5 text-primary" />
-                        <span>Coach Ejecutiva Certificada</span>
-                    </div>
-                     <div className="flex items-center gap-2">
-                        <ShieldCheck className="h-5 w-5 text-primary" />
-                        <span>Experta en Ley Karin</span>
-                    </div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter !leading-tight animate-fade-in-up [animation-delay:200ms]">
+                Liderazgo que Inspira.
+                <br />
+                <span className="text-primary">Comunicación que Transforma.</span>
+              </h1>
+              <p className="text-lg text-muted-foreground animate-fade-in-up [animation-delay:400ms]">
+                Ayudo a mujeres líderes y equipos a convertir su comunicación en su mayor activo estratégico.
+              </p>
+
+              <div className="animate-fade-in-up [animation-delay:600ms]">
+                <Button size="lg" asChild>
+                  <Link href="/contact">Agenda una Sesión</Link>
+                </Button>
+              </div>
+            </div>
+            <div className="relative h-[500px] w-full max-w-md mx-auto md:max-w-none animate-fade-in-up [animation-delay:300ms]">
+                <div className="absolute -top-4 -left-4 w-full h-full bg-accent rounded-3xl transform -rotate-6"></div>
+                <div className="absolute inset-0 rounded-3xl overflow-hidden shadow-2xl transform rotate-3 transition-transform duration-500 hover:rotate-0 hover:scale-105">
+                    <Image
+                        src={heroImage.imageUrl}
+                        alt={heroImage.description}
+                        fill
+                        className="object-cover"
+                        data-ai-hint={heroImage.imageHint}
+                        priority
+                    />
+                    <ImageDimensions image={heroImage} />
                 </div>
             </div>
-
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter !leading-tight animate-fade-in-up [animation-delay:200ms]">
-              Liderazgo que Inspira.
-              <br />
-              <span className="text-primary">Comunicación que Transforma.</span>
-            </h1>
-            <p className="max-w-2xl mx-auto mt-6 text-lg text-muted-foreground animate-fade-in-up [animation-delay:400ms]">
-              Ayudo a mujeres líderes y equipos a convertir su comunicación en su mayor activo estratégico.
-            </p>
-
-            <div className="animate-fade-in-up [animation-delay:600ms] mt-10">
-              <Button size="lg" asChild>
-                <Link href="/contact">Agenda una Sesión</Link>
-              </Button>
-            </div>
-          </div>
         </div>
       </section>
 
-      <section className="py-20 md:py-28">
+      <section className="py-20 md:py-28 bg-secondary">
         <div className="container">
-          <div className="grid md:grid-cols-5 gap-12 items-center">
-            <div className="md:col-span-3">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Mi Misión</h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Con más de <strong>8.000 horas de experiencia</strong>, mi propósito es impulsar una <strong>transformación real y sostenible</strong> en líderes y equipos. Fusiono una <strong>mirada estratégica</strong> con una profunda <strong>sensibilidad humana</strong> para diseñar <strong>conversaciones de alto impacto</strong>, potenciar la <strong>inteligencia relacional</strong> y construir <strong>culturas de confianza</strong> en los entornos más exigentes.
-              </p>
+            <div className="text-center mb-16 max-w-3xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground">Mi Misión</h2>
+                <p className="text-lg text-muted-foreground leading-relaxed mt-4">
+                  Con más de <strong>8.000 horas de experiencia</strong>, mi propósito es impulsar una <strong>transformación real y sostenible</strong> en líderes y equipos. Fusiono una <strong>mirada estratégica</strong> con una profunda <strong>sensibilidad humana</strong> para diseñar <strong>conversaciones de alto impacto</strong>, potenciar la <strong>inteligencia relacional</strong> y construir <strong>culturas de confianza</strong> en los entornos más exigentes.
+                </p>
             </div>
-            <div className="md:col-span-2 relative h-80 rounded-2xl overflow-hidden shadow-xl group">
-               <Image
-                src={heroImage.imageUrl}
-                alt={heroImage.description}
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-500"
-                data-ai-hint={heroImage.imageHint}
-                priority
-              />
-              <ImageDimensions image={heroImage} />
-            </div>
-          </div>
         </div>
       </section>
       
-      <section className="py-20 md:py-28 bg-secondary/30">
+      <section className="py-20 md:py-28">
         <div className="container">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold">Soluciones para tu Crecimiento</h2>
-            <p className="mt-6 text-lg text-muted-foreground">
-              Programas y servicios diseñados para potenciar tu liderazgo y el de tu organización.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <Card className="flex flex-col overflow-hidden shadow-lg hover:shadow-2xl border-transparent transition-all duration-300 group hover:-translate-y-2 bg-card rounded-2xl">
-                <div className="relative w-full h-64 overflow-hidden rounded-t-2xl">
-                     <Image
-                        src={forYouImage.imageUrl}
-                        alt={forYouImage.description}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-300"
-                        data-ai-hint={forYouImage.imageHint}
-                    />
-                    <ImageDimensions image={forYouImage} />
+            <div className="text-center max-w-3xl mx-auto mb-20">
+                <h2 className="text-3xl md:text-4xl font-bold">Soluciones para tu Crecimiento</h2>
+                <p className="mt-6 text-lg text-muted-foreground">
+                Programas y servicios diseñados para potenciar tu liderazgo y el de tu organización.
+                </p>
+            </div>
+            <div className="relative grid md:grid-cols-2 gap-x-16 gap-y-24 items-center">
+                <div className="md:col-start-1 md:row-start-1">
+                    <Card className="flex flex-col shadow-none border-none bg-transparent">
+                        <CardHeader>
+                            <CardTitle className="text-3xl text-primary">Para Ti</CardTitle>
+                        </CardHeader>
+                        <CardContent className="flex-1">
+                            <p className="text-muted-foreground text-lg">Desde mi experiencia como exgerenta en entornos exigentes, te acompaño a comunicar con confianza, encontrar tu voz y ejercer tu autoridad con autenticidad.</p>
+                        </CardContent>
+                        <CardFooter>
+                            <Button asChild variant="link" className="px-0 text-base">
+                                <Link href="/programs">
+                                    Ver programas <ArrowRight className="ml-2 h-4 w-4" />
+                                </Link>
+                            </Button>
+                        </CardFooter>
+                    </Card>
                 </div>
-                <CardHeader>
-                    <CardTitle className="text-2xl text-primary">Para Ti</CardTitle>
-                </CardHeader>
-                <CardContent className="flex-1">
-                    <p className="text-muted-foreground">Desde mi experiencia como exgerenta en entornos exigentes, te acompaño a comunicar con confianza, encontrar tu voz y ejercer tu autoridad con autenticidad.</p>
-                </CardContent>
-                <CardFooter>
-                    <Button asChild variant="secondary" className="w-full">
-                        <Link href="/programs">
-                            Ver programas <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                        </Link>
-                    </Button>
-                </CardFooter>
-            </Card>
+                 <div className="md:col-start-2 md:row-start-1 relative h-[450px]">
+                    <div className="absolute w-full h-full bg-accent rounded-3xl transform -rotate-3 transition-transform duration-300 group-hover:rotate-0"></div>
+                     <Card className="relative w-full h-full rounded-3xl overflow-hidden shadow-xl transform rotate-3 transition-transform duration-300 hover:rotate-0">
+                         <Image
+                            src={forYouImage.imageUrl}
+                            alt={forYouImage.description}
+                            fill
+                            className="object-cover"
+                            data-ai-hint={forYouImage.imageHint}
+                        />
+                        <ImageDimensions image={forYouImage} />
+                    </Card>
+                </div>
 
-            <Card className="flex flex-col overflow-hidden shadow-lg hover:shadow-2xl border-transparent transition-all duration-300 group hover:-translate-y-2 bg-card rounded-2xl">
-                <div className="relative w-full h-64 overflow-hidden rounded-t-2xl">
-                     <Image
-                        src={forCompaniesImage.imageUrl}
-                        alt={forCompaniesImage.description}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-300"
-                        data-ai-hint={forCompaniesImage.imageHint}
-                    />
-                    <ImageDimensions image={forCompaniesImage} />
+                <div className="md:col-start-2 md:row-start-2 text-right">
+                    <Card className="flex flex-col shadow-none border-none bg-transparent">
+                        <CardHeader>
+                            <CardTitle className="text-3xl text-primary">Para Empresas</CardTitle>
+                        </CardHeader>
+                        <CardContent className="flex-1">
+                            <p className="text-muted-foreground text-lg">Potenciamos la comunicación de tus equipos y preparamos a tus líderes para la Ley Karin a través de workshops y coaching especializado.</p>
+                        </CardContent>
+                        <CardFooter className="justify-end">
+                            <Button asChild variant="link" className="px-0 text-base">
+                                <Link href="/corporate">
+                                    Soluciones Corporativas <ArrowRight className="ml-2 h-4 w-4" />
+                                </Link>
+                            </Button>
+                        </CardFooter>
+                    </Card>
                 </div>
-                <CardHeader>
-                    <CardTitle className="text-2xl text-primary">Para Empresas</CardTitle>
-                </CardHeader>
-                <CardContent className="flex-1">
-                    <p className="text-muted-foreground">Potenciamos la comunicación de tus equipos y preparamos a tus líderes para la Ley Karin a través de workshops y coaching especializado.</p>
-                </CardContent>
-                <CardFooter>
-                    <Button asChild variant="secondary" className="w-full">
-                        <Link href="/corporate">
-                            Soluciones Corporativas <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                        </Link>
-                    </Button>
-                </CardFooter>
-            </Card>
-          </div>
+                <div className="md:col-start-1 md:row-start-2 relative h-[450px]">
+                    <div className="absolute w-full h-full bg-accent rounded-3xl transform rotate-3 transition-transform duration-300 group-hover:rotate-0"></div>
+                    <Card className="relative w-full h-full rounded-3xl overflow-hidden shadow-xl transform -rotate-3 transition-transform duration-300 hover:rotate-0">
+                        <Image
+                            src={forCompaniesImage.imageUrl}
+                            alt={forCompaniesImage.description}
+                            fill
+                            className="object-cover"
+                            data-ai-hint={forCompaniesImage.imageHint}
+                        />
+                        <ImageDimensions image={forCompaniesImage} />
+                    </Card>
+                </div>
+            </div>
         </div>
       </section>
 
-      <section className="py-20 md:py-28">
+      <section className="py-20 md:py-28 bg-secondary">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold">Lo que mis clientas dicen</h2>
@@ -208,7 +216,7 @@ export default function Home() {
               {testimonials.map((testimonial, index) => (
                 <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                   <div className="p-4 h-full">
-                    <Card className="flex flex-col justify-between h-full shadow-lg bg-card/50 text-left rounded-2xl border-border/80">
+                    <Card className="flex flex-col justify-between h-full shadow-lg bg-card text-left rounded-2xl border-border/80">
                        <CardContent className="pt-8 flex-grow">
                         <Quote className="h-8 w-8 text-primary mb-4" />
                         <p className="text-muted-foreground italic text-base leading-relaxed">"{testimonial.quote}"</p>
@@ -233,7 +241,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-secondary/30 py-20 md:py-28">
+      <section className="py-20 md:py-28">
           <div className="container">
               <div className="text-center mb-16">
                   <h2 className="text-3xl md:text-4xl font-bold text-foreground">Empresas que ya confían en mi trabajo</h2>
@@ -241,7 +249,7 @@ export default function Home() {
                       Organizaciones que están transformando su comunicación y liderazgo.
                   </p>
               </div>
-              <div className="relative w-full overflow-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-16 before:bg-gradient-to-r before:from-secondary/30 before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-16 after:bg-gradient-to-l after:from-secondary/30 after:to-transparent">
+              <div className="relative w-full overflow-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-16 before:bg-gradient-to-r before:from-background before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-16 after:bg-gradient-to-l after:from-background after:to-transparent">
                 <div className="flex animate-scroll-x group">
                     {[...logos, ...logos].map((logo, index) => (
                         <div key={index} className="flex-shrink-0 w-48 mx-8 group">
@@ -269,5 +277,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
