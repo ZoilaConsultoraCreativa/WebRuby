@@ -4,48 +4,48 @@
 
 @layer base {
   :root {
-    --background: 30 50% 98%;
+    --background: 15 20% 98%;
     --foreground: 20 14.3% 4.1%;
-    --card: 30 50% 98%;
+    --card: 15 20% 98%;
     --card-foreground: 20 14.3% 4.1%;
-    --popover: 30 50% 98%;
+    --popover: 15 20% 98%;
     --popover-foreground: 20 14.3% 4.1%;
-    --primary: 15 85.3% 47.5%;
-    --primary-foreground: 30 50% 98%;
-    --secondary: 35 33% 91.2%;
+    --primary: 345 85% 45%;
+    --primary-foreground: 15 20% 98%;
+    --secondary: 15 10% 92%;
     --secondary-foreground: 20 14.3% 4.1%;
-    --muted: 35 33% 91.2%;
+    --muted: 15 10% 92%;
     --muted-foreground: 20 8.9% 46.1%;
-    --accent: 95 34% 82.5%;
-    --accent-foreground: 20 14.3% 4.1%;
+    --accent: 345 85% 95%;
+    --accent-foreground: 345 85% 45%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 30 50% 98%;
-    --border: 35 33% 85.2%;
-    --input: 35 33% 85.2%;
-    --ring: 15 85.3% 47.5%;
+    --destructive-foreground: 15 20% 98%;
+    --border: 15 10% 88%;
+    --input: 15 10% 88%;
+    --ring: 345 85% 45%;
     --radius: 0.8rem;
   }
 
   .dark {
     --background: 20 14.3% 4.1%;
-    --foreground: 30 50% 98%;
+    --foreground: 15 20% 98%;
     --card: 20 14.3% 4.1%;
-    --card-foreground: 30 50% 98%;
+    --card-foreground: 15 20% 98%;
     --popover: 20 14.3% 4.1%;
-    --popover-foreground: 30 50% 98%;
-    --primary: 15 75.3% 57.5%;
+    --popover-foreground: 15 20% 98%;
+    --primary: 345 75% 55%;
     --primary-foreground: 15 85.3% 97.5%;
     --secondary: 12 6.5% 15.1%;
-    --secondary-foreground: 30 50% 98%;
+    --secondary-foreground: 15 20% 98%;
     --muted: 12 6.5% 15.1%;
     --muted-foreground: 24 5.4% 63.9%;
-    --accent: 95 24% 42.5%;
-    --accent-foreground: 30 50% 98%;
+    --accent: 345 75% 15%;
+    --accent-foreground: 15 20% 98%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 30 50% 98%;
+    --destructive-foreground: 15 20% 98%;
     --border: 12 6.5% 15.1%;
     --input: 12 6.5% 15.1%;
-    --ring: 15 75.3% 57.5%;
+    --ring: 345 75% 55%;
   }
 }
 

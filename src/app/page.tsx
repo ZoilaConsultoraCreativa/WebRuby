@@ -1,4 +1,3 @@
-
 'use client'
 
 import Image from 'next/image';
@@ -66,35 +65,18 @@ const forYouImage = getPlaceholderImage('program-individual');
 const forCompaniesImage = getPlaceholderImage('corporate-safe-workplace');
 
 export default function Home() {
-  const heroRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"]
-  });
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-
   return (
     <div className="flex flex-col bg-background overflow-x-hidden">
-      <section ref={heroRef} className="relative pt-24 pb-24 md:pt-40 md:pb-32 overflow-hidden">
-        <motion.div
-          className="absolute inset-0 z-0 will-change-transform"
-          style={{ y }}
-        >
-          <div className="absolute inset-0 bg-primary/5"></div>
-           <Image
-              src={heroImage.imageUrl}
-              alt={heroImage.description}
-              fill
-              className="object-cover object-top opacity-20"
-              data-ai-hint={heroImage.imageHint}
-              priority
-          />
-        </motion.div>
-        
-        <div className="container grid md:grid-cols-2 gap-8 items-center relative z-10">
-            <div className="max-w-xl space-y-8 text-center md:text-left">
-              <div className="inline-block opacity-0 animate-fade-in-up [animation-delay:100ms]">
-                  <div className="flex flex-wrap gap-x-6 gap-y-2 justify-center md:justify-start text-sm text-muted-foreground">
+      <section className="relative overflow-hidden">
+        <div className="container min-h-[calc(100vh-4rem)] grid lg:grid-cols-2 gap-12 items-center">
+            <div className="max-w-xl space-y-8 py-12 lg:py-0">
+              <motion.div 
+                className="inline-block"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+              >
+                  <div className="flex flex-wrap gap-x-6 gap-y-2 justify-start text-sm text-muted-foreground">
                       <div className="flex items-center gap-2">
                           <Award className="h-5 w-5 text-primary" />
                           <span>Coach Ejecutiva Certificada</span>
@@ -104,33 +86,72 @@ export default function Home() {
                           <span>Experta en Ley Karin</span>
                       </div>
                   </div>
-              </div>
+              </motion.div>
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter !leading-tight opacity-0 animate-fade-in-up [animation-delay:300ms]">
+              <motion.h1 
+                className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter !leading-tight"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+              >
                 Liderazgo que Inspira.
                 <br />
                 <span className="text-primary">Comunicación que Transforma.</span>
-              </h1>
-              <p className="text-lg text-muted-foreground opacity-0 animate-fade-in-up [animation-delay:500ms]">
+              </motion.h1>
+              
+              <motion.p 
+                className="text-lg text-muted-foreground"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
+              >
                 Ayudo a mujeres líderes y equipos a convertir su comunicación en su mayor activo estratégico.
-              </p>
+              </motion.p>
 
-              <div className="opacity-0 animate-fade-in-up [animation-delay:700ms]">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
+              >
                 <Button size="lg" asChild>
                   <Link href="/contact">Agenda una Sesión</Link>
                 </Button>
-              </div>
+              </motion.div>
+            </div>
+            <div className="relative h-[60vh] lg:h-full w-full lg:w-auto lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+                <div className="absolute inset-y-0 right-0 w-full max-w-lg bg-primary z-0"></div>
+                <motion.div
+                  className="absolute inset-0 z-10 w-full h-full"
+                  initial={{ opacity: 0, x: 50, scale: 1.1 }}
+                  animate={{ opacity: 1, x: 0, scale: 1 }}
+                  transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                >
+                    <Image
+                      src={heroImage.imageUrl}
+                      alt={heroImage.description}
+                      fill
+                      className="object-cover object-left"
+                      data-ai-hint={heroImage.imageHint}
+                      priority
+                    />
+                </motion.div>
             </div>
         </div>
       </section>
 
-      <section className="py-20 md:py-28 bg-secondary/50">
+      <section className="py-20 md:py-28 bg-secondary">
         <div className="container">
             <div className="text-center mb-16 max-w-3xl mx-auto">
                 <h2 className="text-3xl md:text-4xl font-bold text-foreground">Mi Misión</h2>
-                <p className="text-lg text-muted-foreground leading-relaxed mt-4">
+                <motion.p 
+                  className="text-lg text-muted-foreground leading-relaxed mt-4"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.5 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                >
                   Con más de <strong>8.000 horas de experiencia</strong>, mi propósito es impulsar una <strong>transformación real y sostenible</strong> en líderes y equipos. Fusiono una <strong>mirada estratégica</strong> con una profunda <strong>sensibilidad humana</strong> para diseñar <strong>conversaciones de alto impacto</strong>, potenciar la <strong>inteligencia relacional</strong> y construir <strong>culturas de confianza</strong> en los entornos más exigentes.
-                </p>
+                </motion.p>
             </div>
         </div>
       </section>
@@ -139,9 +160,15 @@ export default function Home() {
         <div className="container">
             <div className="text-center max-w-3xl mx-auto mb-20">
                 <h2 className="text-3xl md:text-4xl font-bold">Soluciones para tu Crecimiento</h2>
-                <p className="mt-6 text-lg text-muted-foreground">
+                <motion.p 
+                  className="mt-6 text-lg text-muted-foreground"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.5 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                >
                 Programas y servicios diseñados para potenciar tu liderazgo y el de tu organización.
-                </p>
+                </motion.p>
             </div>
             <div className="grid md:grid-cols-2 gap-16 items-center">
                 <div className="relative h-[500px]">
@@ -219,7 +246,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 md:py-28 bg-secondary/50">
+      <section className="py-20 md:py-28 bg-secondary">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold">Lo que mis clientas dicen</h2>
