@@ -3,8 +3,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Quote, Award, ShieldCheck } from 'lucide-react';
-import React, { useRef } from 'react';
-import { useScroll, useTransform, motion } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
@@ -65,17 +65,40 @@ const forYouImage = getPlaceholderImage('program-individual');
 const forCompaniesImage = getPlaceholderImage('corporate-safe-workplace');
 
 export default function Home() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        ease: [0.6, 0.05, -0.01, 0.9],
+      },
+    },
+  };
+
   return (
     <div className="flex flex-col bg-background overflow-x-hidden">
-      <section className="relative overflow-hidden">
-        <div className="container min-h-[calc(100vh-4rem)] grid lg:grid-cols-2 gap-12 items-center">
-            <div className="max-w-xl space-y-8 py-12 lg:py-0">
-              <motion.div 
-                className="inline-block"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-              >
+      <section className="relative min-h-[calc(100vh-4rem)] flex items-center">
+        <div className="container grid lg:grid-cols-2 gap-12 items-center">
+            <motion.div 
+              className="max-w-xl space-y-8"
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              <motion.div variants={itemVariants}>
                   <div className="flex flex-wrap gap-x-6 gap-y-2 justify-start text-sm text-muted-foreground">
                       <div className="flex items-center gap-2">
                           <Award className="h-5 w-5 text-primary" />
@@ -90,9 +113,7 @@ export default function Home() {
 
               <motion.h1 
                 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter !leading-tight"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+                variants={itemVariants}
               >
                 Liderazgo que Inspira.
                 <br />
@@ -101,41 +122,34 @@ export default function Home() {
               
               <motion.p 
                 className="text-lg text-muted-foreground"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
+                variants={itemVariants}
               >
                 Ayudo a mujeres líderes y equipos a convertir su comunicación en su mayor activo estratégico.
               </motion.p>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
-              >
+              <motion.div variants={itemVariants}>
                 <Button size="lg" asChild>
                   <Link href="/contact">Agenda una Sesión</Link>
                 </Button>
               </motion.div>
-            </div>
-            <div className="relative h-[60vh] lg:h-full w-full lg:w-auto lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-                <div className="absolute inset-y-0 right-0 w-full max-w-lg bg-primary z-0"></div>
-                <motion.div
-                  className="absolute inset-0 z-10 w-full h-full"
-                  initial={{ opacity: 0, x: 50, scale: 1.1 }}
-                  animate={{ opacity: 1, x: 0, scale: 1 }}
-                  transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                >
-                    <Image
-                      src={heroImage.imageUrl}
-                      alt={heroImage.description}
-                      fill
-                      className="object-cover object-left"
-                      data-ai-hint={heroImage.imageHint}
-                      priority
-                    />
-                </motion.div>
-            </div>
+            </motion.div>
+        </div>
+         <div className="hidden lg:block absolute inset-y-0 right-0 w-1/2 bg-primary">
+            <motion.div
+              className="w-full h-full"
+              initial={{ opacity: 0, scale: 1.1 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.2, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <Image
+                src={heroImage.imageUrl}
+                alt={heroImage.description}
+                fill
+                className="object-cover object-left"
+                data-ai-hint={heroImage.imageHint}
+                priority
+              />
+            </motion.div>
         </div>
       </section>
 
