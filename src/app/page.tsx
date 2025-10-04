@@ -56,8 +56,8 @@ const testimonials = [
 ];
 
 const CompanyLogo = ({ name, src }: { name: string, src: string }) => (
-    <div className="flex items-center justify-center h-16 text-muted-foreground font-semibold text-lg">
-        <Image src={src} alt={name} width={144} height={64} className="object-contain grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300" data-ai-hint="company logo"/>
+    <div className="flex items-center justify-center h-16">
+        <Image src={src} alt={name} width={144} height={64} className="object-contain aspect-[3/1] w-32 grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300" data-ai-hint="company logo"/>
     </div>
 );
 
@@ -82,50 +82,55 @@ const forCompaniesImage = getPlaceholderImage('corporate-safe-workplace');
 export default function Home() {
   return (
     <div className="flex flex-col">
-      <section className="relative h-screen flex items-center justify-center text-white overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent z-10" />
-        <Image
-          src={heroImage.imageUrl}
-          alt={heroImage.description}
-          fill
-          className="object-cover"
-          data-ai-hint={heroImage.imageHint}
-          priority
-        />
-        <ImageDimensions image={heroImage} />
-        <div className="relative z-20 container text-center space-y-6">
-          <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tighter !leading-tight animate-fade-in-up" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.7)' }}>
-            Liderazgo que Inspira.
-            <br />
-            <span className="text-primary-foreground">Comunicación que Transforma.</span>
-          </h1>
-          <p className="max-w-2xl mx-auto text-lg text-white/90 animate-fade-in-up [animation-delay:300ms]" style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.5)' }}>
-            Ayudo a mujeres líderes y equipos a convertir su comunicación en su mayor activo estratégico.
-          </p>
+      <section className="relative min-h-[90vh] lg:min-h-screen flex items-center bg-secondary/50 overflow-hidden">
+        <div className="container grid lg:grid-cols-2 gap-12 items-center">
+          <div className="relative z-10 space-y-6 text-center lg:text-left">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter !leading-tight animate-fade-in-up">
+              Liderazgo que Inspira.
+              <br />
+              <span className="text-primary">Comunicación que Transforma.</span>
+            </h1>
+            <p className="max-w-xl mx-auto lg:mx-0 text-lg text-muted-foreground animate-fade-in-up [animation-delay:300ms]">
+              Ayudo a mujeres líderes y equipos a convertir su comunicación en su mayor activo estratégico.
+            </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4 animate-fade-in-up [animation-delay:600ms]">
-            <div className="flex items-center justify-center gap-2 rounded-full bg-black/20 px-4 py-2 backdrop-blur-sm">
-                <Award className="h-5 w-5 text-white/90" />
-                <span className="text-sm font-medium text-white">Coach Ejecutiva Certificada</span>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4 animate-fade-in-up [animation-delay:600ms]">
+                <div className="flex items-center justify-center gap-2 rounded-full border bg-background/50 px-4 py-2 backdrop-blur-sm">
+                    <Award className="h-5 w-5 text-primary" />
+                    <span className="text-sm font-medium text-foreground">Coach Ejecutiva Certificada</span>
+                </div>
+                 <div className="flex items-center justify-center gap-2 rounded-full border bg-background/50 px-4 py-2 backdrop-blur-sm">
+                    <ShieldCheck className="h-5 w-5 text-primary" />
+                    <span className="text-sm font-medium text-foreground">Experta en Ley Karin</span>
+                </div>
             </div>
-             <div className="flex items-center justify-center gap-2 rounded-full bg-black/20 px-4 py-2 backdrop-blur-sm">
-                <ShieldCheck className="h-5 w-5 text-white/90" />
-                <span className="text-sm font-medium text-white">Experta en Ley Karin</span>
+
+            <div className="animate-fade-in-up [animation-delay:900ms] pt-4">
+              <Button size="lg" asChild>
+                <Link href="/contact">Agenda una Sesión</Link>
+              </Button>
             </div>
           </div>
-
-          <div className="animate-fade-in-up [animation-delay:900ms] pt-4">
-            <Button size="lg" asChild>
-              <Link href="/contact">Agenda una Sesión</Link>
-            </Button>
+          <div className="relative h-96 lg:h-[36rem] animate-fade-in-up [animation-delay:200ms]">
+            <div className="absolute inset-0 -bottom-10 -right-10 lg:-bottom-20 lg:-right-20">
+              <Image
+                src={heroImage.imageUrl}
+                alt={heroImage.description}
+                fill
+                className="object-contain object-bottom-right"
+                data-ai-hint={heroImage.imageHint}
+                priority
+              />
+              <ImageDimensions image={heroImage} />
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="py-20 md:py-28 bg-secondary">
+      <section className="py-20 md:py-28 bg-background">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-secondary-foreground">Mi Misión</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground">Mi Misión</h2>
             <p className="mt-4 text-lg text-muted-foreground">
               Con más de <strong>8.000 horas de experiencia</strong>, mi propósito es impulsar una <strong>transformación real y sostenible</strong> en líderes y equipos. Fusiono una <strong>mirada estratégica</strong> con una profunda <strong>sensibilidad humana</strong> para diseñar <strong>conversaciones de alto impacto</strong>, potenciar la <strong>inteligencia relacional</strong> y construir <strong>culturas de confianza</strong> en los entornos más exigentes.
             </p>
@@ -133,7 +138,7 @@ export default function Home() {
         </div>
       </section>
       
-      <section className="py-20 md:py-28 bg-background">
+      <section className="py-20 md:py-28 bg-secondary/30">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold">Soluciones para tu Crecimiento</h2>
@@ -142,8 +147,8 @@ export default function Home() {
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <Card className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 group">
-                <div className="relative w-full h-64 overflow-hidden">
+            <Card className="flex flex-col overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group border-0 hover:-translate-y-2 bg-card">
+                <div className="relative w-full h-64 overflow-hidden rounded-t-lg">
                      <Image
                         src={forYouImage.imageUrl}
                         alt={forYouImage.description}
@@ -160,7 +165,7 @@ export default function Home() {
                     <p className="text-muted-foreground">Desde mi experiencia como exgerenta en entornos exigentes, te acompaño a comunicar con confianza, encontrar tu voz y ejercer tu autoridad con autenticidad.</p>
                 </CardContent>
                 <CardFooter>
-                    <Button asChild className="w-full">
+                    <Button asChild variant="secondary" className="w-full">
                         <Link href="/programs">
                             Ver programas <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                         </Link>
@@ -168,8 +173,8 @@ export default function Home() {
                 </CardFooter>
             </Card>
 
-            <Card className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 group">
-                <div className="relative w-full h-64 overflow-hidden">
+            <Card className="flex flex-col overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group border-0 hover:-translate-y-2 bg-card">
+                <div className="relative w-full h-64 overflow-hidden rounded-t-lg">
                      <Image
                         src={forCompaniesImage.imageUrl}
                         alt={forCompaniesImage.description}
@@ -186,7 +191,7 @@ export default function Home() {
                     <p className="text-muted-foreground">Potenciamos la comunicación de tus equipos y preparamos a tus líderes para la Ley Karin a través de workshops y coaching especializado.</p>
                 </CardContent>
                 <CardFooter>
-                    <Button asChild className="w-full">
+                    <Button asChild variant="secondary" className="w-full">
                         <Link href="/corporate">
                             Soluciones Corporativas <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                         </Link>
@@ -210,19 +215,19 @@ export default function Home() {
               align: "start",
               loop: true,
             }}
-            className="w-full max-w-5xl mx-auto mt-16"
+            className="w-full max-w-6xl mx-auto mt-16"
           >
             <CarouselContent>
               {testimonials.map((testimonial, index) => (
-                <CarouselItem key={index} className="md:basis-1/2">
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                   <div className="p-4 h-full">
-                    <Card className="flex flex-col justify-between h-full shadow-lg bg-card text-left">
-                       <CardContent className="pt-6">
+                    <Card className="flex flex-col justify-between h-full shadow-lg bg-card text-left border-0">
+                       <CardContent className="pt-6 flex-grow">
                         <Quote className="h-8 w-8 text-primary mb-4" />
                         <p className="text-muted-foreground italic text-lg">"{testimonial.quote}"</p>
                       </CardContent>
-                      <CardFooter className="flex-row items-center gap-4 border-t pt-6 mt-auto bg-secondary/30">
-                         <Avatar className="h-14 w-14">
+                      <CardFooter className="flex-row items-center gap-4 border-t pt-6 bg-secondary/20">
+                         <Avatar className="h-14 w-14 border-2 border-primary">
                             <AvatarImage src={testimonial.image.imageUrl} alt={testimonial.name} data-ai-hint={testimonial.image.imageHint} />
                             <AvatarFallback>{testimonial.initials}</AvatarFallback>
                           </Avatar>
@@ -241,7 +246,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-secondary py-20 md:py-28">
+      <section className="bg-secondary/30 py-20 md:py-28">
           <div className="container">
               <div className="text-center mb-16">
                   <h2 className="text-3xl md:text-4xl font-bold text-secondary-foreground">Empresas que ya confían en mi trabajo</h2>
@@ -252,7 +257,7 @@ export default function Home() {
               <div className="relative w-full overflow-hidden">
                 <div className="flex animate-scroll-x group">
                     {[...logos, ...logos].map((logo, index) => (
-                        <div key={index} className="flex-shrink-0 w-48 mx-4 group">
+                        <div key={index} className="flex-shrink-0 w-48 mx-8 group">
                            <CompanyLogo name={logo.name} src={logo.src} />
                         </div>
                     ))}
