@@ -81,10 +81,10 @@ const forCompaniesImage = getPlaceholderImage('corporate-safe-workplace');
 
 export default function Home() {
   return (
-    <div className="flex flex-col">
-      <section className="relative min-h-[90vh] lg:min-h-screen flex items-center bg-secondary/50 overflow-hidden">
-        <div className="container grid lg:grid-cols-2 gap-12 items-center">
-          <div className="relative z-10 space-y-6 text-center lg:text-left">
+    <div className="flex flex-col bg-background">
+      <section className="py-20 md:py-32">
+        <div className="container grid lg:grid-cols-2 gap-16 items-center">
+          <div className="space-y-8 text-center lg:text-left">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter !leading-tight animate-fade-in-up">
               Liderazgo que Inspira.
               <br />
@@ -94,30 +94,30 @@ export default function Home() {
               Ayudo a mujeres líderes y equipos a convertir su comunicación en su mayor activo estratégico.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4 animate-fade-in-up [animation-delay:600ms]">
-                <div className="flex items-center justify-center gap-2 rounded-full border bg-background/50 px-4 py-2 backdrop-blur-sm">
-                    <Award className="h-5 w-5 text-primary" />
-                    <span className="text-sm font-medium text-foreground">Coach Ejecutiva Certificada</span>
-                </div>
-                 <div className="flex items-center justify-center gap-2 rounded-full border bg-background/50 px-4 py-2 backdrop-blur-sm">
-                    <ShieldCheck className="h-5 w-5 text-primary" />
-                    <span className="text-sm font-medium text-foreground">Experta en Ley Karin</span>
-                </div>
-            </div>
-
-            <div className="animate-fade-in-up [animation-delay:900ms] pt-4">
+            <div className="animate-fade-in-up [animation-delay:600ms] pt-4">
               <Button size="lg" asChild>
                 <Link href="/contact">Agenda una Sesión</Link>
               </Button>
             </div>
+            
+            <div className="flex flex-wrap gap-x-6 gap-y-4 justify-center lg:justify-start pt-6 animate-fade-in-up [animation-delay:900ms]">
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <Award className="h-5 w-5 text-primary" />
+                    <span>Coach Ejecutiva Certificada</span>
+                </div>
+                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <ShieldCheck className="h-5 w-5 text-primary" />
+                    <span>Experta en Ley Karin</span>
+                </div>
+            </div>
           </div>
           <div className="relative h-96 lg:h-[36rem] animate-fade-in-up [animation-delay:200ms]">
-            <div className="absolute inset-0 -bottom-10 -right-10 lg:-bottom-20 lg:-right-20">
+            <div className="absolute inset-0">
               <Image
                 src={heroImage.imageUrl}
                 alt={heroImage.description}
                 fill
-                className="object-contain object-bottom-right"
+                className="object-contain object-center lg:object-right"
                 data-ai-hint={heroImage.imageHint}
                 priority
               />
@@ -127,28 +127,28 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 md:py-28 bg-background">
+      <section className="py-20 md:py-28 bg-secondary/20">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground">Mi Misión</h2>
-            <p className="mt-4 text-lg text-muted-foreground">
+            <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
               Con más de <strong>8.000 horas de experiencia</strong>, mi propósito es impulsar una <strong>transformación real y sostenible</strong> en líderes y equipos. Fusiono una <strong>mirada estratégica</strong> con una profunda <strong>sensibilidad humana</strong> para diseñar <strong>conversaciones de alto impacto</strong>, potenciar la <strong>inteligencia relacional</strong> y construir <strong>culturas de confianza</strong> en los entornos más exigentes.
             </p>
           </div>
         </div>
       </section>
       
-      <section className="py-20 md:py-28 bg-secondary/30">
+      <section className="py-20 md:py-28">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold">Soluciones para tu Crecimiento</h2>
-            <p className="mt-4 text-lg text-muted-foreground">
+            <p className="mt-6 text-lg text-muted-foreground">
               Programas y servicios diseñados para potenciar tu liderazgo y el de tu organización.
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <Card className="flex flex-col overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group border-0 hover:-translate-y-2 bg-card">
-                <div className="relative w-full h-64 overflow-hidden rounded-t-lg">
+            <Card className="flex flex-col overflow-hidden shadow-none hover:shadow-xl border transition-all duration-300 group hover:-translate-y-2 bg-card rounded-2xl">
+                <div className="relative w-full h-64 overflow-hidden rounded-t-2xl">
                      <Image
                         src={forYouImage.imageUrl}
                         alt={forYouImage.description}
@@ -173,8 +173,8 @@ export default function Home() {
                 </CardFooter>
             </Card>
 
-            <Card className="flex flex-col overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group border-0 hover:-translate-y-2 bg-card">
-                <div className="relative w-full h-64 overflow-hidden rounded-t-lg">
+            <Card className="flex flex-col overflow-hidden shadow-none hover:shadow-xl border transition-all duration-300 group hover:-translate-y-2 bg-card rounded-2xl">
+                <div className="relative w-full h-64 overflow-hidden rounded-t-2xl">
                      <Image
                         src={forCompaniesImage.imageUrl}
                         alt={forCompaniesImage.description}
@@ -202,11 +202,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-background py-20 md:py-28">
+      <section className="bg-secondary/20 py-20 md:py-28">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold">Lo que mis clientas dicen</h2>
-            <p className="mt-4 text-lg text-muted-foreground">
+            <p className="mt-6 text-lg text-muted-foreground">
               Historias de mujeres que decidieron liderar desde su propia voz.
             </p>
           </div>
@@ -221,18 +221,18 @@ export default function Home() {
               {testimonials.map((testimonial, index) => (
                 <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                   <div className="p-4 h-full">
-                    <Card className="flex flex-col justify-between h-full shadow-lg bg-card text-left border-0">
-                       <CardContent className="pt-6 flex-grow">
+                    <Card className="flex flex-col justify-between h-full shadow-none bg-background text-left border rounded-2xl">
+                       <CardContent className="pt-8 flex-grow">
                         <Quote className="h-8 w-8 text-primary mb-4" />
-                        <p className="text-muted-foreground italic text-lg">"{testimonial.quote}"</p>
+                        <p className="text-muted-foreground italic text-base leading-relaxed">"{testimonial.quote}"</p>
                       </CardContent>
-                      <CardFooter className="flex-row items-center gap-4 border-t pt-6 bg-secondary/20">
-                         <Avatar className="h-14 w-14 border-2 border-primary">
+                      <CardFooter className="flex-row items-center gap-4 border-t pt-6 mt-4">
+                         <Avatar className="h-12 w-12 border-2 border-primary">
                             <AvatarImage src={testimonial.image.imageUrl} alt={testimonial.name} data-ai-hint={testimonial.image.imageHint} />
                             <AvatarFallback>{testimonial.initials}</AvatarFallback>
                           </Avatar>
                           <div>
-                            <p className="font-bold text-lg text-foreground">{testimonial.name}</p>
+                            <p className="font-bold text-base text-foreground">{testimonial.name}</p>
                           </div>
                       </CardFooter>
                     </Card>
@@ -246,11 +246,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-secondary/30 py-20 md:py-28">
+      <section className="py-20 md:py-28">
           <div className="container">
               <div className="text-center mb-16">
-                  <h2 className="text-3xl md:text-4xl font-bold text-secondary-foreground">Empresas que ya confían en mi trabajo</h2>
-                  <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">
+                  <h2 className="text-3xl md:text-4xl font-bold text-foreground">Empresas que ya confían en mi trabajo</h2>
+                  <p className="mt-6 max-w-3xl mx-auto text-lg text-muted-foreground">
                       Organizaciones que están transformando su comunicación y liderazgo.
                   </p>
               </div>
@@ -282,3 +282,5 @@ export default function Home() {
     </div>
   );
 }
+
+    

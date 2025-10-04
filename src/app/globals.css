@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --background: 33 82% 94%;
+    --background: 33 82% 99%;
     --foreground: 211 41% 17%;
     --card: 33 82% 97%;
     --card-foreground: 211 41% 17%;
@@ -84,6 +84,8 @@
   }
 
   .animate-fade-in-up {
-    animation: fade-in-up 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation: fade-in-up 0.8s cubic-bezier(0.39, 0.58, 0.57, 1) forwards;
   }
 }
+
+    
