@@ -75,21 +75,27 @@
   }
 
   .animate-scroll-x {
-    animation: scroll-x 60s linear infinite;
+    animation: scroll-x 40s linear infinite;
   }
 
   @keyframes fade-in-up {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(24px) scale(0.98);
+      filter: blur(4px);
     }
     to {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateY(0) scale(1);
+      filter: blur(0);
     }
   }
 
   .animate-fade-in-up {
-    animation: fade-in-up 0.6s cubic-bezier(0.39, 0.58, 0.57, 1) forwards;
+    animation: fade-in-up 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+  
+  .will-change-transform {
+    will-change: transform;
   }
 }

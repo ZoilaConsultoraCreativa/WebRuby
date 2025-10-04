@@ -1,7 +1,11 @@
 
+'use client'
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Quote, Award, ShieldCheck } from 'lucide-react';
+import React, { useRef } from 'react';
+import { useScroll, useTransform, motion } from 'framer-motion';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
@@ -62,13 +66,35 @@ const forYouImage = getPlaceholderImage('program-individual');
 const forCompaniesImage = getPlaceholderImage('corporate-safe-workplace');
 
 export default function Home() {
+  const heroRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"]
+  });
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+
   return (
     <div className="flex flex-col bg-background overflow-x-hidden">
-      <section className="relative pt-24 pb-24 md:pt-40 md:pb-32">
-        <div className="container grid md:grid-cols-2 gap-8 items-center">
+      <section ref={heroRef} className="relative pt-24 pb-24 md:pt-40 md:pb-32 overflow-hidden">
+        <motion.div
+          className="absolute inset-0 z-0 will-change-transform"
+          style={{ y }}
+        >
+          <div className="absolute inset-0 bg-primary/5"></div>
+           <Image
+              src={heroImage.imageUrl}
+              alt={heroImage.description}
+              fill
+              className="object-cover object-top opacity-20"
+              data-ai-hint={heroImage.imageHint}
+              priority
+          />
+        </motion.div>
+        
+        <div className="container grid md:grid-cols-2 gap-8 items-center relative z-10">
             <div className="max-w-xl space-y-8 text-center md:text-left">
-              <div className="inline-block animate-fade-in-up [animation-delay:100ms]">
-                  <div className="flex flex-wrap gap-x-6 gap-y-2 justify-center text-sm text-muted-foreground">
+              <div className="inline-block opacity-0 animate-fade-in-up [animation-delay:100ms]">
+                  <div className="flex flex-wrap gap-x-6 gap-y-2 justify-center md:justify-start text-sm text-muted-foreground">
                       <div className="flex items-center gap-2">
                           <Award className="h-5 w-5 text-primary" />
                           <span>Coach Ejecutiva Certificada</span>
@@ -80,39 +106,25 @@ export default function Home() {
                   </div>
               </div>
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter !leading-tight animate-fade-in-up [animation-delay:200ms]">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter !leading-tight opacity-0 animate-fade-in-up [animation-delay:300ms]">
                 Liderazgo que Inspira.
                 <br />
                 <span className="text-primary">Comunicación que Transforma.</span>
               </h1>
-              <p className="text-lg text-muted-foreground animate-fade-in-up [animation-delay:400ms]">
+              <p className="text-lg text-muted-foreground opacity-0 animate-fade-in-up [animation-delay:500ms]">
                 Ayudo a mujeres líderes y equipos a convertir su comunicación en su mayor activo estratégico.
               </p>
 
-              <div className="animate-fade-in-up [animation-delay:600ms]">
+              <div className="opacity-0 animate-fade-in-up [animation-delay:700ms]">
                 <Button size="lg" asChild>
                   <Link href="/contact">Agenda una Sesión</Link>
                 </Button>
               </div>
             </div>
-            <div className="relative h-[500px] w-full max-w-md mx-auto md:max-w-none animate-fade-in-up [animation-delay:300ms]">
-                <div className="absolute -top-4 -left-4 w-full h-full bg-accent rounded-3xl transform -rotate-6"></div>
-                <div className="absolute inset-0 rounded-3xl overflow-hidden shadow-2xl transform rotate-3 transition-transform duration-500 hover:rotate-0 hover:scale-105">
-                    <Image
-                        src={heroImage.imageUrl}
-                        alt={heroImage.description}
-                        fill
-                        className="object-cover"
-                        data-ai-hint={heroImage.imageHint}
-                        priority
-                    />
-                    <ImageDimensions image={heroImage} />
-                </div>
-            </div>
         </div>
       </section>
 
-      <section className="py-20 md:py-28 bg-secondary">
+      <section className="py-20 md:py-28 bg-secondary/50">
         <div className="container">
             <div className="text-center mb-16 max-w-3xl mx-auto">
                 <h2 className="text-3xl md:text-4xl font-bold text-foreground">Mi Misión</h2>
@@ -131,8 +143,26 @@ export default function Home() {
                 Programas y servicios diseñados para potenciar tu liderazgo y el de tu organización.
                 </p>
             </div>
-            <div className="relative grid md:grid-cols-2 gap-x-16 gap-y-24 items-center">
-                <div className="md:col-start-1 md:row-start-1">
+            <div className="grid md:grid-cols-2 gap-16 items-center">
+                <div className="relative h-[500px]">
+                    <motion.div 
+                      className="absolute w-full h-full rounded-3xl overflow-hidden shadow-2xl"
+                      initial={{ scale: 0.9, opacity: 0 }}
+                      whileInView={{ scale: 1, opacity: 1 }}
+                      viewport={{ once: true, amount: 0.5 }}
+                      transition={{ duration: 0.6, ease: "easeOut" }}
+                    >
+                         <Image
+                            src={forYouImage.imageUrl}
+                            alt={forYouImage.description}
+                            fill
+                            className="object-cover"
+                            data-ai-hint={forYouImage.imageHint}
+                        />
+                        <ImageDimensions image={forYouImage} />
+                    </motion.div>
+                </div>
+                <div>
                     <Card className="flex flex-col shadow-none border-none bg-transparent">
                         <CardHeader>
                             <CardTitle className="text-3xl text-primary">Para Ti</CardTitle>
@@ -149,29 +179,16 @@ export default function Home() {
                         </CardFooter>
                     </Card>
                 </div>
-                 <div className="md:col-start-2 md:row-start-1 relative h-[450px]">
-                    <div className="absolute w-full h-full bg-accent rounded-3xl transform -rotate-3 transition-transform duration-300 group-hover:rotate-0"></div>
-                     <Card className="relative w-full h-full rounded-3xl overflow-hidden shadow-xl transform rotate-3 transition-transform duration-300 hover:rotate-0">
-                         <Image
-                            src={forYouImage.imageUrl}
-                            alt={forYouImage.description}
-                            fill
-                            className="object-cover"
-                            data-ai-hint={forYouImage.imageHint}
-                        />
-                        <ImageDimensions image={forYouImage} />
-                    </Card>
-                </div>
-
-                <div className="md:col-start-2 md:row-start-2 text-right">
-                    <Card className="flex flex-col shadow-none border-none bg-transparent">
-                        <CardHeader>
+                
+                <div className="md:order-last">
+                     <Card className="flex flex-col shadow-none border-none bg-transparent md:text-right md:items-end">
+                        <CardHeader className="md:p-0 md:pr-6 md:pb-6">
                             <CardTitle className="text-3xl text-primary">Para Empresas</CardTitle>
                         </CardHeader>
-                        <CardContent className="flex-1">
+                        <CardContent className="flex-1 md:p-0 md:pr-6">
                             <p className="text-muted-foreground text-lg">Potenciamos la comunicación de tus equipos y preparamos a tus líderes para la Ley Karin a través de workshops y coaching especializado.</p>
                         </CardContent>
-                        <CardFooter className="justify-end">
+                        <CardFooter className="md:p-0 md:pr-6 md:pt-6">
                             <Button asChild variant="link" className="px-0 text-base">
                                 <Link href="/corporate">
                                     Soluciones Corporativas <ArrowRight className="ml-2 h-4 w-4" />
@@ -180,9 +197,14 @@ export default function Home() {
                         </CardFooter>
                     </Card>
                 </div>
-                <div className="md:col-start-1 md:row-start-2 relative h-[450px]">
-                    <div className="absolute w-full h-full bg-accent rounded-3xl transform rotate-3 transition-transform duration-300 group-hover:rotate-0"></div>
-                    <Card className="relative w-full h-full rounded-3xl overflow-hidden shadow-xl transform -rotate-3 transition-transform duration-300 hover:rotate-0">
+                <div className="relative h-[500px]">
+                    <motion.div 
+                      className="absolute w-full h-full rounded-3xl overflow-hidden shadow-2xl"
+                      initial={{ scale: 0.9, opacity: 0 }}
+                      whileInView={{ scale: 1, opacity: 1 }}
+                      viewport={{ once: true, amount: 0.5 }}
+                      transition={{ duration: 0.6, ease: "easeOut" }}
+                    >
                         <Image
                             src={forCompaniesImage.imageUrl}
                             alt={forCompaniesImage.description}
@@ -191,13 +213,13 @@ export default function Home() {
                             data-ai-hint={forCompaniesImage.imageHint}
                         />
                         <ImageDimensions image={forCompaniesImage} />
-                    </Card>
+                    </motion.div>
                 </div>
             </div>
         </div>
       </section>
 
-      <section className="py-20 md:py-28 bg-secondary">
+      <section className="py-20 md:py-28 bg-secondary/50">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold">Lo que mis clientas dicen</h2>
@@ -247,7 +269,7 @@ export default function Home() {
                   <h2 className="text-3xl md:text-4xl font-bold text-foreground">Empresas que ya confían en mi trabajo</h2>
                   <p className="mt-6 max-w-3xl mx-auto text-lg text-muted-foreground">
                       Organizaciones que están transformando su comunicación y liderazgo.
-                  </p>
+                  </a-ai-hint>
               </div>
               <div className="relative w-full overflow-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-16 before:bg-gradient-to-r before:from-background before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-16 after:bg-gradient-to-l after:from-background after:to-transparent">
                 <div className="flex animate-scroll-x group">
