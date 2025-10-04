@@ -95,39 +95,39 @@ export default function Home() {
         <ImageDimensions image={heroImage} />
         <div className="relative z-20 container text-center space-y-6">
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tighter !leading-tight animate-fade-in-up" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.7)' }}>
-            Tu Liderazgo es Real.
+            Liderazgo que Inspira.
             <br />
-            <span className="text-primary-foreground">Comunica con Confianza.</span>
+            <span className="text-primary-foreground">Comunicación que Transforma.</span>
           </h1>
           <p className="max-w-2xl mx-auto text-lg text-white/90 animate-fade-in-up [animation-delay:300ms]" style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.5)' }}>
-            Ayudo a mujeres y equipos a comunicarse de forma estratégica y con claridad, formando líderes con voz propia.
+            Ayudo a mujeres líderes y equipos a convertir su comunicación en su mayor activo estratégico.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4 animate-fade-in-up [animation-delay:600ms]">
-            <div className="flex items-center justify-center gap-2 rounded-full bg-black/20 px-4 py-2">
+            <div className="flex items-center justify-center gap-2 rounded-full bg-black/20 px-4 py-2 backdrop-blur-sm">
                 <Award className="h-5 w-5 text-white/90" />
-                <span className="text-sm font-medium text-white">Coach Ejecutiva</span>
+                <span className="text-sm font-medium text-white">Coach Ejecutiva Certificada</span>
             </div>
-             <div className="flex items-center justify-center gap-2 rounded-full bg-black/20 px-4 py-2">
+             <div className="flex items-center justify-center gap-2 rounded-full bg-black/20 px-4 py-2 backdrop-blur-sm">
                 <ShieldCheck className="h-5 w-5 text-white/90" />
-                <span className="text-sm font-medium text-white">Certificada en Ley Karin</span>
+                <span className="text-sm font-medium text-white">Experta en Ley Karin</span>
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up [animation-delay:900ms]">
-            <Button size="lg" variant="secondary" className="hover:bg-primary hover:text-primary-foreground" asChild>
+          <div className="animate-fade-in-up [animation-delay:900ms] pt-4">
+            <Button size="lg" asChild>
               <Link href="/contact">Agenda una Sesión</Link>
             </Button>
           </div>
         </div>
       </section>
 
-      <section className="py-20 md:py-28 bg-mission text-primary-foreground">
+      <section className="py-20 md:py-28 bg-secondary">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold">Tu Siguiente Nivel de Liderazgo</h2>
-            <p className="mt-4 text-lg text-primary-foreground/90">
-              Con más de <strong>8.000 horas de experiencia</strong>, mi misión es impulsar una <strong>transformación real y sostenible</strong> en líderes y equipos. Fusiono una <strong>mirada estratégica</strong> con una profunda <strong>sensibilidad humana</strong> para diseñar <strong>conversaciones de alto impacto</strong>, potenciar la <strong>inteligencia relacional</strong> y construir <strong>culturas de confianza</strong> en los entornos más exigentes.
+            <h2 className="text-3xl md:text-4xl font-bold text-secondary-foreground">Mi Misión</h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              Con más de <strong>8.000 horas de experiencia</strong>, mi propósito es impulsar una <strong>transformación real y sostenible</strong> en líderes y equipos. Fusiono una <strong>mirada estratégica</strong> con una profunda <strong>sensibilidad humana</strong> para diseñar <strong>conversaciones de alto impacto</strong>, potenciar la <strong>inteligencia relacional</strong> y construir <strong>culturas de confianza</strong> en los entornos más exigentes.
             </p>
           </div>
         </div>
@@ -136,11 +136,14 @@ export default function Home() {
       <section className="py-20 md:py-28 bg-background">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold">Formas en que podemos trabajar juntas</h2>
+            <h2 className="text-3xl md:text-4xl font-bold">Soluciones para tu Crecimiento</h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              Programas y servicios diseñados para potenciar tu liderazgo y el de tu organización.
+            </p>
           </div>
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <Card className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <div className="relative w-full h-64 overflow-hidden group">
+            <Card className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+                <div className="relative w-full h-64 overflow-hidden">
                      <Image
                         src={forYouImage.imageUrl}
                         alt={forYouImage.description}
@@ -158,15 +161,15 @@ export default function Home() {
                 </CardContent>
                 <CardFooter>
                     <Button asChild className="w-full">
-                        <Link href="/programs" className="group">
+                        <Link href="/programs">
                             Ver programas <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                         </Link>
                     </Button>
                 </CardFooter>
             </Card>
 
-            <Card className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <div className="relative w-full h-64 overflow-hidden group">
+            <Card className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+                <div className="relative w-full h-64 overflow-hidden">
                      <Image
                         src={forCompaniesImage.imageUrl}
                         alt={forCompaniesImage.description}
@@ -184,8 +187,8 @@ export default function Home() {
                 </CardContent>
                 <CardFooter>
                     <Button asChild className="w-full">
-                        <Link href="/corporate" className="group">
-                            Conoce más <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        <Link href="/corporate">
+                            Soluciones Corporativas <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                         </Link>
                     </Button>
                 </CardFooter>
@@ -194,7 +197,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-secondary py-20 md:py-28">
+      <section className="bg-background py-20 md:py-28">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold">Lo que mis clientas dicen</h2>
@@ -207,43 +210,43 @@ export default function Home() {
               align: "start",
               loop: true,
             }}
-            className="w-full max-w-4xl mx-auto mt-16"
+            className="w-full max-w-5xl mx-auto mt-16"
           >
             <CarouselContent>
               {testimonials.map((testimonial, index) => (
-                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/2">
-                  <div className="p-1 h-full">
-                    <Card className="flex flex-col justify-between h-full shadow-lg bg-card">
+                <CarouselItem key={index} className="md:basis-1/2">
+                  <div className="p-4 h-full">
+                    <Card className="flex flex-col justify-between h-full shadow-lg bg-card text-left">
                        <CardContent className="pt-6">
                         <Quote className="h-8 w-8 text-primary mb-4" />
-                        <p className="text-muted-foreground italic">"{testimonial.quote}"</p>
+                        <p className="text-muted-foreground italic text-lg">"{testimonial.quote}"</p>
                       </CardContent>
-                      <CardHeader className="flex-row items-center gap-4 border-t pt-6 mt-auto">
-                         <Avatar className="h-12 w-12">
+                      <CardFooter className="flex-row items-center gap-4 border-t pt-6 mt-auto bg-secondary/30">
+                         <Avatar className="h-14 w-14">
                             <AvatarImage src={testimonial.image.imageUrl} alt={testimonial.name} data-ai-hint={testimonial.image.imageHint} />
                             <AvatarFallback>{testimonial.initials}</AvatarFallback>
                           </Avatar>
                           <div>
-                            <p className="font-bold text-lg">{testimonial.name}</p>
+                            <p className="font-bold text-lg text-foreground">{testimonial.name}</p>
                           </div>
-                      </CardHeader>
+                      </CardFooter>
                     </Card>
                   </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="left-[-50px]"/>
-            <CarouselNext className="right-[-50px]"/>
+            <CarouselPrevious className="left-[-20px] md:left-[-50px]"/>
+            <CarouselNext className="right-[-20px] md:right-[-50px]"/>
           </Carousel>
         </div>
       </section>
 
-      <section className="bg-background py-20 md:py-28">
+      <section className="bg-secondary py-20 md:py-28">
           <div className="container">
               <div className="text-center mb-16">
-                  <h2 className="text-3xl md:text-4xl font-bold">Han confiado en nosotros</h2>
+                  <h2 className="text-3xl md:text-4xl font-bold text-secondary-foreground">Empresas que ya confían en mi trabajo</h2>
                   <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">
-                      Empresas que ya están transformando su comunicación y liderazgo.
+                      Organizaciones que están transformando su comunicación y liderazgo.
                   </p>
               </div>
               <div className="relative w-full overflow-hidden">
@@ -260,9 +263,9 @@ export default function Home() {
 
       <section className="bg-primary text-primary-foreground py-20">
         <div className="container text-center max-w-3xl mx-auto">
-          <h2 className="text-2xl font-bold">¿Lista para liderar con estrategia desde quien ya eres?</h2>
-          <p className="mt-4 max-w-2xl mx-auto text-primary-foreground/80 text-lg">
-            Descubre si mis programas son para ti. Agenda una conversación sin compromiso.
+          <h2 className="text-3xl font-bold">¿Lista para liderar con estrategia desde quien ya eres?</h2>
+          <p className="mt-4 max-w-2xl mx-auto text-primary-foreground/90 text-lg">
+            Descubre si mis programas son para ti. Agenda una conversación inicial sin costo y sin compromiso.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" variant="secondary" asChild>
@@ -274,5 +277,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
