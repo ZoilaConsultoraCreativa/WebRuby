@@ -82,8 +82,8 @@ export default function Home() {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.6,
-        ease: [0.6, 0.05, -0.01, 0.9],
+        duration: 0.8,
+        ease: [0.34, 1.56, 0.64, 1],
       },
     },
   };
@@ -136,7 +136,7 @@ export default function Home() {
         </div>
          <div className="hidden lg:block absolute inset-y-0 right-0 w-1/2 bg-primary">
             <motion.div
-              className="w-full h-full"
+              className="w-full h-full will-change-transform"
               initial={{ opacity: 0, scale: 1.1 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1.2, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
