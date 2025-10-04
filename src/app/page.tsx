@@ -134,7 +134,7 @@ export default function Home() {
               </motion.div>
             </motion.div>
         </div>
-         <div className="hidden lg:block absolute inset-y-0 right-0 w-1/2 bg-primary">
+         <div className="absolute inset-y-0 right-0 w-1/2 bg-primary lg:block hidden">
             <motion.div
               className="w-full h-full will-change-transform"
               initial={{ opacity: 0, scale: 1.1 }}
