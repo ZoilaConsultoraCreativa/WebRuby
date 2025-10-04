@@ -149,6 +149,7 @@ export default function Home() {
                 data-ai-hint={heroImage.imageHint}
                 priority
               />
+              <ImageDimensions image={heroImage} />
             </motion.div>
         </div>
       </section>
