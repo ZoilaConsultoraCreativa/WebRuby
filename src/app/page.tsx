@@ -92,7 +92,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col bg-background overflow-x-hidden">
-      <section ref={heroRef} className="relative pt-16 lg:pt-24 pb-24 overflow-hidden">
+      <section ref={heroRef} className="relative pt-8 lg:pt-16 pb-24 overflow-hidden">
         {/* Desktop Layout */}
         <div className="hidden lg:grid container grid-cols-2 gap-12 items-center relative z-10">
             <motion.div 
@@ -157,7 +157,7 @@ export default function Home() {
         {/* Mobile Layout */}
         <div className="lg:hidden container text-center">
             <motion.div 
-              className="relative h-96 mt-8 mb-8"
+              className="relative h-96 mb-8"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
