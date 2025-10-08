@@ -6,8 +6,8 @@ export default function Footer() {
   return (
     <footer className="border-t">
       <div className="container py-12">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-          <div className="space-y-4">
+        <div className="grid grid-cols-1 gap-8 text-center md:grid-cols-3 md:text-left">
+          <div className="space-y-4 md:col-span-1 flex flex-col items-center md:items-start">
             <Logo />
             <p className="text-sm text-muted-foreground">
               Comunicación estratégica y liderazgo emocional.
@@ -24,7 +24,7 @@ export default function Footer() {
               </Link>
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-8 md:col-span-2 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 md:col-span-2">
             <div className="space-y-2">
               <h4 className="font-headline text-sm font-semibold">Navegación</h4>
               <ul className="space-y-2 text-sm">
