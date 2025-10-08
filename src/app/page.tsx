@@ -10,7 +10,7 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from '@/components/ui/carousel';
 import { getPlaceholderImage } from '@/lib/placeholder-images';
 import { ImageDimensions } from '@/components/image-dimensions';
 
@@ -312,7 +312,6 @@ export default function Home() {
                 </motion.div>
                 
                 <motion.div
-                  className="md:mt-24"
                   initial={{ opacity: 0, y: 50, scale: 0.95 }}
                   whileInView={{ opacity: 1, y: 0, scale: 1 }}
                   viewport={{ once: true, amount: 0.3 }}
@@ -406,7 +405,8 @@ export default function Home() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            {/* These were missing */}
+            <CarouselPrevious />
+            <CarouselNext />
           </Carousel>
         </div>
       </section>
