@@ -92,20 +92,11 @@ export default function Home() {
 
   return (
     <div className="flex flex-col bg-background overflow-x-hidden">
-      <section ref={heroRef} className="relative pt-16 pb-24 md:pt-24 md:pb-32 overflow-hidden">
-        <motion.div
-          className="absolute inset-0 z-0 will-change-transform"
-          initial={{ opacity: 0.8, scale: 1.1, filter: 'blur(8px)' }}
-          animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
-          transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-blob"></div>
-          <div className="absolute top-1/2 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-blob animation-delay-2000"></div>
-        </motion.div>
-        
-        <div className="container grid lg:grid-cols-2 gap-12 items-center relative z-10">
+      <section ref={heroRef} className="relative pt-16 lg:pt-24 pb-24 overflow-hidden">
+        {/* Desktop Layout */}
+        <div className="hidden lg:grid container grid-cols-2 gap-12 items-center relative z-10">
             <motion.div 
-              className="max-w-xl space-y-8"
+              className="max-w-xl space-y-8 text-left"
               variants={containerVariants}
               initial="hidden"
               animate="visible"
@@ -122,7 +113,6 @@ export default function Home() {
                       </div>
                   </div>
               </motion.div>
-
               <motion.h1 
                 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter !leading-tight"
                 variants={itemVariants}
@@ -131,22 +121,20 @@ export default function Home() {
                 <br />
                 <span className="text-primary">Comunicación que Transforma.</span>
               </motion.h1>
-              
               <motion.p 
                 className="text-lg text-muted-foreground"
                 variants={itemVariants}
               >
                 Ayudo a mujeres líderes y equipos a convertir su comunicación en su mayor activo estratégico.
               </motion.p>
-
               <motion.div variants={itemVariants}>
                 <Button size="lg" asChild>
                   <Link href="/contact">Agenda una Sesión</Link>
                 </Button>
               </motion.div>
             </motion.div>
-            <div className="relative h-[600px] lg:h-[700px] -mr-16 flex items-end justify-center">
-              <div className="absolute inset-x-0 bottom-0 h-3/4 bg-primary/5 rounded-t-full"></div>
+            <div className="relative h-[600px] -mr-16">
+              <div className="absolute inset-0 right-0 w-1/2 bg-primary"></div>
               <motion.div
                 className="relative w-full h-full will-change-transform"
                 initial={{ opacity: 0, y: 50, scale: 0.95 }}
@@ -164,6 +152,64 @@ export default function Home() {
                 <ImageDimensions image={heroImage} />
               </motion.div>
             </div>
+        </div>
+
+        {/* Mobile Layout */}
+        <div className="lg:hidden container text-center">
+            <motion.div 
+              className="relative h-96 mt-8 mb-8"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4/5 h-2/3 bg-gradient-to-t from-primary/20 to-transparent rounded-t-full"></div>
+               <Image
+                  src={heroImage.imageUrl}
+                  alt={heroImage.description}
+                  fill
+                  className="object-contain object-bottom"
+                  data-ai-hint={heroImage.imageHint}
+                  priority
+                />
+            </motion.div>
+             <motion.div 
+              className="space-y-6"
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              <motion.div variants={itemVariants}>
+                  <div className="flex flex-wrap gap-x-4 gap-y-2 justify-center text-sm text-muted-foreground">
+                      <div className="flex items-center gap-2">
+                          <Award className="h-5 w-5 text-primary" />
+                          <span>Coach Ejecutiva Certificada</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                          <ShieldCheck className="h-5 w-5 text-primary" />
+                          <span>Experta en Ley Karin</span>
+                      </div>
+                  </div>
+              </motion.div>
+              <motion.h1 
+                className="text-4xl font-bold tracking-tighter"
+                variants={itemVariants}
+              >
+                Liderazgo que Inspira,
+                <br />
+                <span className="text-primary">Comunicación que Transforma.</span>
+              </motion.h1>
+              <motion.p 
+                className="text-base text-muted-foreground"
+                variants={itemVariants}
+              >
+                Ayudo a mujeres líderes y equipos a convertir su comunicación en su mayor activo estratégico.
+              </motion.p>
+              <motion.div variants={itemVariants}>
+                <Button size="lg" asChild>
+                  <Link href="/contact">Agenda una Sesión</Link>
+                </Button>
+              </motion.div>
+            </motion.div>
         </div>
       </section>
 
