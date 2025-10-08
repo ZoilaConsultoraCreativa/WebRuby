@@ -69,15 +69,6 @@
     background-size: 3rem 3rem;
   }
 
-  @keyframes scroll-x {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-
-  .animate-scroll-x {
-    animation: scroll-x 20s linear infinite;
-  }
-
   @keyframes fade-in-up {
     from {
       opacity: 0;

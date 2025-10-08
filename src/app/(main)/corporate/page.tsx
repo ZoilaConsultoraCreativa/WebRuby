@@ -27,7 +27,7 @@ const services = [
 
 const CompanyLogo = ({ name, src }: { name: string, src: string }) => (
     <div className="flex items-center justify-center h-16 text-muted-foreground font-semibold text-lg">
-        <Image src={src} alt={name} width={144} height={64} className="object-contain grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300" data-ai-hint="company logo"/>
+        <Image src={src} alt={name} width={144} height={64} className="object-contain grayscale opacity-80 group-hover/logo:grayscale-0 group-hover/logo:opacity-100 transition-all duration-300" data-ai-hint="company logo"/>
     </div>
 );
 
@@ -125,14 +125,12 @@ export default function CorporatePage() {
                       Empresas que ya están transformando su comunicación y liderazgo.
                   </p>
               </div>
-              <div className="relative w-full overflow-hidden">
-                <div className="flex animate-scroll-x group">
-                    {[...logos, ...logos].map((logo, index) => (
-                        <div key={index} className="flex-shrink-0 w-48 mx-4 group">
-                           <CompanyLogo name={logo.name} src={logo.src} />
-                        </div>
-                    ))}
-                </div>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-8 gap-y-12 items-center">
+                  {logos.map((logo) => (
+                      <div key={logo.name} className="group/logo">
+                         <CompanyLogo name={logo.name} src={logo.src} />
+                      </div>
+                  ))}
               </div>
           </div>
       </section>

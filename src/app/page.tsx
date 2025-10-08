@@ -42,7 +42,7 @@ const testimonials = [
 
 const CompanyLogo = ({ name, src }: { name: string, src: string }) => (
     <div className="flex items-center justify-center h-16">
-        <Image src={src} alt={name} width={144} height={64} className="object-contain aspect-[3/1] w-32 grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300" data-ai-hint="company logo"/>
+        <Image src={src} alt={name} width={144} height={64} className="object-contain aspect-[3/1] w-32 grayscale opacity-70 group-hover/logo:grayscale-0 group-hover/logo:opacity-100 transition-all duration-300" data-ai-hint="company logo"/>
     </div>
 );
 
@@ -417,14 +417,12 @@ export default function Home() {
                       Organizaciones que están transformando su comunicación y liderazgo.
                   </motion.p>
               </div>
-              <div className="relative w-full overflow-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-16 before:bg-gradient-to-r before:from-background before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-16 after:bg-gradient-to-l after:from-background after:to-transparent">
-                <div className="flex animate-scroll-x group">
-                    {[...logos, ...logos].map((logo, index) => (
-                        <div key={index} className="flex-shrink-0 w-48 mx-8 group">
-                           <CompanyLogo name={logo.name} src={logo.src} />
-                        </div>
-                    ))}
-                </div>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-8 gap-y-12 items-center">
+                  {logos.map((logo) => (
+                      <div key={logo.name} className="group/logo">
+                         <CompanyLogo name={logo.name} src={logo.src} />
+                      </div>
+                  ))}
               </div>
           </div>
       </section>
