@@ -134,7 +134,7 @@ export default function Home() {
               </motion.div>
             </motion.div>
             <div className="relative h-[600px] -mr-16">
-              <div className="absolute inset-0 right-0 w-1/2 bg-primary"></div>
+              <div className="absolute inset-0 right-0 w-1/2 bg-primary rounded-tl-[100px]"></div>
               <motion.div
                 className="relative w-full h-full will-change-transform"
                 initial={{ opacity: 0, y: 50, scale: 0.95 }}
@@ -155,9 +155,9 @@ export default function Home() {
         </div>
 
         {/* Mobile Layout */}
-        <div className="lg:hidden container text-center">
+        <div className="lg:hidden container text-center pt-8">
             <motion.div 
-              className="relative h-96 mb-8"
+              className="relative h-96"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
@@ -173,7 +173,7 @@ export default function Home() {
                 />
             </motion.div>
              <motion.div 
-              className="space-y-6"
+              className="space-y-6 mt-8"
               variants={containerVariants}
               initial="hidden"
               animate="visible"
