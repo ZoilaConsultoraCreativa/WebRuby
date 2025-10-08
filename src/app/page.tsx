@@ -41,9 +41,9 @@ const testimonials = [
 ];
 
 const CompanyLogo = ({ name, src }: { name: string, src: string }) => (
-    <div className="flex items-center justify-center h-16">
-        <Image src={src} alt={name} width={144} height={64} className="object-contain aspect-[3/1] w-32 grayscale opacity-70 group-hover/logo:grayscale-0 group-hover/logo:opacity-100 transition-all duration-300" data-ai-hint="company logo"/>
-    </div>
+    <li className="flex-shrink-0 mx-4">
+        <Image src={src} alt={name} width={144} height={64} className="object-contain h-10 w-auto" data-ai-hint="company logo"/>
+    </li>
 );
 
 const logos = [
@@ -59,6 +59,10 @@ const logos = [
     { name: "Logo 10", src: "https://firebasestorage.googleapis.com/v0/b/webruby-d89a9.firebasestorage.app/o/Sitio%20RubyVillarroel.cl%2FLogos%20Empresas%2F10.png?alt=media&token=b1f75eb5-dbec-4bca-a398-457dd29c381f" },
     { name: "Logo 11", src: "https://firebasestorage.googleapis.com/v0/b/webruby-d89a9.firebasestorage.app/o/Sitio%20RubyVillarroel.cl%2FLogos%20Empresas%2F11.png?alt=media&token=d89d6828-5651-4417-8071-33205d0b411e" },
 ];
+
+const logosRow1 = logos.slice(0, 4);
+const logosRow2 = logos.slice(4, 8);
+const logosRow3 = logos.slice(8, 11);
 
 const heroImage = getPlaceholderImage('hero-woman-leader');
 const forYouImage = getPlaceholderImage('program-individual');
@@ -92,7 +96,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col bg-background overflow-x-hidden">
-      <section ref={heroRef} className="relative pt-8 lg:pt-16 pb-24 overflow-hidden">
+      <section ref={heroRef} className="relative pt-8 lg:pt-8 pb-24 overflow-hidden">
         {/* Desktop Layout */}
         <div className="hidden lg:grid container grid-cols-2 gap-12 items-center relative z-10">
             <motion.div 
@@ -417,13 +421,29 @@ export default function Home() {
                       Organizaciones que están transformando su comunicación y liderazgo.
                   </motion.p>
               </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-8 gap-y-12 items-center">
-                  {logos.map((logo) => (
-                      <div key={logo.name} className="group/logo">
-                         <CompanyLogo name={logo.name} src={logo.src} />
-                      </div>
-                  ))}
-              </div>
+                <div className="relative flex flex-col gap-4 overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
+                    <div className="flex animate-scroll-left" style={{ animationDuration: '30s' }}>
+                        <ul className="flex items-center justify-center md:justify-start [&_li]:mx-4 [&_img]:max-w-none">
+                            {[...logosRow1, ...logosRow1].map((logo, index) => (
+                                <CompanyLogo key={`${logo.name}-1-${index}`} name={logo.name} src={logo.src} />
+                            ))}
+                        </ul>
+                    </div>
+                    <div className="flex animate-scroll-left" style={{ animationDuration: '45s', animationDirection: 'reverse' }}>
+                         <ul className="flex items-center justify-center md:justify-start [&_li]:mx-4 [&_img]:max-w-none">
+                            {[...logosRow2, ...logosRow2].map((logo, index) => (
+                                <CompanyLogo key={`${logo.name}-2-${index}`} name={logo.name} src={logo.src} />
+                            ))}
+                        </ul>
+                    </div>
+                    <div className="flex animate-scroll-left" style={{ animationDuration: '40s' }}>
+                         <ul className="flex items-center justify-center md:justify-start [&_li]:mx-4 [&_img]:max-w-none">
+                           {[...logosRow3, ...logosRow3, ...logosRow3, ...logosRow3].map((logo, index) => (
+                                <CompanyLogo key={`${logo.name}-3-${index}`} name={logo.name} src={logo.src} />
+                            ))}
+                        </ul>
+                    </div>
+                </div>
           </div>
       </section>
 
