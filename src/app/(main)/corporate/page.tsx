@@ -139,14 +139,14 @@ export default function CorporatePage() {
                     </div>
                     <div className="flex animate-scroll-left" style={{ animationDuration: '45s', animationDirection: 'reverse' }}>
                          <ul className="flex items-center justify-center md:justify-start [&_li]:mx-4 [&_img]:max-w-none">
-                            {[...logosRow2, ...logosRow2].map((logo, index) => (
+                            {[...logosRow2].reverse().concat([...logosRow2].reverse()).map((logo, index) => (
                                 <CompanyLogo key={`${logo.name}-2-${index}`} name={logo.name} src={logo.src} />
                             ))}
                         </ul>
                     </div>
                     <div className="flex animate-scroll-left" style={{ animationDuration: '40s' }}>
                          <ul className="flex items-center justify-center md:justify-start [&_li]:mx-4 [&_img]:max-w-none">
-                           {[...logosRow3, ...logosRow3, ...logosRow3, ...logosRow3].map((logo, index) => (
+                           {[...logosRow3, ...logosRow3].map((logo, index) => (
                                 <CompanyLogo key={`${logo.name}-3-${index}`} name={logo.name} src={logo.src} />
                             ))}
                         </ul>
