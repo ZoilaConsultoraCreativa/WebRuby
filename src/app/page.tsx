@@ -88,10 +88,22 @@ export default function Home() {
     },
   };
 
+  const heroRef = React.useRef<HTMLElement>(null);
+
   return (
     <div className="flex flex-col bg-background overflow-x-hidden">
-      <section className="relative min-h-[calc(100vh-4rem)] flex items-center">
-        <div className="container grid lg:grid-cols-2 gap-12 items-center">
+      <section ref={heroRef} className="relative pt-24 pb-24 md:pt-40 md:pb-32 overflow-hidden">
+        <motion.div
+          className="absolute inset-0 z-0 will-change-transform"
+          initial={{ opacity: 0.8, scale: 1.1, filter: 'blur(8px)' }}
+          animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+          transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-blob"></div>
+          <div className="absolute top-1/2 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-blob animation-delay-2000"></div>
+        </motion.div>
+        
+        <div className="container grid lg:grid-cols-2 gap-12 items-center relative z-10">
             <motion.div 
               className="max-w-xl space-y-8"
               variants={containerVariants}
@@ -133,37 +145,46 @@ export default function Home() {
                 </Button>
               </motion.div>
             </motion.div>
-        </div>
-         <div className="absolute inset-y-0 right-0 w-1/2 bg-primary lg:block hidden">
-            <motion.div
-              className="w-full h-full will-change-transform"
-              initial={{ opacity: 0, scale: 1.1 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.2, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <Image
-                src={heroImage.imageUrl}
-                alt={heroImage.description}
-                fill
-                className="object-contain object-bottom"
-                data-ai-hint={heroImage.imageHint}
-                priority
-              />
-              <ImageDimensions image={heroImage} />
-            </motion.div>
+            <div className="relative h-[600px] lg:h-[700px] -mr-16 lg:flex items-end justify-center">
+              <div className="absolute inset-x-0 bottom-0 h-3/4 bg-primary/5 rounded-t-full"></div>
+              <motion.div
+                className="relative w-full h-full will-change-transform"
+                initial={{ opacity: 0, y: 50, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 1.2, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <Image
+                  src={heroImage.imageUrl}
+                  alt={heroImage.description}
+                  fill
+                  className="object-contain object-bottom"
+                  data-ai-hint={heroImage.imageHint}
+                  priority
+                />
+                <ImageDimensions image={heroImage} />
+              </motion.div>
+            </div>
         </div>
       </section>
 
-      <section className="py-20 md:py-28 bg-secondary">
+      <section className="py-20 md:py-28 bg-secondary/30">
         <div className="container">
             <div className="text-center mb-16 max-w-3xl mx-auto">
-                <h2 className="text-3xl md:text-4xl font-bold text-foreground">Mi Misión</h2>
+                <motion.h2 
+                  className="text-3xl md:text-4xl font-bold text-foreground"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.5 }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                >
+                  Mi Misión
+                </motion.h2>
                 <motion.p 
                   className="text-lg text-muted-foreground leading-relaxed mt-4"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.5 }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                 >
                   Con más de <strong>8.000 horas de experiencia</strong>, mi propósito es impulsar una <strong>transformación real y sostenible</strong> en líderes y equipos. Fusiono una <strong>mirada estratégica</strong> con una profunda <strong>sensibilidad humana</strong> para diseñar <strong>conversaciones de alto impacto</strong>, potenciar la <strong>inteligencia relacional</strong> y construir <strong>culturas de confianza</strong> en los entornos más exigentes.
                 </motion.p>
@@ -174,39 +195,44 @@ export default function Home() {
       <section className="py-20 md:py-28">
         <div className="container">
             <div className="text-center max-w-3xl mx-auto mb-20">
-                <h2 className="text-3xl md:text-4xl font-bold">Soluciones para tu Crecimiento</h2>
+                <motion.h2 
+                  className="text-3xl md:text-4xl font-bold"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.5 }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                >
+                  Soluciones para tu Crecimiento
+                </motion.h2>
                 <motion.p 
                   className="mt-6 text-lg text-muted-foreground"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.5 }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                 >
-                Programas y servicios diseñados para potenciar tu liderazgo y el de tu organización.
+                  Programas y servicios diseñados para potenciar tu liderazgo y el de tu organización.
                 </motion.p>
             </div>
-            <div className="grid md:grid-cols-2 gap-16 items-center">
-                <div className="relative h-[500px]">
-                    <motion.div 
-                      className="absolute w-full h-full rounded-3xl overflow-hidden shadow-2xl"
-                      initial={{ scale: 0.9, opacity: 0 }}
-                      whileInView={{ scale: 1, opacity: 1 }}
-                      viewport={{ once: true, amount: 0.5 }}
-                      transition={{ duration: 0.6, ease: "easeOut" }}
-                    >
-                         <Image
-                            src={forYouImage.imageUrl}
-                            alt={forYouImage.description}
-                            fill
-                            className="object-cover"
-                            data-ai-hint={forYouImage.imageHint}
-                        />
-                        <ImageDimensions image={forYouImage} />
-                    </motion.div>
-                </div>
-                <div>
-                    <Card className="flex flex-col shadow-none border-none bg-transparent">
-                        <CardHeader>
+            <div className="grid md:grid-cols-2 gap-16 items-start">
+                <motion.div
+                  initial={{ opacity: 0, y: 50, scale: 0.95 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                >
+                    <Card className="flex flex-col shadow-xl bg-card rounded-2xl overflow-hidden h-full">
+                        <div className="relative h-72 w-full">
+                            <Image
+                                src={forYouImage.imageUrl}
+                                alt={forYouImage.description}
+                                fill
+                                className="object-cover"
+                                data-ai-hint={forYouImage.imageHint}
+                            />
+                            <ImageDimensions image={forYouImage} />
+                        </div>
+                        <CardHeader className="pt-6">
                             <CardTitle className="text-3xl text-primary">Para Ti</CardTitle>
                         </CardHeader>
                         <CardContent className="flex-1">
@@ -220,17 +246,33 @@ export default function Home() {
                             </Button>
                         </CardFooter>
                     </Card>
-                </div>
+                </motion.div>
                 
-                <div className="md:order-last">
-                     <Card className="flex flex-col shadow-none border-none bg-transparent md:text-right md:items-end">
-                        <CardHeader className="md:p-0 md:pr-6 md:pb-6">
+                <motion.div
+                  className="md:mt-24"
+                  initial={{ opacity: 0, y: 50, scale: 0.95 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+                >
+                     <Card className="flex flex-col shadow-xl bg-card rounded-2xl overflow-hidden h-full">
+                        <div className="relative h-72 w-full">
+                            <Image
+                                src={forCompaniesImage.imageUrl}
+                                alt={forCompaniesImage.description}
+                                fill
+                                className="object-cover"
+                                data-ai-hint={forCompaniesImage.imageHint}
+                            />
+                            <ImageDimensions image={forCompaniesImage} />
+                        </div>
+                        <CardHeader className="pt-6">
                             <CardTitle className="text-3xl text-primary">Para Empresas</CardTitle>
                         </CardHeader>
-                        <CardContent className="flex-1 md:p-0 md:pr-6">
+                        <CardContent className="flex-1">
                             <p className="text-muted-foreground text-lg">Potenciamos la comunicación de tus equipos y preparamos a tus líderes para la Ley Karin a través de workshops y coaching especializado.</p>
                         </CardContent>
-                        <CardFooter className="md:p-0 md:pr-6 md:pt-6">
+                        <CardFooter>
                             <Button asChild variant="link" className="px-0 text-base">
                                 <Link href="/corporate">
                                     Soluciones Corporativas <ArrowRight className="ml-2 h-4 w-4" />
@@ -238,36 +280,32 @@ export default function Home() {
                             </Button>
                         </CardFooter>
                     </Card>
-                </div>
-                <div className="relative h-[500px]">
-                    <motion.div 
-                      className="absolute w-full h-full rounded-3xl overflow-hidden shadow-2xl"
-                      initial={{ scale: 0.9, opacity: 0 }}
-                      whileInView={{ scale: 1, opacity: 1 }}
-                      viewport={{ once: true, amount: 0.5 }}
-                      transition={{ duration: 0.6, ease: "easeOut" }}
-                    >
-                        <Image
-                            src={forCompaniesImage.imageUrl}
-                            alt={forCompaniesImage.description}
-                            fill
-                            className="object-cover"
-                            data-ai-hint={forCompaniesImage.imageHint}
-                        />
-                        <ImageDimensions image={forCompaniesImage} />
-                    </motion.div>
-                </div>
+                </motion.div>
             </div>
         </div>
       </section>
 
-      <section className="py-20 md:py-28 bg-secondary">
+      <section className="py-20 md:py-28 bg-secondary/30">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold">Lo que mis clientas dicen</h2>
-            <p className="mt-6 text-lg text-muted-foreground">
+             <motion.h2 
+              className="text-3xl md:text-4xl font-bold"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              Lo que mis clientas dicen
+            </motion.h2>
+            <motion.p 
+              className="mt-6 text-lg text-muted-foreground"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            >
               Historias de mujeres que decidieron liderar desde su propia voz.
-            </p>
+            </motion.p>
           </div>
           <Carousel
             opts={{
@@ -279,7 +317,13 @@ export default function Home() {
             <CarouselContent>
               {testimonials.map((testimonial, index) => (
                 <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                  <div className="p-4 h-full">
+                  <motion.div 
+                    className="p-4 h-full"
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.8, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                  >
                     <Card className="flex flex-col justify-between h-full shadow-lg bg-card text-left rounded-2xl border-border/80">
                        <CardContent className="pt-8 flex-grow">
                         <Quote className="h-8 w-8 text-primary mb-4" />
@@ -295,7 +339,7 @@ export default function Home() {
                           </div>
                       </CardFooter>
                     </Card>
-                  </div>
+                  </motion.div>
                 </CarouselItem>
               ))}
             </CarouselContent>
@@ -308,10 +352,24 @@ export default function Home() {
       <section className="py-20 md:py-28">
           <div className="container">
               <div className="text-center mb-16">
-                  <h2 className="text-3xl md:text-4xl font-bold text-foreground">Empresas que ya confían en mi trabajo</h2>
-                  <p className="mt-6 max-w-3xl mx-auto text-lg text-muted-foreground">
+                  <motion.h2 
+                    className="text-3xl md:text-4xl font-bold text-foreground"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                  >
+                    Empresas que ya confían en mi trabajo
+                  </motion.h2>
+                  <motion.p 
+                    className="mt-6 max-w-3xl mx-auto text-lg text-muted-foreground"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                  >
                       Organizaciones que están transformando su comunicación y liderazgo.
-                  </p>
+                  </motion.p>
               </div>
               <div className="relative w-full overflow-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-16 before:bg-gradient-to-r before:from-background before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-16 after:bg-gradient-to-l after:from-background after:to-transparent">
                 <div className="flex animate-scroll-x group">
@@ -327,15 +385,35 @@ export default function Home() {
 
       <section className="bg-primary text-primary-foreground py-20 md:py-28">
         <div className="container text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold">¿Lista para liderar con estrategia desde quien ya eres?</h2>
-          <p className="mt-4 max-w-2xl mx-auto text-primary-foreground/90 text-lg">
+          <motion.h2 
+            className="text-3xl font-bold"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            ¿Lista para liderar con estrategia desde quien ya eres?
+          </motion.h2>
+          <motion.p 
+            className="mt-4 max-w-2xl mx-auto text-primary-foreground/90 text-lg"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          >
             Descubre si mis programas son para ti. Agenda una conversación inicial sin costo y sin compromiso.
-          </p>
-          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+          </motion.p>
+          <motion.div 
+            className="mt-8 flex flex-col sm:flex-row gap-4 justify-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+          >
             <Button size="lg" variant="secondary" asChild>
               <Link href="/contact">Hablemos</Link>
             </Button>
-          </div>
+          </motion.div>
         </div>
       </section>
     </div>
