@@ -1,4 +1,5 @@
 
+'use client'
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Building, Lightbulb, Users, ShieldCheck } from "lucide-react";
@@ -6,6 +7,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { getPlaceholderImage } from "@/lib/placeholder-images";
 import { ImageDimensions } from "@/components/image-dimensions";
+import { motion } from "framer-motion";
 
 const services = [
     {
@@ -25,10 +27,16 @@ const services = [
     }
 ]
 
-const CompanyLogo = ({ name, src }: { name: string, src: string }) => (
-    <li className="flex-shrink-0 mx-8">
-        <Image src={src} alt={name} width={144} height={64} className="object-contain h-10 w-auto transition-transform duration-300 hover:scale-110" data-ai-hint="company logo"/>
-    </li>
+const CompanyLogo = ({ name, src, index }: { name: string, src: string, index: number }) => (
+    <motion.div
+        variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { opacity: 1, y: 0 }
+        }}
+        transition={{ duration: 0.5, delay: index * 0.1 }}
+    >
+        <Image src={src} alt={name} width={144} height={64} className="h-10 w-auto object-contain transition-transform duration-300 hover:scale-110" data-ai-hint="company logo"/>
+    </motion.div>
 );
 
 const logos = [
@@ -45,13 +53,20 @@ const logos = [
     { name: "Logo 11", src: "https://firebasestorage.googleapis.com/v0/b/webruby-d89a9.firebasestorage.app/o/Sitio%20RubyVillarroel.cl%2FLogos%20Empresas%2F11.png?alt=media&token=d89d6828-5651-4417-8071-33205d0b411e" },
 ];
 
-const logosRow1 = logos.slice(0, 4);
-const logosRow2 = logos.slice(4, 8);
-const logosRow3 = logos.slice(8, 11);
-
 const safeWorkplaceImage = getPlaceholderImage('corporate-safe-workplace');
 
 export default function CorporatePage() {
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
   return (
     <>
       <section className="relative py-28 md:py-40 text-center text-white">
@@ -129,44 +144,17 @@ export default function CorporatePage() {
                       Empresas que ya están transformando su comunicación y liderazgo.
                   </p>
               </div>
-               <div className="relative flex flex-col gap-4 overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
-                    <div className="flex animate-scroll-left [animation-duration:30s]">
-                        <ul className="flex flex-shrink-0 flex-nowrap items-center">
-                            {logosRow1.map((logo, index) => (
-                                <CompanyLogo key={`${logo.name}-1-${index}`} name={logo.name} src={logo.src} />
-                            ))}
-                        </ul>
-                        <ul className="flex flex-shrink-0 flex-nowrap items-center" aria-hidden="true">
-                            {logosRow1.map((logo, index) => (
-                                <CompanyLogo key={`${logo.name}-2-${index}`} name={logo.name} src={logo.src} />
-                            ))}
-                        </ul>
-                    </div>
-                    <div className="flex animate-scroll-left [animation-duration:45s] [animation-direction:reverse]">
-                        <ul className="flex flex-shrink-0 flex-nowrap items-center">
-                            {[...logosRow2].reverse().map((logo, index) => (
-                                <CompanyLogo key={`${logo.name}-1-${index}`} name={logo.name} src={logo.src} />
-                            ))}
-                        </ul>
-                        <ul className="flex flex-shrink-0 flex-nowrap items-center" aria-hidden="true">
-                            {[...logosRow2].reverse().map((logo, index) => (
-                                <CompanyLogo key={`${logo.name}-2-${index}`} name={logo.name} src={logo.src} />
-                            ))}
-                        </ul>
-                    </div>
-                    <div className="flex animate-scroll-left [animation-duration:40s]">
-                        <ul className="flex flex-shrink-0 flex-nowrap items-center">
-                           {logosRow3.map((logo, index) => (
-                                <CompanyLogo key={`${logo.name}-1-${index}`} name={logo.name} src={logo.src} />
-                            ))}
-                        </ul>
-                        <ul className="flex flex-shrink-0 flex-nowrap items-center" aria-hidden="true">
-                           {logosRow3.map((logo, index) => (
-                                <CompanyLogo key={`${logo.name}-2-${index}`} name={logo.name} src={logo.src} />
-                            ))}
-                        </ul>
-                    </div>
-                </div>
+               <motion.div 
+                className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-12 items-center justify-items-center"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={containerVariants}
+               >
+                  {logos.map((logo, index) => (
+                      <CompanyLogo key={logo.name} name={logo.name} src={logo.src} index={index} />
+                  ))}
+              </motion.div>
           </div>
       </section>
 
@@ -185,3 +173,5 @@ export default function CorporatePage() {
     </>
   );
 }
+
+    

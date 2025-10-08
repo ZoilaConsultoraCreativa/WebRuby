@@ -89,17 +89,6 @@
   .will-change-transform {
     will-change: transform;
   }
-  
-  @keyframes scroll-left {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-100%);
-    }
-  }
-
-  .animate-scroll-left {
-      animation: scroll-left linear infinite;
-  }
 }
+
+    
