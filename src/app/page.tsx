@@ -443,12 +443,10 @@ export default function Home() {
                   }}
                   className="w-full"
                 >
-                  <CarouselContent>
+                  <CarouselContent className="-ml-1">
                     {logos.map((logo, index) => (
-                      <CarouselItem key={index} className="basis-1/3 flex justify-center">
-                        <div className="p-1">
-                           <Image src={logo.src} alt={logo.name} width={144} height={64} className="h-10 w-auto object-contain" data-ai-hint="company logo"/>
-                        </div>
+                      <CarouselItem key={index} className="basis-auto pl-6 flex justify-center">
+                          <Image src={logo.src} alt={logo.name} width={144} height={64} className="h-10 w-auto object-contain" data-ai-hint="company logo"/>
                       </CarouselItem>
                     ))}
                   </CarouselContent>
@@ -506,4 +504,5 @@ export default function Home() {
   );
 }
 
+    
     
