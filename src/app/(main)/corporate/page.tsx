@@ -26,8 +26,8 @@ const services = [
 ]
 
 const CompanyLogo = ({ name, src }: { name: string, src: string }) => (
-    <li className="flex-shrink-0 mx-4">
-        <Image src={src} alt={name} width={144} height={64} className="object-contain h-10 w-auto" data-ai-hint="company logo"/>
+    <li className="flex-shrink-0 mx-8">
+        <Image src={src} alt={name} width={144} height={64} className="object-contain h-10 w-auto transition-transform duration-300 hover:scale-110" data-ai-hint="company logo"/>
     </li>
 );
 
@@ -130,37 +130,37 @@ export default function CorporatePage() {
                   </p>
               </div>
                <div className="relative flex flex-col gap-4 overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
-                    <div className="flex animate-scroll-left" style={{ animationDuration: '30s' }}>
-                        <ul className="flex shrink-0 items-center justify-start [&_li]:mx-4 [&_img]:max-w-none">
+                    <div className="flex animate-scroll-left [animation-duration:30s]">
+                        <ul className="flex flex-shrink-0 flex-nowrap items-center">
                             {logosRow1.map((logo, index) => (
                                 <CompanyLogo key={`${logo.name}-1-${index}`} name={logo.name} src={logo.src} />
                             ))}
                         </ul>
-                        <ul className="flex shrink-0 items-center justify-start [&_li]:mx-4 [&_img]:max-w-none" aria-hidden="true">
+                        <ul className="flex flex-shrink-0 flex-nowrap items-center" aria-hidden="true">
                             {logosRow1.map((logo, index) => (
                                 <CompanyLogo key={`${logo.name}-2-${index}`} name={logo.name} src={logo.src} />
                             ))}
                         </ul>
                     </div>
-                    <div className="flex animate-scroll-left" style={{ animationDuration: '45s', animationDirection: 'reverse' }}>
-                        <ul className="flex shrink-0 items-center justify-start [&_li]:mx-4 [&_img]:max-w-none">
+                    <div className="flex animate-scroll-left [animation-duration:45s] [animation-direction:reverse]">
+                        <ul className="flex flex-shrink-0 flex-nowrap items-center">
                             {[...logosRow2].reverse().map((logo, index) => (
                                 <CompanyLogo key={`${logo.name}-1-${index}`} name={logo.name} src={logo.src} />
                             ))}
                         </ul>
-                        <ul className="flex shrink-0 items-center justify-start [&_li]:mx-4 [&_img]:max-w-none" aria-hidden="true">
+                        <ul className="flex flex-shrink-0 flex-nowrap items-center" aria-hidden="true">
                             {[...logosRow2].reverse().map((logo, index) => (
                                 <CompanyLogo key={`${logo.name}-2-${index}`} name={logo.name} src={logo.src} />
                             ))}
                         </ul>
                     </div>
-                    <div className="flex animate-scroll-left" style={{ animationDuration: '40s' }}>
-                        <ul className="flex shrink-0 items-center justify-start [&_li]:mx-4 [&_img]:max-w-none">
+                    <div className="flex animate-scroll-left [animation-duration:40s]">
+                        <ul className="flex flex-shrink-0 flex-nowrap items-center">
                            {logosRow3.map((logo, index) => (
                                 <CompanyLogo key={`${logo.name}-1-${index}`} name={logo.name} src={logo.src} />
                             ))}
                         </ul>
-                        <ul className="flex shrink-0 items-center justify-start [&_li]:mx-4 [&_img]:max-w-none" aria-hidden="true">
+                        <ul className="flex flex-shrink-0 flex-nowrap items-center" aria-hidden="true">
                            {logosRow3.map((logo, index) => (
                                 <CompanyLogo key={`${logo.name}-2-${index}`} name={logo.name} src={logo.src} />
                             ))}
