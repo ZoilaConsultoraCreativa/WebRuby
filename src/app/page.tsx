@@ -1,3 +1,4 @@
+
 'use client'
 
 import Image from 'next/image';
@@ -171,7 +172,7 @@ export default function Home() {
         </div>
 
         {/* Mobile Layout */}
-        <div className="lg:hidden container text-center pt-8">
+        <div className="lg:hidden container pt-8">
             <motion.div 
               className="relative h-96"
               initial={{ opacity: 0, scale: 0.9 }}
@@ -433,8 +434,29 @@ export default function Home() {
                       Organizaciones que están transformando su comunicación y liderazgo.
                   </motion.p>
               </div>
+              
+              <div className="md:hidden">
+                <Carousel
+                  opts={{
+                    align: "start",
+                    loop: true,
+                  }}
+                  className="w-full"
+                >
+                  <CarouselContent>
+                    {logos.map((logo, index) => (
+                      <CarouselItem key={index} className="basis-1/3 flex justify-center">
+                        <div className="p-1">
+                           <Image src={logo.src} alt={logo.name} width={144} height={64} className="h-10 w-auto object-contain" data-ai-hint="company logo"/>
+                        </div>
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                </Carousel>
+              </div>
+
               <motion.div 
-                className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-12 items-center justify-items-center"
+                className="hidden md:grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-12 items-center justify-items-center"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.2 }}
