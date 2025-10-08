@@ -423,23 +423,38 @@ export default function Home() {
               </div>
                 <div className="relative flex flex-col gap-4 overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
                     <div className="flex animate-scroll-left" style={{ animationDuration: '30s' }}>
-                        <ul className="flex items-center justify-center md:justify-start [&_li]:mx-4 [&_img]:max-w-none">
-                            {[...logosRow1, ...logosRow1].map((logo, index) => (
+                        <ul className="flex shrink-0 items-center justify-start [&_li]:mx-4 [&_img]:max-w-none">
+                            {logosRow1.map((logo, index) => (
                                 <CompanyLogo key={`${logo.name}-1-${index}`} name={logo.name} src={logo.src} />
+                            ))}
+                        </ul>
+                        <ul className="flex shrink-0 items-center justify-start [&_li]:mx-4 [&_img]:max-w-none" aria-hidden="true">
+                            {logosRow1.map((logo, index) => (
+                                <CompanyLogo key={`${logo.name}-2-${index}`} name={logo.name} src={logo.src} />
                             ))}
                         </ul>
                     </div>
                     <div className="flex animate-scroll-left" style={{ animationDuration: '45s', animationDirection: 'reverse' }}>
-                         <ul className="flex items-center justify-center md:justify-start [&_li]:mx-4 [&_img]:max-w-none">
-                            {[...logosRow2].reverse().concat([...logosRow2].reverse()).map((logo, index) => (
+                         <ul className="flex shrink-0 items-center justify-start [&_li]:mx-4 [&_img]:max-w-none">
+                            {[...logosRow2].reverse().map((logo, index) => (
+                                <CompanyLogo key={`${logo.name}-1-${index}`} name={logo.name} src={logo.src} />
+                            ))}
+                        </ul>
+                        <ul className="flex shrink-0 items-center justify-start [&_li]:mx-4 [&_img]:max-w-none" aria-hidden="true">
+                            {[...logosRow2].reverse().map((logo, index) => (
                                 <CompanyLogo key={`${logo.name}-2-${index}`} name={logo.name} src={logo.src} />
                             ))}
                         </ul>
                     </div>
                     <div className="flex animate-scroll-left" style={{ animationDuration: '40s' }}>
-                         <ul className="flex items-center justify-center md:justify-start [&_li]:mx-4 [&_img]:max-w-none">
-                           {[...logosRow3, ...logosRow3].map((logo, index) => (
-                                <CompanyLogo key={`${logo.name}-3-${index}`} name={logo.name} src={logo.src} />
+                         <ul className="flex shrink-0 items-center justify-start [&_li]:mx-4 [&_img]:max-w-none">
+                           {logosRow3.map((logo, index) => (
+                                <CompanyLogo key={`${logo.name}-1-${index}`} name={logo.name} src={logo.src} />
+                            ))}
+                        </ul>
+                        <ul className="flex shrink-0 items-center justify-start [&_li]:mx-4 [&_img]:max-w-none" aria-hidden="true">
+                           {logosRow3.map((logo, index) => (
+                                <CompanyLogo key={`${logo.name}-2-${index}`} name={logo.name} src={logo.src} />
                             ))}
                         </ul>
                     </div>
