@@ -443,7 +443,7 @@ export default function Home() {
                   }}
                   className="w-full"
                 >
-                  <CarouselContent className="-ml-1">
+                  <CarouselContent className="-ml-1 flex items-center gap-x-6">
                     {logos.map((logo, index) => (
                       <CarouselItem key={index} className="basis-auto pl-6 flex justify-center">
                           <Image src={logo.src} alt={logo.name} width={144} height={64} className="h-10 w-auto object-contain" data-ai-hint="company logo"/>
@@ -468,9 +468,9 @@ export default function Home() {
       </section>
 
       <section className="bg-primary text-primary-foreground py-20 md:py-28">
-        <div className="container text-center max-w-3xl mx-auto">
+        <div className="container text-center max-w-4xl mx-auto">
           <motion.h2 
-            className="text-3xl font-bold"
+            className="text-3xl md:text-4xl font-bold"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
@@ -478,15 +478,16 @@ export default function Home() {
           >
             ¿Lista para liderar con estrategia desde quien ya eres?
           </motion.h2>
-          <motion.p 
-            className="mt-4 max-w-2xl mx-auto text-primary-foreground/90 text-lg"
+          <motion.div 
+            className="mt-4 max-w-3xl mx-auto text-primary-foreground/90 text-lg"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           >
-            Descubre si mis programas son para ti. Agenda una conversación inicial sin costo y sin compromiso.
-          </motion.p>
+            <p>Descubre si mis programas son para ti.</p>
+            <p className="whitespace-nowrap">Agenda una conversación inicial sin costo y sin compromiso.</p>
+          </motion.div>
           <motion.div 
             className="mt-8 flex flex-col sm:flex-row gap-4 justify-center"
             initial={{ opacity: 0, y: 20 }}
@@ -503,6 +504,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
-    
