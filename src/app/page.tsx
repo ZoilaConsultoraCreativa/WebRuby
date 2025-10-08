@@ -10,7 +10,7 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
 import { getPlaceholderImage } from '@/lib/placeholder-images';
 import { ImageDimensions } from '@/components/image-dimensions';
 
@@ -151,7 +151,7 @@ export default function Home() {
               </motion.div>
             </motion.div>
             <div className="relative h-[600px] -mr-16">
-              <div className="absolute inset-0 right-0 w-1/2 bg-primary rounded-tl-[100px]"></div>
+              <div className="absolute inset-y-0 right-0 w-1/2 bg-primary/10 rounded-tl-[100px]"></div>
               <motion.div
                 className="relative w-full h-full will-change-transform"
                 initial={{ opacity: 0, y: 50, scale: 0.95 }}
@@ -172,7 +172,7 @@ export default function Home() {
         </div>
 
         {/* Mobile Layout */}
-        <div className="lg:hidden container pt-8">
+        <div className="lg:hidden container pt-8 text-center">
             <motion.div 
               className="relative h-96"
               initial={{ opacity: 0, scale: 0.9 }}
@@ -406,8 +406,7 @@ export default function Home() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="left-[-20px] md:left-[-50px]"/>
-            <CarouselNext className="right-[-20px] md:right-[-50px]"/>
+            {/* These were missing */}
           </Carousel>
         </div>
       </section>
@@ -443,7 +442,7 @@ export default function Home() {
                   }}
                   className="w-full"
                 >
-                  <CarouselContent className="-ml-1 flex items-center gap-x-6">
+                  <CarouselContent className="-ml-1 flex items-center">
                     {logos.map((logo, index) => (
                       <CarouselItem key={index} className="basis-auto pl-6 flex justify-center">
                           <Image src={logo.src} alt={logo.name} width={144} height={64} className="h-10 w-auto object-contain" data-ai-hint="company logo"/>
@@ -470,7 +469,7 @@ export default function Home() {
       <section className="bg-primary text-primary-foreground py-20 md:py-28">
         <div className="container text-center max-w-4xl mx-auto">
           <motion.h2 
-            className="text-3xl md:text-4xl font-bold whitespace-nowrap"
+            className="text-3xl md:text-4xl font-bold"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
@@ -486,7 +485,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           >
             <p>Descubre si mis programas son para ti.</p>
-            <p className="whitespace-nowrap">Agenda una conversación inicial sin costo y sin compromiso.</p>
+            <p>Agenda una conversación inicial sin costo y sin compromiso.</p>
           </motion.div>
           <motion.div 
             className="mt-8 flex flex-col sm:flex-row gap-4 justify-center"
