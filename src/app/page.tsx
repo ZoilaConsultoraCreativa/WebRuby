@@ -92,7 +92,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col bg-background overflow-x-hidden">
-      <section ref={heroRef} className="relative pt-24 pb-24 md:pt-40 md:pb-32 overflow-hidden">
+      <section ref={heroRef} className="relative pt-16 pb-24 md:pt-24 md:pb-32 overflow-hidden">
         <motion.div
           className="absolute inset-0 z-0 will-change-transform"
           initial={{ opacity: 0.8, scale: 1.1, filter: 'blur(8px)' }}
@@ -145,7 +145,7 @@ export default function Home() {
                 </Button>
               </motion.div>
             </motion.div>
-            <div className="relative h-[600px] lg:h-[700px] -mr-16 lg:flex items-end justify-center">
+            <div className="relative h-[600px] lg:h-[700px] -mr-16 flex items-end justify-center">
               <div className="absolute inset-x-0 bottom-0 h-3/4 bg-primary/5 rounded-t-full"></div>
               <motion.div
                 className="relative w-full h-full will-change-transform"
