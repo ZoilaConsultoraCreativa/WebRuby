@@ -10,7 +10,7 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from '@/components/ui/carousel';
+import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
 import { getPlaceholderImage } from '@/lib/placeholder-images';
 import { ImageDimensions } from '@/components/image-dimensions';
 
@@ -40,18 +40,6 @@ const testimonials = [
     initials: 'DP',
   }
 ];
-
-const CompanyLogo = ({ name, src, index }: { name: string, src: string, index: number }) => (
-    <motion.div
-        variants={{
-            hidden: { opacity: 0, y: 20 },
-            visible: { opacity: 1, y: 0 }
-        }}
-        transition={{ duration: 0.5, delay: index * 0.1 }}
-    >
-        <Image src={src} alt={name} width={144} height={64} className="h-10 w-auto object-contain transition-transform duration-300 hover:scale-110" data-ai-hint="company logo"/>
-    </motion.div>
-);
 
 const logos = [
     { name: "Logo 1", src: "https://firebasestorage.googleapis.com/v0/b/webruby-d89a9.firebasestorage.app/o/Sitio%20RubyVillarroel.cl%2FLogos%20Empresas%2F1.png?alt=media&token=05b6eb99-5846-41e0-86fd-2fe30b6234a1" },
@@ -277,12 +265,13 @@ export default function Home() {
                   Programas y servicios diseñados para potenciar tu liderazgo y el de tu organización.
                 </motion.p>
             </div>
-            <div className="grid md:grid-cols-2 gap-16 items-start">
+            <div className="grid md:grid-cols-2 gap-16 items-stretch">
                 <motion.div
                   initial={{ opacity: 0, y: 50, scale: 0.95 }}
                   whileInView={{ opacity: 1, y: 0, scale: 1 }}
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                  className="h-full"
                 >
                     <Card className="flex flex-col shadow-xl bg-card rounded-2xl overflow-hidden h-full">
                         <div className="relative h-72 w-full">
@@ -316,6 +305,7 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0, scale: 1 }}
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+                  className="h-full"
                 >
                      <Card className="flex flex-col shadow-xl bg-card rounded-2xl overflow-hidden h-full">
                         <div className="relative h-72 w-full">
@@ -405,8 +395,6 @@ export default function Home() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
           </Carousel>
         </div>
       </section>
@@ -434,6 +422,7 @@ export default function Home() {
                   </motion.p>
               </div>
               
+              {/* Mobile Carousel */}
               <div className="md:hidden">
                 <Carousel
                   opts={{
@@ -452,6 +441,7 @@ export default function Home() {
                 </Carousel>
               </div>
 
+              {/* Desktop Grid */}
               <motion.div 
                 className="hidden md:grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-12 items-center justify-items-center"
                 initial="hidden"
@@ -460,7 +450,16 @@ export default function Home() {
                 variants={logoContainerVariants}
               >
                   {logos.map((logo, index) => (
-                      <CompanyLogo key={logo.name} name={logo.name} src={logo.src} index={index} />
+                     <motion.div
+                        key={logo.name}
+                        variants={{
+                            hidden: { opacity: 0, y: 20 },
+                            visible: { opacity: 1, y: 0 }
+                        }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                    >
+                        <Image src={logo.src} alt={logo.name} width={144} height={64} className="h-10 w-auto object-contain transition-transform duration-300 hover:scale-110" data-ai-hint="company logo"/>
+                    </motion.div>
                   ))}
               </motion.div>
           </div>
@@ -484,8 +483,8 @@ export default function Home() {
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           >
-            <p>Descubre si mis programas son para ti.</p>
-            <p>Agenda una conversación inicial sin costo y sin compromiso.</p>
+            <p className="text-lg">Descubre si mis programas son para ti.</p>
+            <p className="text-lg">Agenda una conversación inicial sin costo y sin compromiso.</p>
           </motion.div>
           <motion.div 
             className="mt-8 flex flex-col sm:flex-row gap-4 justify-center"
