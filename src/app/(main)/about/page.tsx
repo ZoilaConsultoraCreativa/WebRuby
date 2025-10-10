@@ -1,6 +1,6 @@
 
 import Image from 'next/image';
-import { Award, CheckCircle, Eye, Gem, Goal, Handshake, MessageCircle, School, Target, Users } from 'lucide-react';
+import { Award, CheckCircle, Eye, Gem, Goal, Handshake, MessageCircle, School, ShieldCheck, Target, Users } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { getPlaceholderImage } from '@/lib/placeholder-images';
 import { ImageDimensions } from '@/components/image-dimensions';
@@ -72,6 +72,10 @@ export default function AboutPage() {
               data-ai-hint={aboutRubyImage.imageHint}
             />
             <ImageDimensions image={aboutRubyImage} />
+            <div className="absolute bottom-6 left-6 right-6 md:bottom-8 md:left-8 md:right-auto bg-background/80 backdrop-blur-sm border border-border/50 p-4 rounded-lg shadow-lg flex items-center gap-3">
+              <ShieldCheck className="h-6 w-6 text-primary flex-shrink-0" />
+              <span className="text-sm font-semibold text-foreground">Experta Certificada en Ley Karin</span>
+            </div>
           </div>
           <div className="space-y-8">
             <h2 className="font-headline text-4xl md:text-5xl !leading-tight">Coach Organizacional, de Equipos y Ontológica.</h2>
