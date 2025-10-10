@@ -63,69 +63,68 @@ const programs = programsData.map(p => ({
 export default function ProgramsPage() {
   return (
     <>
-      <section className="relative py-28 md:py-40 text-center text-white">
-        <div className="absolute inset-0 bg-black/50 z-10" />
-        <Image
-          src="https://firebasestorage.googleapis.com/v0/b/webruby-d89a9.firebasestorage.app/o/Sitio%20RubyVillarroel.cl%2FBanner%20Sobre%20mi%20(4).png?alt=media&token=4d767079-3fa1-4778-afed-4993c5dfd0d1"
-          alt="Banner de programas"
-          fill
-          className="object-cover"
-          priority
-          data-ai-hint="people working"
-        />
-        <div className="container relative z-20">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tighter">Programas para Personas</h1>
-          <p className="mt-4 max-w-3xl mx-auto text-lg text-white/90">
+      <section className="relative py-32 md:py-48 text-center text-white bg-black">
+        <div className="absolute inset-0">
+            <Image
+            src="https://firebasestorage.googleapis.com/v0/b/webruby-d89a9.firebasestorage.app/o/Sitio%20RubyVillarroel.cl%2FBanner%20Sobre%20mi%20(4).png?alt=media&token=4d767079-3fa1-4778-afed-4993c5dfd0d1"
+            alt="Banner de programas"
+            fill
+            className="object-cover opacity-40"
+            priority
+            data-ai-hint="people working"
+            />
+        </div>
+        <div className="container relative z-10 animate-fade-in-up">
+          <h1 className="text-4xl md:text-6xl font-headline tracking-tight">Programas para Personas</h1>
+          <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-white/80">
             Procesos que combinan lo estratégico y lo humano sin perder rigurosidad, para mujeres líderes listas para transformar su impacto.
           </p>
         </div>
       </section>
 
-      <section className="py-20 md:py-28">
-        <div className="container max-w-5xl mx-auto">
-          <div className="space-y-12">
-            {programs.map((program) => (
-              <Card key={program.value} className="overflow-hidden shadow-lg">
-                <div className="grid md:grid-cols-5">
-                  <div className="md:col-span-2 relative h-60 md:h-full w-full">
+      <section className="py-24 md:py-32">
+        <div className="container max-w-6xl mx-auto">
+          <div className="space-y-24">
+            {programs.map((program, index) => (
+              <div key={program.value} className="grid md:grid-cols-2 gap-16 md:gap-24 items-center">
+                  <div className={`relative h-96 md:h-[600px] w-full rounded-lg ${index % 2 === 1 ? 'md:order-2' : ''}`}>
                     <Image
                       src={program.image.imageUrl}
                       alt={program.image.description}
                       fill
-                      className="object-cover"
+                      className="object-cover rounded-lg shadow-2xl"
                       data-ai-hint={program.image.imageHint}
                     />
                     <ImageDimensions image={program.image} />
                   </div>
-                  <div className="md:col-span-3">
-                    <CardHeader>
-                      <CardTitle className="text-2xl">{program.title}</CardTitle>
-                      <CardDescription>{program.subtitle}</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="mb-6 text-muted-foreground">{program.description}</p>
-                      <Accordion type="single" collapsible className="w-full">
-                        <AccordionItem value="features">
-                          <AccordionTrigger>¿Qué incluye?</AccordionTrigger>
-                          <AccordionContent>
-                            <ul className="space-y-2 pl-2">
-                              {program.features.map((feature, i) => (
-                                <li key={i} className="flex items-start">
-                                  <CheckCircle className="h-4 w-4 text-primary mt-1 mr-2 flex-shrink-0" />
-                                  <span className="text-muted-foreground">{feature}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </AccordionContent>
+                  <div className={`space-y-8 ${index % 2 === 1 ? 'md:order-1' : ''}`}>
+                    <h2 className="text-4xl md:text-5xl font-headline !leading-tight">{program.title}</h2>
+                    <p className="text-xl text-primary">{program.subtitle}</p>
+                    <p className="text-lg text-muted-foreground">{program.description}</p>
+                    
+                    <Accordion type="single" collapsible className="w-full border-t">
+                        <AccordionItem value="features" className="border-b">
+                            <AccordionTrigger className="text-lg py-5">¿Qué incluye?</AccordionTrigger>
+                            <AccordionContent className="pt-2 pb-4">
+                                <ul className="space-y-3 pl-2">
+                                {program.features.map((feature, i) => (
+                                    <li key={i} className="flex items-start">
+                                    <CheckCircle className="h-5 w-5 text-primary mt-1 mr-3 flex-shrink-0" />
+                                    <span className="text-muted-foreground text-base">{feature}</span>
+                                    </li>
+                                ))}
+                                </ul>
+                            </AccordionContent>
                         </AccordionItem>
-                        <AccordionItem value="ideal_for">
-                          <AccordionTrigger>¿Es para mí?</AccordionTrigger>
-                          <AccordionContent>
-                            <p className="text-muted-foreground">{program.ideal_for}</p>
-                          </AccordionContent>
+                        <AccordionItem value="ideal_for" className="border-b-0">
+                            <AccordionTrigger className="text-lg py-5">¿Es para mí?</AccordionTrigger>
+                            <AccordionContent className="pt-2 pb-4">
+                                <p className="text-muted-foreground text-base">{program.ideal_for}</p>
+                            </AccordionContent>
                         </AccordionItem>
-                      </Accordion>
-                      <Button asChild className="mt-6">
+                    </Accordion>
+
+                    <Button asChild size="lg" className="text-base mt-6">
                          {program.id === 'subscription' ? (
                           <Link href="https://www.mercadopago.cl/subscriptions/checkout?preapproval_plan_id=1f259e3a9a464ad6a0ecec39f3102440" target="_blank" rel="noopener noreferrer">
                             Suscribirme
@@ -135,11 +134,9 @@ export default function ProgramsPage() {
                         ) : (
                           <Link href="/contact">Quiero más información</Link>
                         )}
-                      </Button>
-                    </CardContent>
+                    </Button>
                   </div>
-                </div>
-              </Card>
+              </div>
             ))}
           </div>
         </div>

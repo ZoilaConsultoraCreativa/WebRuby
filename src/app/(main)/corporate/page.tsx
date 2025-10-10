@@ -30,6 +30,7 @@ const services = [
 
 const CompanyLogo = ({ name, src, index }: { name: string, src: string, index: number }) => (
     <motion.div
+        className="flex justify-center items-center"
         variants={{
             hidden: { opacity: 0, y: 20 },
             visible: { opacity: 1, y: 0 }
@@ -52,9 +53,10 @@ const logos = [
     { name: "Logo 9", src: "https://firebasestorage.googleapis.com/v0/b/webruby-d89a9.firebasestorage.app/o/Sitio%20RubyVillarroel.cl%2FLogos%20Empresas%2F9.png?alt=media&token=e1c5d881-4951-4737-98fb-87e166bbc2e0" },
     { name: "Logo 10", src: "https://firebasestorage.googleapis.com/v0/b/webruby-d89a9.firebasestorage.app/o/Sitio%20RubyVillarroel.cl%2FLogos%20Empresas%2F10.png?alt=media&token=b1f75eb5-dbec-4bca-a398-457dd29c381f" },
     { name: "Logo 11", src: "https://firebasestorage.googleapis.com/v0/b/webruby-d89a9.firebasestorage.app/o/Sitio%20RubyVillarroel.cl%2FLogos%20Empresas%2F11.png?alt=media&token=d89d6828-5651-4417-8071-33205d0b411e" },
-];
+};
 
 const safeWorkplaceImage = getPlaceholderImage('corporate-safe-workplace');
+const corporateHeroImage = getPlaceholderImage('about-hero');
 
 export default function CorporatePage() {
 
@@ -70,43 +72,44 @@ export default function CorporatePage() {
 
   return (
     <>
-      <section className="relative py-28 md:py-40 text-center text-white">
-        <div className="absolute inset-0 bg-black/50 z-10" />
-        <Image
-          src="https://firebasestorage.googleapis.com/v0/b/webruby-d89a9.firebasestorage.app/o/Sitio%20RubyVillarroel.cl%2FBanner%20Sobre%20mi%20(3).png?alt=media&token=4389e43b-62f3-40f3-9504-53761bd24cb9"
-          alt="Corporate solutions background"
-          fill
-          className="object-cover"
-          priority
-          data-ai-hint="corporate meeting"
-        />
-        <div className="container relative z-20">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tighter">Soluciones para Empresas</h1>
-          <p className="mt-4 max-w-3xl mx-auto text-lg text-white/90">
+      <section className="relative py-32 md:py-48 text-center text-white bg-black">
+        <div className="absolute inset-0">
+          <Image
+            src={corporateHeroImage.imageUrl}
+            alt="Corporate solutions background"
+            fill
+            className="object-cover opacity-40"
+            priority
+            data-ai-hint="corporate meeting"
+          />
+        </div>
+        <div className="container relative z-10 animate-fade-in-up">
+          <h1 className="text-4xl md:text-6xl font-headline tracking-tight">Soluciones para Empresas</h1>
+          <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-white/80">
             Transformando la comunicación de tus equipos para construir culturas de alto desempeño, confianza y colaboración.
           </p>
         </div>
       </section>
 
-      <section className="py-20 md:py-28">
+      <section className="py-24 md:py-32">
         <div className="container">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold">Servicios Corporativos</h2>
-            <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">
+          <div className="max-w-3xl mx-auto text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-headline">Servicios Corporativos</h2>
+            <p className="mt-6 text-lg md:text-xl text-muted-foreground">
               Programas diseñados para abordar los desafíos específicos de tu organización.
             </p>
           </div>
-          <div className="grid gap-8 md:grid-cols-3">
+          <div className="grid gap-8 md:grid-cols-3 max-w-6xl mx-auto">
               {services.map(service => (
-                  <Card key={service.title} className="shadow-lg hover:shadow-xl transition-shadow duration-300">
-                      <CardHeader className="items-center text-center">
-                          <div className="p-4 bg-primary/10 rounded-full">
+                  <Card key={service.title} className="shadow-none border-none bg-secondary/30 p-8 rounded-lg text-center">
+                      <CardHeader className="items-center text-center p-0">
+                          <div className="p-4 bg-background rounded-full border shadow-sm">
                             {service.icon}
                           </div>
-                          <CardTitle className="mt-4 text-xl">{service.title}</CardTitle>
+                          <CardTitle className="mt-6 text-2xl font-headline">{service.title}</CardTitle>
                       </CardHeader>
-                      <CardContent>
-                          <p className="text-muted-foreground text-center">{service.description}</p>
+                      <CardContent className="p-0 mt-4">
+                          <p className="text-muted-foreground text-lg">{service.description}</p>
                       </CardContent>
                   </Card>
               ))}
@@ -114,22 +117,22 @@ export default function CorporatePage() {
         </div>
       </section>
 
-      <section className="py-20 md:py-28 bg-secondary">
+      <section className="py-24 md:py-32 bg-background">
         <div className="container">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-4 text-center md:text-left">
-              <div className="inline-block bg-primary/10 text-primary p-3 rounded-full mb-4">
+          <div className="grid md:grid-cols-2 gap-16 md:gap-24 items-center">
+            <div className="space-y-8 text-left">
+              <div className="inline-block bg-primary/10 text-primary p-4 rounded-full border border-primary/20">
                   <ShieldCheck className="h-10 w-10" />
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold">Cumplimiento y Cultura: Expertos en Ley Karin</h2>
-              <p className="text-lg text-muted-foreground">
+              <h2 className="text-4xl md:text-5xl font-headline !leading-tight">Cumplimiento y Cultura: Expertos en Ley Karin</h2>
+              <p className="text-xl text-muted-foreground">
                 Nuestros programas están diseñados no solo para cumplir con la normativa, sino para construir culturas de seguridad psicológica y respeto que van más allá de la ley. Prepara a tus líderes para gestionar y prevenir el acoso laboral de manera efectiva.
               </p>
-              <Button size="lg" asChild>
+              <Button size="lg" asChild className="text-base">
                 <Link href="/contact">Saber más</Link>
               </Button>
             </div>
-            <div className="relative w-full h-80 rounded-lg shadow-xl">
+            <div className="relative w-full h-96 md:h-[500px] rounded-lg shadow-xl">
                <Image src={safeWorkplaceImage.imageUrl} alt={safeWorkplaceImage.description} fill className="object-cover rounded-lg" data-ai-hint={safeWorkplaceImage.imageHint} />
                <ImageDimensions image={safeWorkplaceImage} />
             </div>
@@ -137,11 +140,11 @@ export default function CorporatePage() {
         </div>
       </section>
 
-      <section className="py-20 md:py-28">
+      <section className="py-24 md:py-32">
           <div className="container">
-              <div className="text-center mb-16">
-                  <h2 className="text-3xl md:text-4xl font-bold">Han confiado en nosotros</h2>
-                  <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">
+              <div className="text-center mb-20">
+                  <h2 className="text-4xl md:text-5xl font-headline">Han confiado en nosotros</h2>
+                  <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground">
                       Empresas que ya están transformando su comunicación y liderazgo.
                   </p>
               </div>
@@ -155,7 +158,7 @@ export default function CorporatePage() {
                 >
                   <CarouselContent className="-ml-1">
                     {logos.map((logo, index) => (
-                      <CarouselItem key={index} className="basis-auto pl-6 flex justify-center">
+                      <CarouselItem key={index} className="basis-auto pl-6 flex justify-center items-center h-16">
                           <Image src={logo.src} alt={logo.name} width={144} height={64} className="h-10 w-auto object-contain" data-ai-hint="company logo"/>
                       </CarouselItem>
                     ))}
@@ -163,7 +166,7 @@ export default function CorporatePage() {
                 </Carousel>
               </div>
                <motion.div 
-                className="hidden md:grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-12 items-center justify-items-center"
+                className="hidden md:grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-8 gap-y-16 items-center justify-items-center"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.2 }}
@@ -176,13 +179,13 @@ export default function CorporatePage() {
           </div>
       </section>
 
-      <section className="py-20 bg-primary text-primary-foreground">
-        <div className="container text-center max-w-3xl">
-            <h2 className="text-3xl font-bold">¿Tu equipo necesita potenciar su comunicación?</h2>
-            <p className="mt-4 text-lg text-primary-foreground/90">
+      <section className="py-24 md:py-32 bg-primary text-primary-foreground">
+        <div className="container text-center max-w-4xl animate-fade-in-up">
+            <h2 className="text-4xl md:text-5xl font-headline">¿Tu equipo necesita potenciar su comunicación?</h2>
+            <p className="mt-6 text-xl text-primary-foreground/80">
                 Conversemos sobre cómo podemos diseñar una solución a la medida de tu organización para llevar a tus líderes y equipos al siguiente nivel.
             </p>
-            <Button size="lg" variant="secondary" asChild className="mt-8">
+            <Button size="lg" variant="secondary" asChild className="mt-10 text-base">
                 <Link href="/contact">Contacto para Empresas</Link>
             </Button>
         </div>
@@ -191,6 +194,3 @@ export default function CorporatePage() {
     </>
   );
 }
-
-    
-    

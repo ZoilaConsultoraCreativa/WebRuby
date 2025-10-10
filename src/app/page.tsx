@@ -82,7 +82,7 @@ export default function Home() {
   };
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { y: 30, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
@@ -93,59 +93,56 @@ export default function Home() {
     },
   };
 
-  const heroRef = React.useRef<HTMLElement>(null);
-
   return (
     <div className="flex flex-col bg-background overflow-x-hidden">
-      <section ref={heroRef} className="relative pt-8 lg:pt-8 pb-24 overflow-hidden">
-        {/* Desktop Layout */}
-        <div className="hidden lg:grid container grid-cols-2 gap-12 items-center relative z-10">
+      <section className="relative pt-20 pb-24 md:pt-32 md:pb-32 overflow-hidden">
+        <div className="container grid lg:grid-cols-2 gap-12 items-center relative z-10">
             <motion.div 
-              className="max-w-xl space-y-8 text-left"
+              className="max-w-xl space-y-10 text-center lg:text-left"
               variants={containerVariants}
               initial="hidden"
               animate="visible"
             >
               <motion.div variants={itemVariants}>
-                  <div className="flex flex-wrap gap-x-6 gap-y-2 justify-start text-sm text-muted-foreground">
+                  <div className="flex flex-wrap gap-x-6 gap-y-2 justify-center lg:justify-start text-sm text-muted-foreground font-semibold tracking-wider uppercase">
                       <div className="flex items-center gap-2">
-                          <Award className="h-5 w-5 text-primary" />
-                          <span>Coach Ejecutiva Certificada</span>
+                          <Award className="h-4 w-4 text-primary" />
+                          <span>Coach Ejecutiva PCC</span>
                       </div>
                       <div className="flex items-center gap-2">
-                          <ShieldCheck className="h-5 w-5 text-primary" />
+                          <ShieldCheck className="h-4 w-4 text-primary" />
                           <span>Experta en Ley Karin</span>
                       </div>
                   </div>
               </motion.div>
               <motion.h1 
-                className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter !leading-tight"
+                className="text-5xl md:text-7xl font-headline tracking-tighter !leading-tight"
                 variants={itemVariants}
               >
-                Liderazgo que Inspira.
+                Liderazgo que inspira.
                 <br />
-                <span className="text-primary">Comunicación que Transforma.</span>
+                <span className="text-primary">Comunicación que transforma.</span>
               </motion.h1>
               <motion.p 
-                className="text-lg text-muted-foreground"
+                className="text-xl md:text-2xl text-muted-foreground"
                 variants={itemVariants}
               >
                 Ayudo a mujeres líderes y equipos a convertir su comunicación en su mayor activo estratégico.
               </motion.p>
               <motion.div variants={itemVariants}>
-                <Button size="lg" asChild>
+                <Button size="lg" asChild className="text-base h-14 px-10">
                   <Link href="/contact">Agenda una Sesión</Link>
                 </Button>
               </motion.div>
             </motion.div>
-            <div className="relative h-[600px] -mr-16">
-              <div className="absolute inset-y-0 right-0 w-1/2 bg-primary/10 rounded-tl-[100px]"></div>
+            <div className="relative h-[450px] lg:h-[650px] w-full max-w-lg mx-auto lg:max-w-none">
               <motion.div
                 className="relative w-full h-full will-change-transform"
                 initial={{ opacity: 0, y: 50, scale: 0.95 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{ duration: 1.2, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
               >
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent bottom-0 rounded-t-full"></div>
                 <Image
                   src={heroImage.imageUrl}
                   alt={heroImage.description}
@@ -158,71 +155,13 @@ export default function Home() {
               </motion.div>
             </div>
         </div>
-
-        {/* Mobile Layout */}
-        <div className="lg:hidden container pt-8 text-center">
-            <motion.div 
-              className="relative h-96"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4/5 h-2/3 bg-gradient-to-t from-primary/20 to-transparent rounded-t-full"></div>
-               <Image
-                  src={heroImage.imageUrl}
-                  alt={heroImage.description}
-                  fill
-                  className="object-contain object-bottom"
-                  data-ai-hint={heroImage.imageHint}
-                  priority
-                />
-            </motion.div>
-             <motion.div 
-              className="space-y-6 mt-8"
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-            >
-              <motion.div variants={itemVariants}>
-                  <div className="flex flex-wrap gap-x-4 gap-y-2 justify-center text-sm text-muted-foreground">
-                      <div className="flex items-center gap-2">
-                          <Award className="h-5 w-5 text-primary" />
-                          <span>Coach Ejecutiva Certificada</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                          <ShieldCheck className="h-5 w-5 text-primary" />
-                          <span>Experta en Ley Karin</span>
-                      </div>
-                  </div>
-              </motion.div>
-              <motion.h1 
-                className="text-4xl font-bold tracking-tighter"
-                variants={itemVariants}
-              >
-                Liderazgo que Inspira,
-                <br />
-                <span className="text-primary">Comunicación que Transforma.</span>
-              </motion.h1>
-              <motion.p 
-                className="text-base text-muted-foreground"
-                variants={itemVariants}
-              >
-                Ayudo a mujeres líderes y equipos a convertir su comunicación en su mayor activo estratégico.
-              </motion.p>
-              <motion.div variants={itemVariants}>
-                <Button size="lg" asChild>
-                  <Link href="/contact">Agenda una Sesión</Link>
-                </Button>
-              </motion.div>
-            </motion.div>
-        </div>
       </section>
 
-      <section className="py-20 md:py-28 bg-secondary/30">
+      <section className="py-24 md:py-32 bg-secondary/30">
         <div className="container">
-            <div className="text-center mb-16 max-w-3xl mx-auto">
+            <div className="text-center max-w-4xl mx-auto">
                 <motion.h2 
-                  className="text-3xl md:text-4xl font-bold text-foreground"
+                  className="text-4xl md:text-5xl font-headline"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.5 }}
@@ -231,7 +170,7 @@ export default function Home() {
                   Mi Misión
                 </motion.h2>
                 <motion.p 
-                  className="text-lg text-muted-foreground leading-relaxed mt-4"
+                  className="text-xl md:text-2xl text-muted-foreground leading-relaxed mt-8"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.5 }}
@@ -243,11 +182,11 @@ export default function Home() {
         </div>
       </section>
       
-      <section className="py-20 md:py-28">
+      <section className="py-24 md:py-32">
         <div className="container">
-            <div className="text-center max-w-3xl mx-auto mb-20">
+            <div className="text-center max-w-4xl mx-auto mb-24">
                 <motion.h2 
-                  className="text-3xl md:text-4xl font-bold"
+                  className="text-4xl md:text-5xl font-headline"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.5 }}
@@ -256,7 +195,7 @@ export default function Home() {
                   Soluciones para tu Crecimiento
                 </motion.h2>
                 <motion.p 
-                  className="mt-6 text-lg text-muted-foreground"
+                  className="mt-6 text-xl md:text-2xl text-muted-foreground"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.5 }}
@@ -273,8 +212,8 @@ export default function Home() {
                   transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                   className="h-full"
                 >
-                    <Card className="flex flex-col shadow-xl bg-card rounded-2xl overflow-hidden h-full">
-                        <div className="relative h-72 w-full">
+                    <Card className="flex flex-col bg-card rounded-2xl overflow-hidden h-full shadow-2xl shadow-primary/5">
+                        <div className="relative h-96 w-full">
                             <Image
                                 src={forYouImage.imageUrl}
                                 alt={forYouImage.description}
@@ -284,14 +223,14 @@ export default function Home() {
                             />
                             <ImageDimensions image={forYouImage} />
                         </div>
-                        <CardHeader className="pt-6">
-                            <CardTitle className="text-3xl text-primary">Para Ti</CardTitle>
+                        <CardHeader className="pt-8 px-8">
+                            <CardTitle className="text-4xl font-headline text-primary">Para Ti</CardTitle>
                         </CardHeader>
-                        <CardContent className="flex-1">
+                        <CardContent className="flex-1 px-8">
                             <p className="text-muted-foreground text-lg">Desde mi experiencia como exgerenta en entornos exigentes, te acompaño a comunicar con confianza, encontrar tu voz y ejercer tu autoridad con autenticidad.</p>
                         </CardContent>
-                        <CardFooter>
-                            <Button asChild variant="link" className="px-0 text-base">
+                        <CardFooter className="px-8 pb-8">
+                            <Button asChild variant="link" className="px-0 text-base font-bold">
                                 <Link href="/programs">
                                     Ver programas <ArrowRight className="ml-2 h-4 w-4" />
                                 </Link>
@@ -307,8 +246,8 @@ export default function Home() {
                   transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
                   className="h-full"
                 >
-                     <Card className="flex flex-col shadow-xl bg-card rounded-2xl overflow-hidden h-full">
-                        <div className="relative h-72 w-full">
+                     <Card className="flex flex-col bg-card rounded-2xl overflow-hidden h-full shadow-2xl shadow-primary/5">
+                        <div className="relative h-96 w-full">
                             <Image
                                 src={forCompaniesImage.imageUrl}
                                 alt={forCompaniesImage.description}
@@ -318,14 +257,14 @@ export default function Home() {
                             />
                             <ImageDimensions image={forCompaniesImage} />
                         </div>
-                        <CardHeader className="pt-6">
-                            <CardTitle className="text-3xl text-primary">Para Empresas</CardTitle>
+                        <CardHeader className="pt-8 px-8">
+                            <CardTitle className="text-4xl font-headline text-primary">Para Empresas</CardTitle>
                         </CardHeader>
-                        <CardContent className="flex-1">
+                        <CardContent className="flex-1 px-8">
                             <p className="text-muted-foreground text-lg">Potenciamos la comunicación de tus equipos y preparamos a tus líderes para la Ley Karin a través de workshops y coaching especializado.</p>
                         </CardContent>
-                        <CardFooter>
-                            <Button asChild variant="link" className="px-0 text-base">
+                        <CardFooter className="px-8 pb-8">
+                            <Button asChild variant="link" className="px-0 text-base font-bold">
                                 <Link href="/corporate">
                                     Soluciones Corporativas <ArrowRight className="ml-2 h-4 w-4" />
                                 </Link>
@@ -337,11 +276,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 md:py-28 bg-secondary/30">
+      <section className="py-24 md:py-32 bg-secondary/30">
         <div className="container">
-          <div className="text-center max-w-3xl mx-auto">
+          <div className="text-center max-w-4xl mx-auto">
              <motion.h2 
-              className="text-3xl md:text-4xl font-bold"
+              className="text-4xl md:text-5xl font-headline"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.5 }}
@@ -350,7 +289,7 @@ export default function Home() {
               Lo que mis clientas dicen
             </motion.h2>
             <motion.p 
-              className="mt-6 text-lg text-muted-foreground"
+              className="mt-6 text-xl md:text-2xl text-muted-foreground"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.5 }}
@@ -364,30 +303,30 @@ export default function Home() {
               align: "start",
               loop: true,
             }}
-            className="w-full max-w-6xl mx-auto mt-16"
+            className="w-full max-w-7xl mx-auto mt-20"
           >
-            <CarouselContent>
+            <CarouselContent className="-ml-8">
               {testimonials.map((testimonial, index) => (
-                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 pl-8">
                   <motion.div 
-                    className="p-4 h-full"
+                    className="p-1 h-full"
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
                     transition={{ duration: 0.8, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
                   >
-                    <Card className="flex flex-col justify-between h-full shadow-lg bg-card text-left rounded-2xl border-border/80">
+                    <Card className="flex flex-col justify-between h-full shadow-none border-none bg-background/0 text-left rounded-2xl">
                        <CardContent className="pt-8 flex-grow">
-                        <Quote className="h-8 w-8 text-primary mb-4" />
-                        <p className="text-muted-foreground italic text-base leading-relaxed">"{testimonial.quote}"</p>
+                        <Quote className="h-10 w-10 text-primary/50 mb-6" />
+                        <p className="text-muted-foreground text-lg leading-relaxed">"{testimonial.quote}"</p>
                       </CardContent>
-                      <CardFooter className="flex-row items-center gap-4 border-t pt-6 mt-4">
-                         <Avatar className="h-12 w-12 border-2 border-primary">
+                      <CardFooter className="flex-row items-center gap-4 border-t-0 pt-8 mt-4">
+                         <Avatar className="h-14 w-14 border-2 border-primary/50">
                             <AvatarImage src={testimonial.image.imageUrl} alt={testimonial.name} data-ai-hint={testimonial.image.imageHint} />
                             <AvatarFallback>{testimonial.initials}</AvatarFallback>
                           </Avatar>
                           <div>
-                            <p className="font-bold text-base text-foreground">{testimonial.name}</p>
+                            <p className="font-bold text-lg text-foreground">{testimonial.name}</p>
                           </div>
                       </CardFooter>
                     </Card>
@@ -399,11 +338,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 md:py-28">
+      <section className="py-24 md:py-32">
           <div className="container">
-              <div className="text-center mb-16">
+              <div className="text-center mb-20">
                   <motion.h2 
-                    className="text-3xl md:text-4xl font-bold text-foreground"
+                    className="text-4xl md:text-5xl font-headline"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.5 }}
@@ -412,7 +351,7 @@ export default function Home() {
                     Empresas que ya confían en mi trabajo
                   </motion.h2>
                   <motion.p 
-                    className="mt-6 max-w-3xl mx-auto text-lg text-muted-foreground"
+                    className="mt-6 max-w-3xl mx-auto text-xl md:text-2xl text-muted-foreground"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.5 }}
@@ -433,7 +372,7 @@ export default function Home() {
                 >
                   <CarouselContent className="-ml-1 flex items-center">
                     {logos.map((logo, index) => (
-                      <CarouselItem key={index} className="basis-auto pl-6 flex justify-center">
+                      <CarouselItem key={index} className="basis-auto pl-8 flex justify-center h-16">
                           <Image src={logo.src} alt={logo.name} width={144} height={64} className="h-10 w-auto object-contain" data-ai-hint="company logo"/>
                       </CarouselItem>
                     ))}
@@ -443,7 +382,7 @@ export default function Home() {
 
               {/* Desktop Grid */}
               <motion.div 
-                className="hidden md:grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-12 items-center justify-items-center"
+                className="hidden md:grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-8 gap-y-16 items-center justify-items-center"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.2 }}
@@ -452,6 +391,7 @@ export default function Home() {
                   {logos.map((logo, index) => (
                      <motion.div
                         key={logo.name}
+                        className="flex justify-center items-center"
                         variants={{
                             hidden: { opacity: 0, y: 20 },
                             visible: { opacity: 1, y: 0 }
@@ -465,38 +405,22 @@ export default function Home() {
           </div>
       </section>
 
-      <section className="bg-primary text-primary-foreground py-20 md:py-28">
-        <div className="container text-center max-w-4xl mx-auto">
-          <motion.h2 
-            className="text-3xl md:text-3xl font-bold"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
+      <section className="bg-primary text-primary-foreground py-24 md:py-32">
+        <div className="container text-center max-w-4xl mx-auto animate-fade-in-up">
+          <h2 className="text-3xl md:text-5xl font-headline !leading-tight text-balance">
             ¿Lista para liderar con estrategia desde quien ya eres?
-          </motion.h2>
-          <motion.div 
-            className="mt-4 max-w-3xl mx-auto text-primary-foreground/90 text-lg"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          </h2>
+          <div 
+            className="mt-6 max-w-2xl mx-auto text-primary-foreground/90 text-xl"
           >
-            <p className="text-lg">Descubre si mis programas son para ti.</p>
-            <p className="text-lg">Agenda una conversación inicial sin costo y sin compromiso.</p>
-          </motion.div>
-          <motion.div 
-            className="mt-8 flex flex-col sm:flex-row gap-4 justify-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-          >
-            <Button size="lg" variant="secondary" asChild>
+            <p>Descubre si mis programas son para ti.</p>
+            <p>Agenda una conversación inicial sin costo y sin compromiso.</p>
+          </div>
+          <div className="mt-10">
+            <Button size="lg" variant="secondary" asChild className="text-base h-14 px-10">
               <Link href="/contact">Hablemos</Link>
             </Button>
-          </motion.div>
+          </div>
         </div>
       </section>
     </div>

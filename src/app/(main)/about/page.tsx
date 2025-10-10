@@ -1,10 +1,10 @@
 
 import Image from 'next/image';
-import { Eye, Gem, Goal, CheckCircle, Award, Target, Users, Handshake, School, MessageCircle } from 'lucide-react';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Award, CheckCircle, Eye, Gem, Goal, Handshake, MessageCircle, School, Target, Users } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { getPlaceholderImage } from '@/lib/placeholder-images';
 import { ImageDimensions } from '@/components/image-dimensions';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 const values = [
   "Humanidad estratégica – Lo emocional como ventaja competitiva.",
@@ -29,184 +29,170 @@ const aboutHeroImage = getPlaceholderImage('about-hero');
 const aboutRubyImage = getPlaceholderImage('about-ruby');
 
 const experience = [
-    { text: "Coaching en Liderazgo Gerencial para más de 200 líderes en LATAM.", icon: <Target /> },
-    { text: "Formación de equipos de Alto Desempeño para más de 100 empresas en LATAM.", icon: <Users /> },
-    { text: "Experiencia cliente y habilidades comerciales para más de 50 empresas en LATAM.", icon: <Handshake /> },
-    { text: "Academias de liderazgo y Programas de Diplomado Empresarial en Industrias de Servicios Financieros y Minería.", icon: <School /> },
-    { text: "Estrategias de storytelling y desarrollo de habilidades comunicacionales para mujeres influyentes y líderes de opinión LATAM.", icon: <MessageCircle /> }
+    { text: "Coaching en Liderazgo Gerencial para más de 200 líderes en LATAM.", icon: <Target className="h-6 w-6 text-primary" /> },
+    { text: "Formación de equipos de Alto Desempeño para más de 100 empresas en LATAM.", icon: <Users className="h-6 w-6 text-primary" /> },
+    { text: "Experiencia cliente y habilidades comerciales para más de 50 empresas en LATAM.", icon: <Handshake className="h-6 w-6 text-primary" /> },
+    { text: "Academias de liderazgo y Programas de Diplomado Empresarial en Industrias de Servicios Financieros y Minería.", icon: <School className="h-6 w-6 text-primary" /> },
+    { text: "Estrategias de storytelling y desarrollo de habilidades comunicacionales para mujeres influyentes y líderes de opinión LATAM.", icon: <MessageCircle className="h-6 w-6 text-primary" /> }
 ];
 
 
 export default function AboutPage() {
   return (
     <>
-      <section className="relative py-28 md:py-40 text-center text-white">
-        <div className="absolute inset-0 bg-black/50 z-10" />
-        <Image
-          src={aboutHeroImage.imageUrl}
-          alt={aboutHeroImage.description}
-          fill
-          className="object-cover"
-          priority
-          data-ai-hint={aboutHeroImage.imageHint}
-        />
-        <ImageDimensions image={aboutHeroImage} />
-        <div className="container relative z-20">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tighter">Sobre Mí</h1>
-          <p className="mt-4 max-w-3xl mx-auto text-lg text-white/90">
+      <section className="relative py-32 md:py-48 text-center text-white bg-black">
+        <div className="absolute inset-0">
+          <Image
+            src={aboutHeroImage.imageUrl}
+            alt={aboutHeroImage.description}
+            fill
+            className="object-cover opacity-40"
+            priority
+            data-ai-hint={aboutHeroImage.imageHint}
+          />
+          <ImageDimensions image={aboutHeroImage} />
+        </div>
+        <div className="container relative z-10 animate-fade-in-up">
+          <h1 className="text-4xl md:text-6xl font-headline tracking-tight">Sobre Mí</h1>
+          <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-white/80">
             Transformando la comunicación en tu mayor activo de liderazgo.
           </p>
         </div>
       </section>
 
-      <section className="relative py-20 md:py-28 bg-secondary">
-        <div className="absolute top-1/2 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-x-1/2"></div>
-        <div className="absolute bottom-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl translate-x-1/2"></div>
-        <div className="container grid md:grid-cols-5 gap-12 items-center relative z-10">
-          <div className="md:col-span-3 space-y-6">
-            <h2 className="text-3xl font-bold text-[#475f4d]">Coach Organizacional,  de Equipos y Ontológica</h2>
-            <p className="text-xl text-muted-foreground -mt-4">especializada en Comunicación Estratégica y Liderazgo Gerencial.</p>
-            <p className="text-lg text-foreground leading-relaxed text-justify">
-Cuento con más de <strong>8.000 horas</strong> en procesos de <strong>coaching ejecutivo, liderazgo estratégico, formación de equipos de alto desempeño</strong> y facilitación de talleres y charlas. He trabajado con <strong>líderes de primer nivel en LATAM</strong>, impulsando <strong>transformación cultural, comunicación efectiva y gestión emocional</strong> en contextos corporativos complejos.
-            </p>
-          </div>
-          <div className="md:col-span-2 relative group w-full h-[550px] rounded-3xl shadow-xl hover:shadow-2xl transition-shadow duration-300">
+      <section className="py-24 md:py-32">
+        <div className="container grid md:grid-cols-2 gap-16 md:gap-24 items-center">
+          <div className="relative group w-full h-[450px] md:h-[600px] rounded-lg">
             <Image
               src={aboutRubyImage.imageUrl}
               alt={aboutRubyImage.description}
               fill
               quality={100}
-              className="object-cover rounded-3xl group-hover:scale-105 transition-transform duration-300"
+              className="object-cover rounded-lg shadow-2xl"
               data-ai-hint={aboutRubyImage.imageHint}
             />
             <ImageDimensions image={aboutRubyImage} />
           </div>
-        </div>
-      </section>
-
-      <section className="py-20 md:py-28">
-        <div className="container">
-          <div className="max-w-4xl mx-auto space-y-8">
-            <Card className="bg-secondary text-secondary-foreground p-6 rounded-2xl shadow-lg">
-                <CardHeader>
-                <CardTitle style={{color: '#475f4d'}}>Especialista</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p style={{color: '#475f4d'}}>
+          <div className="space-y-8">
+            <h2 className="font-headline text-4xl md:text-5xl !leading-tight">Coach Organizacional, de Equipos y Ontológica.</h2>
+            <p className="text-xl text-muted-foreground">Especializada en Comunicación Estratégica y Liderazgo Gerencial.</p>
+            <p className="text-lg text-foreground/80 leading-relaxed">
+              Cuento con más de <strong>8.000 horas</strong> en procesos de <strong>coaching ejecutivo, liderazgo estratégico, formación de equipos de alto desempeño</strong> y facilitación de talleres y charlas. He trabajado con <strong>líderes de primer nivel en LATAM</strong>, impulsando <strong>transformación cultural, comunicación efectiva y gestión emocional</strong> en contextos corporativos complejos.
+            </p>
+             <p className="text-lg text-foreground/80 leading-relaxed border-l-4 border-primary pl-6">
                   Especialista en <strong>diseñar conversaciones de alto impacto</strong>, potenciar la inteligencia relacional y construir confianza en entornos de alta exigencia.
                 </p>
-              </CardContent>
-            </Card>
-            
-            <Card className="p-6 rounded-2xl shadow-lg h-full">
-              <CardHeader>
-                <CardTitle className="text-primary">Experiencia Destacada</CardTitle>
-                <p className="text-muted-foreground">Logros y Resultados Concretos</p>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-6">
-                  {experience.map((item, index) => (
-                    <li key={index} className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center mt-1">
-                        {item.icon}
-                      </div>
-                      <p className="text-muted-foreground">{item.text}</p>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="p-6 rounded-2xl shadow-lg h-full">
-              <CardHeader>
-                <CardTitle className="text-primary">Mis Credenciales</CardTitle>
-                <p className="text-muted-foreground">Formación y experiencia para acompañarte.</p>
-              </CardHeader>
-              <CardContent>
-                <div className="border border-border rounded-xl">
-                  {credentials.map((credential, index) => (
-                    <div key={index} className="flex items-center gap-6 p-6 transition-colors duration-300 hover:bg-secondary/50 group not-last:border-b not-last:border-border">
-                      <div className="p-3 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                        <Award className="h-6 w-6 text-primary" />
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-foreground text-lg">{credential.title}</h3>
-                        <p className="text-muted-foreground">{credential.description}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-
           </div>
         </div>
       </section>
 
-      <section className="py-20 md:py-28 bg-secondary">
+       <section className="py-24 md:py-32 bg-secondary/30">
         <div className="container">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold">Mi Filosofía</h2>
+          <div className="max-w-3xl mx-auto text-center mb-20">
+             <h2 className="text-4xl md:text-5xl font-headline">Experiencia Destacada</h2>
+             <p className="mt-4 text-lg text-muted-foreground">Logros y Resultados Concretos</p>
           </div>
-          <Tabs defaultValue="mission" className="max-w-4xl mx-auto">
-            <TabsList className="grid w-full grid-cols-3 bg-white/60">
-              <TabsTrigger value="mission">Misión</TabsTrigger>
-              <TabsTrigger value="vision">Visión</TabsTrigger>
-              <TabsTrigger value="values">Valores</TabsTrigger>
+          <div className="max-w-4xl mx-auto grid grid-cols-1 gap-12">
+            {experience.map((item, index) => (
+              <div key={index} className="flex items-start gap-6">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-background border flex items-center justify-center shadow-sm">
+                  {item.icon}
+                </div>
+                <p className="text-lg text-muted-foreground pt-3">{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+       </section>
+
+      <section className="py-24 md:py-32">
+        <div className="container">
+           <div className="max-w-3xl mx-auto text-center mb-20">
+             <h2 className="text-4xl md:text-5xl font-headline">Mi Filosofía</h2>
+          </div>
+          <Tabs defaultValue="mission" className="max-w-5xl mx-auto">
+            <TabsList className="grid w-full grid-cols-3 bg-secondary/50 h-auto p-2">
+              <TabsTrigger value="mission" className="py-3 text-base">Misión</TabsTrigger>
+              <TabsTrigger value="vision" className="py-3 text-base">Visión</TabsTrigger>
+              <TabsTrigger value="values" className="py-3 text-base">Valores</TabsTrigger>
             </TabsList>
-            <TabsContent value="mission">
-              <Card className="shadow-lg">
-                <CardHeader className="flex flex-row items-center gap-4">
-                  <div className="p-3 bg-secondary rounded-full">
-                    <Goal className="h-8 w-8 text-[#475f4d]" />
-                  </div>
-                  <CardTitle className="text-2xl">Misión</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-lg text-muted-foreground">
-                    Mi misión es posicionar la comunicación consciente como herramienta clave para ejercer un liderazgo que inspira, ayudando a construir culturas más seguras y a preparar a las organizaciones para cumplir con normativas como la Ley Karin.
-                  </p>
-                </CardContent>
-              </Card>
-            </TabsContent>
-            <TabsContent value="vision">
-              <Card className="shadow-lg">
-                <CardHeader className="flex flex-row items-center gap-4">
-                  <div className="p-3 bg-secondary rounded-full">
-                    <Eye className="h-8 w-8 text-[#475f4d]" />
-                  </div>
-                  <CardTitle className="text-2xl">Visión</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-lg text-muted-foreground">
-                    Ser una referencia latinoamericana en comunicación consciente para mujeres que lideran en industrias técnicas, mostrando que se puede aprender a liderar y comunicar con confianza, generando impacto sin renunciar a la identidad femenina ni a la calidad profesional.
-                  </p>
-                </CardContent>
-              </Card>
-            </TabsContent>
-            <TabsContent value="values">
-              <Card className="shadow-lg">
-                 <CardHeader className="flex flex-row items-center gap-4">
-                  <div className="p-3 bg-secondary rounded-full">
-                    <Gem className="h-8 w-8 text-[#475f4d]" />
-                  </div>
-                  <CardTitle className="text-2xl">Valores</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {values.map((value, index) => (
-                      <Card key={index} className="shadow-sm" style={{backgroundColor: '#d9e2d0'}}>
-                        <CardContent className="p-4 flex items-start">
-                           <CheckCircle className="h-5 w-5 text-[#475f4d] mt-1 mr-3 flex-shrink-0" />
-                           <span className="text-muted-foreground text-sm">{value}</span>
-                        </CardContent>
-                      </Card>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            </TabsContent>
+            <div className="pt-12">
+              <TabsContent value="mission">
+                <Card className="shadow-none border-none bg-transparent">
+                  <CardHeader className="flex flex-row items-center gap-6 p-0">
+                    <div className="p-4 bg-secondary/60 rounded-full">
+                      <Goal className="h-8 w-8 text-primary" />
+                    </div>
+                    <CardTitle className="text-3xl font-headline">Misión</CardTitle>
+                  </CardHeader>
+                  <CardContent className="p-0 mt-6">
+                    <p className="text-xl text-muted-foreground leading-relaxed">
+                      Mi misión es posicionar la comunicación consciente como herramienta clave para ejercer un liderazgo que inspira, ayudando a construir culturas más seguras y a preparar a las organizaciones para cumplir con normativas como la Ley Karin.
+                    </p>
+                  </CardContent>
+                </Card>
+              </TabsContent>
+              <TabsContent value="vision">
+                <Card className="shadow-none border-none bg-transparent">
+                  <CardHeader className="flex flex-row items-center gap-6 p-0">
+                    <div className="p-4 bg-secondary/60 rounded-full">
+                      <Eye className="h-8 w-8 text-primary" />
+                    </div>
+                    <CardTitle className="text-3xl font-headline">Visión</CardTitle>
+                  </CardHeader>
+                  <CardContent className="p-0 mt-6">
+                    <p className="text-xl text-muted-foreground leading-relaxed">
+                      Ser una referencia latinoamericana en comunicación consciente para mujeres que lideran en industrias técnicas, mostrando que se puede aprender a liderar y comunicar con confianza, generando impacto sin renunciar a la identidad femenina ni a la calidad profesional.
+                    </p>
+                  </CardContent>
+                </Card>
+              </TabsContent>
+              <TabsContent value="values">
+                <Card className="shadow-none border-none bg-transparent">
+                   <CardHeader className="flex flex-row items-center gap-6 p-0">
+                    <div className="p-4 bg-secondary/60 rounded-full">
+                      <Gem className="h-8 w-8 text-primary" />
+                    </div>
+                    <CardTitle className="text-3xl font-headline">Valores</CardTitle>
+                  </CardHeader>
+                  <CardContent className="p-0 mt-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                      {values.map((value, index) => (
+                        <div key={index} className="flex items-start gap-4 p-4 rounded-lg bg-secondary/40">
+                           <CheckCircle className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
+                           <span className="text-muted-foreground">{value}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </TabsContent>
+            </div>
           </Tabs>
+        </div>
+      </section>
+
+      <section className="py-24 md:py-32 bg-secondary/30">
+        <div className="container">
+          <div className="max-w-3xl mx-auto text-center mb-20">
+             <h2 className="text-4xl md:text-5xl font-headline">Mis Credenciales</h2>
+             <p className="mt-4 text-lg text-muted-foreground">Formación y experiencia para acompañarte.</p>
+          </div>
+          <div className="max-w-4xl mx-auto">
+            <div className="border-t">
+              {credentials.map((credential, index) => (
+                <div key={index} className="flex items-center gap-8 p-8 transition-colors duration-300 hover:bg-background group border-b">
+                  <div className="p-4 rounded-full bg-secondary/50 group-hover:bg-primary/10 transition-colors">
+                    <Award className="h-8 w-8 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-foreground text-xl">{credential.title}</h3>
+                    <p className="text-muted-foreground mt-1">{credential.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
     </>
