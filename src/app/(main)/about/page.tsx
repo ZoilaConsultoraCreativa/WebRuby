@@ -1,7 +1,7 @@
 
 'use client'
 import Image from 'next/image';
-import { Award, CheckCircle, Eye, Gem, Goal, Handshake, MessageCircle, School, ShieldCheck, Target, Users } from 'lucide-react';
+import { Award, CheckCircle, Eye, Gem, Goal, Handshake, MessageCircle, School, ShieldCheck, Target, Users, Globe } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { getPlaceholderImage } from '@/lib/placeholder-images';
 import { ImageDimensions } from '@/components/image-dimensions';
@@ -36,6 +36,7 @@ const experience = [
     { title: "+50 empresas", description: "Experiencia cliente y habilidades comerciales para más de 50 empresas en LATAM.", icon: <Handshake className="h-8 w-8 text-primary" /> },
     { title: "Academias y Diplomados", description: "Diseño de Academias de Liderazgo y Diplomados en industrias de Servicios Financieros y Minería.", icon: <School className="h-8 w-8 text-primary" /> },
     { title: "Storytelling y Comunicación", description: "Estrategias de Storytelling para mujeres influyentes y líderes de opinión en LATAM.", icon: <MessageCircle className="h-8 w-8 text-primary" /> },
+    { title: "Directora ICF Chile", description: "Gestión de comunidad y fortalecimiento de vínculos dentro de la mayor red de coaches profesionales del mundo.", icon: <Globe className="h-8 w-8 text-primary" /> },
 ];
 
 const CredentialCard = ({ title, description, delay = 0 }: { title: string, description: string, delay?: number }) => (
@@ -287,28 +288,6 @@ export default function AboutPage() {
             viewport={{ once: true, amount: 0.2 }}
           >
             <div className="border-t">
-                <motion.div
-                    variants={itemVariants}
-                    className="border-b bg-background"
-                >
-                    <Card className="shadow-none border-none rounded-none p-8">
-                        <CardHeader className="flex flex-row items-center gap-8 p-0">
-                            <div className="p-4 rounded-full bg-primary/10 transition-colors">
-                                <Award className="h-8 w-8 text-primary" />
-                            </div>
-                            <div>
-                                <CardTitle className="text-xl">Directora de Membresías en ICF Chile</CardTitle>
-                                <CardDescription className="text-base mt-1">Miembro del Directorio (2024)</CardDescription>
-                            </div>
-                        </CardHeader>
-                        <CardContent className="p-0 mt-6">
-                            <p className="text-muted-foreground text-sm leading-relaxed">
-                                Como parte del directorio de la <strong>International Coach Federation (ICF) en Chile</strong>, contribuyo a la promoción de los más altos estándares éticos y de calidad en la profesión. La ICF es la mayor organización de coaches del mundo, con +30.000 miembros, 25 años de trayectoria y presencia en 140 países.
-                            </p>
-                        </CardContent>
-                    </Card>
-                </motion.div>
-
               {credentials.map((credential, index) => (
                 <CredentialCard key={index} title={credential.title} description={credential.description} delay={0.1 * (index + 1)} />
               ))}
