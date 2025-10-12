@@ -113,6 +113,43 @@ export default function CorporatePage() {
         </div>
       </section>
 
+      <section className="py-24 md:py-32 bg-background">
+        <div className="container">
+          <div className="grid md:grid-cols-2 gap-16 md:gap-24 items-center">
+            <motion.div 
+              className="space-y-8 text-left"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              <motion.div variants={itemVariants} className="inline-block bg-primary/10 text-primary p-4 rounded-full border border-primary/20">
+                  <ShieldCheck className="h-10 w-10" />
+              </motion.div>
+              <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-headline !leading-tight">Cumplimiento y Cultura: Expertos en Ley Karin</motion.h2>
+              <motion.p variants={itemVariants} className="text-xl text-muted-foreground">
+                Nuestros programas están diseñados no solo para cumplir con la normativa, sino para construir culturas de seguridad psicológica y respeto que van más allá de la ley. Prepara a tus líderes para gestionar y prevenir el acoso laboral de manera efectiva.
+              </motion.p>
+              <motion.div variants={itemVariants}>
+                <Button size="lg" asChild className="text-base">
+                  <Link href="/contact">Saber más</Link>
+                </Button>
+              </motion.div>
+            </motion.div>
+            <motion.div 
+              className="relative w-full h-96 md:h-[500px] rounded-lg shadow-xl"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+               <Image src={safeWorkplaceImage.imageUrl} alt={safeWorkplaceImage.description} fill className="object-cover rounded-lg" data-ai-hint={safeWorkplaceImage.imageHint} />
+               <ImageDimensions image={safeWorkplaceImage} />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       <section className="py-24 md:py-32">
         <div className="container">
           <motion.div 
@@ -150,43 +187,6 @@ export default function CorporatePage() {
                   </motion.div>
               ))}
           </motion.div>
-        </div>
-      </section>
-
-      <section className="py-24 md:py-32 bg-background">
-        <div className="container">
-          <div className="grid md:grid-cols-2 gap-16 md:gap-24 items-center">
-            <motion.div 
-              className="space-y-8 text-left"
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-            >
-              <motion.div variants={itemVariants} className="inline-block bg-primary/10 text-primary p-4 rounded-full border border-primary/20">
-                  <ShieldCheck className="h-10 w-10" />
-              </motion.div>
-              <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-headline !leading-tight">Cumplimiento y Cultura: Expertos en Ley Karin</motion.h2>
-              <motion.p variants={itemVariants} className="text-xl text-muted-foreground">
-                Nuestros programas están diseñados no solo para cumplir con la normativa, sino para construir culturas de seguridad psicológica y respeto que van más allá de la ley. Prepara a tus líderes para gestionar y prevenir el acoso laboral de manera efectiva.
-              </motion.p>
-              <motion.div variants={itemVariants}>
-                <Button size="lg" asChild className="text-base">
-                  <Link href="/contact">Saber más</Link>
-                </Button>
-              </motion.div>
-            </motion.div>
-            <motion.div 
-              className="relative w-full h-96 md:h-[500px] rounded-lg shadow-xl"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-            >
-               <Image src={safeWorkplaceImage.imageUrl} alt={safeWorkplaceImage.description} fill className="object-cover rounded-lg" data-ai-hint={safeWorkplaceImage.imageHint} />
-               <ImageDimensions image={safeWorkplaceImage} />
-            </motion.div>
-          </div>
         </div>
       </section>
 
