@@ -61,7 +61,7 @@ export default function AboutPage() {
       </section>
 
       <section className="py-24 md:py-32">
-        <div className="container flex flex-col md:flex-row gap-16 md:gap-24">
+        <div className="container flex flex-col md:flex-row gap-16 md:gap-24 items-start">
           <div className="w-full md:w-1/2">
             <div className="relative w-full h-full">
               <Image
