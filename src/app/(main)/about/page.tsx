@@ -7,6 +7,8 @@ import { getPlaceholderImage } from '@/lib/placeholder-images';
 import { ImageDimensions } from '@/components/image-dimensions';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { motion } from 'framer-motion';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 const values = [
   "Humanidad estratégica – Lo emocional como ventaja competitiva.",
@@ -304,6 +306,22 @@ export default function AboutPage() {
             ))}
           </motion.div>
         </div>
+      </section>
+
+      <section className="bg-primary text-primary-foreground py-24 md:py-32">
+        <div className="container text-center max-w-4xl mx-auto animate-fade-in-up">
+            <h2 className="text-4xl md:text-5xl font-headline !leading-tight text-balance">
+              ¿Lista para que tu comunicación esté a la altura de tu talento?
+            </h2>
+            <p className="mt-6 max-w-2xl mx-auto text-primary-foreground/80 text-xl">
+              Tu trayectoria te ha traído hasta aquí. Juntas, podemos diseñar el siguiente capítulo de tu liderazgo.
+            </p>
+            <div className="mt-10">
+              <Button size="lg" variant="secondary" asChild className="text-base h-14 px-10">
+                <Link href="/contact">Hablemos</Link>
+              </Button>
+            </div>
+          </div>
       </section>
     </>
   );
