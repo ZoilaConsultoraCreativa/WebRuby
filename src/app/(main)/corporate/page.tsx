@@ -202,7 +202,7 @@ export default function CorporatePage() {
                   <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-headline">Han confiado en nosotros</motion.h2>
                   <motion.p variants={itemVariants} className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground">
                       Empresas que ya están transformando su comunicación y liderazgo.
-                  </p>
+                  </motion.p>
               </motion.div>
               <div className="md:hidden">
                 <Carousel
@@ -246,7 +246,6 @@ export default function CorporatePage() {
             </Button>
         </div>
       </section>
-
     </>
-
-    
+  );
+}
