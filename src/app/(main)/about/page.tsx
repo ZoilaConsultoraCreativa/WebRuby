@@ -2,7 +2,7 @@
 'use client'
 import Image from 'next/image';
 import { Award, CheckCircle, Eye, Gem, Goal, Handshake, MessageCircle, School, ShieldCheck, Target, Users } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { getPlaceholderImage } from '@/lib/placeholder-images';
 import { ImageDimensions } from '@/components/image-dimensions';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -37,6 +37,25 @@ const experience = [
     { title: "Academias y Diplomados", description: "Diseño de Academias de Liderazgo y Diplomados en industrias de Servicios Financieros y Minería.", icon: <School className="h-8 w-8 text-primary" /> },
     { title: "Storytelling y Comunicación", description: "Estrategias de Storytelling para mujeres influyentes y líderes de opinión en LATAM.", icon: <MessageCircle className="h-8 w-8 text-primary" /> },
 ];
+
+const CredentialCard = ({ title, description, delay = 0 }: { title: string, description: string, delay?: number }) => (
+    <motion.div
+        variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { opacity: 1, y: 0 }
+        }}
+        transition={{ duration: 0.6, ease: "easeOut", delay }}
+        className="flex items-center gap-8 p-8 transition-colors duration-300 hover:bg-background group border-b"
+    >
+        <div className="p-4 rounded-full bg-secondary/50 group-hover:bg-primary/10 transition-colors">
+            <Award className="h-8 w-8 text-primary" />
+        </div>
+        <div>
+            <h3 className="font-bold text-foreground text-xl">{title}</h3>
+            <p className="text-muted-foreground mt-1">{description}</p>
+        </div>
+    </motion.div>
+);
 
 export default function AboutPage() {
   const containerVariants = {
@@ -262,22 +281,36 @@ export default function AboutPage() {
           </motion.div>
           <motion.div 
             className="max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
           >
             <div className="border-t">
+                <motion.div
+                    variants={itemVariants}
+                    className="border-b bg-background"
+                >
+                    <Card className="shadow-none border-none rounded-none p-8">
+                        <CardHeader className="flex flex-row items-center gap-8 p-0">
+                            <div className="p-4 rounded-full bg-primary/10 transition-colors">
+                                <Award className="h-8 w-8 text-primary" />
+                            </div>
+                            <div>
+                                <CardTitle className="text-xl">Directora de Membresías en ICF Chile</CardTitle>
+                                <CardDescription className="text-base mt-1">Miembro del Directorio (2024)</CardDescription>
+                            </div>
+                        </CardHeader>
+                        <CardContent className="p-0 mt-6">
+                            <p className="text-muted-foreground text-sm leading-relaxed">
+                                Como parte del directorio de la <strong>International Coach Federation (ICF) en Chile</strong>, contribuyo a la promoción de los más altos estándares éticos y de calidad en la profesión. La ICF es la mayor organización de coaches del mundo, con +30.000 miembros, 25 años de trayectoria y presencia en 140 países.
+                            </p>
+                        </CardContent>
+                    </Card>
+                </motion.div>
+
               {credentials.map((credential, index) => (
-                <div key={index} className="flex items-center gap-8 p-8 transition-colors duration-300 hover:bg-background group border-b">
-                  <div className="p-4 rounded-full bg-secondary/50 group-hover:bg-primary/10 transition-colors">
-                    <Award className="h-8 w-8 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-foreground text-xl">{credential.title}</h3>
-                    <p className="text-muted-foreground mt-1">{credential.description}</p>
-                  </div>
-                </div>
+                <CredentialCard key={index} title={credential.title} description={credential.description} delay={0.1 * (index + 1)} />
               ))}
             </div>
           </motion.div>
