@@ -62,14 +62,14 @@ export default function AboutPage() {
 
       <section className="py-24 md:py-32">
         <div className="container grid md:grid-cols-2 gap-16 md:gap-24 items-start">
-          <div className="relative group w-full rounded-lg h-full">
+          <div className="relative group w-full rounded-lg">
             <Image
               src={aboutRubyImage.imageUrl}
               alt={aboutRubyImage.description}
               width={600}
               height={800}
               quality={100}
-              className="object-cover rounded-lg shadow-2xl h-full w-full"
+              className="object-cover rounded-lg shadow-2xl w-full"
               data-ai-hint={aboutRubyImage.imageHint}
             />
             <ImageDimensions image={aboutRubyImage} />
