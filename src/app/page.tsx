@@ -95,10 +95,10 @@ export default function Home() {
 
   return (
     <div className="flex flex-col bg-background overflow-x-hidden">
-      <section className="relative pt-20 pb-32 overflow-hidden">
-        <div className="container grid lg:grid-cols-2 gap-12 items-center relative z-10">
+      <section className="relative overflow-hidden py-20 lg:py-0 lg:h-[calc(100vh-theme(height.20))]">
+        <div className="container grid lg:grid-cols-2 gap-12 items-center relative z-10 h-full">
             <motion.div 
-              className="max-w-xl space-y-10 text-center lg:text-left"
+              className="max-w-xl space-y-8 text-center lg:text-left"
               variants={containerVariants}
               initial="hidden"
               animate="visible"
@@ -135,7 +135,7 @@ export default function Home() {
                 </Button>
               </motion.div>
             </motion.div>
-            <div className="relative h-[450px] lg:h-[650px] w-full max-w-lg mx-auto lg:max-w-none">
+            <div className="relative h-[450px] lg:h-[600px] w-full max-w-lg mx-auto lg:max-w-none">
               <motion.div
                 className="relative w-full h-full will-change-transform"
                 initial={{ opacity: 0, y: 50, scale: 0.95 }}
