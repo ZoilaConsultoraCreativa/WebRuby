@@ -31,13 +31,10 @@ const aboutHeroImage = getPlaceholderImage('about-hero');
 const aboutRubyImage = getPlaceholderImage('about-ruby');
 
 const experience = [
-    { text: "Coaching en Liderazgo Gerencial para más de 200 líderes en LATAM.", icon: <Target className="h-6 w-6 text-primary" /> },
-    { text: "Formación de equipos de Alto Desempeño para más de 100 empresas en LATAM.", icon: <Users className="h-6 w-6 text-primary" /> },
-    { text: "Experiencia cliente y habilidades comerciales para más de 50 empresas en LATAM.", icon: <Handshake className="h-6 w-6 text-primary" /> },
-    { text: "Academias de liderazgo y Programas de Diplomado Empresarial en Industrias de Servicios Financieros y Minería.", icon: <School className="h-6 w-6 text-primary" /> },
-    { text: "Estrategias de storytelling y desarrollo de habilidades comunicacionales para mujeres influyentes y líderes de opinión LATAM.", icon: <MessageCircle className="h-6 w-6 text-primary" /> }
+    { title: "+200 líderes", description: "Coaching en Liderazgo Gerencial para más de 200 líderes en LATAM.", icon: <Target className="h-8 w-8 text-primary" /> },
+    { title: "+100 empresas", description: "Formación de equipos de Alto Desempeño para más de 100 empresas en LATAM.", icon: <Users className="h-8 w-8 text-primary" /> },
+    { title: "+50 empresas", description: "Experiencia cliente y habilidades comerciales para más de 50 empresas en LATAM.", icon: <Handshake className="h-8 w-8 text-primary" /> },
 ];
-
 
 export default function AboutPage() {
   const containerVariants = {
@@ -138,22 +135,29 @@ export default function AboutPage() {
              <h2 className="text-4xl md:text-5xl font-headline">Experiencia Destacada</h2>
              <p className="mt-4 text-lg text-muted-foreground">Logros y Resultados Concretos</p>
           </motion.div>
-          <motion.div 
-            className="max-w-4xl mx-auto grid grid-cols-1 gap-12"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-          >
-            {experience.map((item, index) => (
-              <motion.div key={index} className="flex items-start gap-6" variants={itemVariants}>
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-background border flex items-center justify-center shadow-sm">
-                  {item.icon}
-                </div>
-                <p className="text-lg text-muted-foreground pt-3">{item.text}</p>
-              </motion.div>
-            ))}
-          </motion.div>
+            <motion.div
+                className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+            >
+                {experience.map((item, index) => (
+                    <motion.div key={index} variants={itemVariants} className="h-full">
+                        <Card className="h-full text-center flex flex-col p-8 bg-background shadow-xl hover:shadow-2xl transition-shadow duration-300">
+                            <CardHeader className="items-center p-0">
+                                <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20 mb-6">
+                                    {item.icon}
+                                </div>
+                                <CardTitle className="text-4xl">{item.title}</CardTitle>
+                            </CardHeader>
+                            <CardContent className="p-0 mt-4 flex-grow">
+                                <p className="text-muted-foreground text-lg">{item.description}</p>
+                            </CardContent>
+                        </Card>
+                    </motion.div>
+                ))}
+            </motion.div>
         </div>
        </section>
 
