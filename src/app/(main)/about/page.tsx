@@ -39,24 +39,25 @@ const experience = [
     { title: "Directora ICF Chile", description: "Gestión de comunidad y fortalecimiento de vínculos dentro de la mayor red de coaches profesionales del mundo.", icon: <Globe className="h-8 w-8 text-primary" /> },
 ];
 
-const CredentialCard = ({ title, description, delay = 0 }: { title: string, description: string, delay?: number }) => (
-    <motion.div
-        variants={{
-            hidden: { opacity: 0, y: 20 },
-            visible: { opacity: 1, y: 0 }
-        }}
-        transition={{ duration: 0.6, ease: "easeOut", delay }}
-        className="flex items-center gap-8 p-8 transition-colors duration-300 hover:bg-background group border-b"
-    >
-        <div className="p-4 rounded-full bg-secondary/50 group-hover:bg-primary/10 transition-colors">
-            <Award className="h-8 w-8 text-primary" />
-        </div>
-        <div>
-            <h3 className="font-bold text-foreground text-xl">{title}</h3>
-            <p className="text-muted-foreground mt-1">{description}</p>
-        </div>
-    </motion.div>
-);
+const CredentialItem = ({ title, description, delay = 0, isLast = false }: { title: string; description: string; delay?: number; isLast?: boolean }) => {
+    const variants = {
+        hidden: { opacity: 0, y: 30 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut', delay } },
+    };
+
+    return (
+        <motion.div className="relative pl-12 group" variants={variants}>
+            <div className="absolute left-0 top-1 h-full w-px bg-border/80">
+                {!isLast && <div className="h-full w-full bg-border/80" />}
+            </div>
+            <div className="absolute left-[-9px] top-[9px] h-5 w-5 rounded-full bg-secondary border-4 border-background transition-all duration-300 group-hover:bg-primary group-hover:scale-125" />
+            <div className="pb-12">
+                <h3 className="font-bold text-foreground text-xl">{title}</h3>
+                <p className="text-muted-foreground mt-2 text-base">{description}</p>
+            </div>
+        </motion.div>
+    );
+};
 
 export default function AboutPage() {
   const containerVariants = {
@@ -105,7 +106,7 @@ export default function AboutPage() {
 
       <section className="py-24 md:py-32">
         <div className="container flex flex-col md:flex-row gap-16 md:gap-24 items-stretch">
-          <motion.div 
+           <motion.div 
             className="w-full md:w-1/2 relative"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -292,11 +293,15 @@ export default function AboutPage() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
           >
-            <div className="border-t">
-              {credentials.map((credential, index) => (
-                <CredentialCard key={index} title={credential.title} description={credential.description} delay={0.1 * (index + 1)} />
-              ))}
-            </div>
+            {credentials.map((credential, index) => (
+                <CredentialItem 
+                    key={index}
+                    title={credential.title}
+                    description={credential.description}
+                    delay={0.1 * index}
+                    isLast={index === credentials.length - 1}
+                />
+            ))}
           </motion.div>
         </div>
       </section>
