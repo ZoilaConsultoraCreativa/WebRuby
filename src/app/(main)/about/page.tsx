@@ -253,12 +253,17 @@ export default function AboutPage() {
                       whileInView="visible"
                       viewport={{ once: true, amount: 0.2 }}
                     >
-                      {values.map((value, index) => (
-                        <motion.div key={index} className="flex items-start gap-4 p-4 rounded-lg bg-secondary/40" variants={itemVariants}>
-                           <CheckCircle className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                           <span className="text-muted-foreground">{value}</span>
-                        </motion.div>
-                      ))}
+                      {values.map((value, index) => {
+                        const [title, description] = value.split('–');
+                        return (
+                            <motion.div key={index} className="flex items-start gap-4 p-4 rounded-lg bg-secondary/40" variants={itemVariants}>
+                               <CheckCircle className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
+                               <span className="text-muted-foreground">
+                                <strong className="text-foreground">{title}</strong>{description && `– ${description.trim()}`}
+                               </span>
+                            </motion.div>
+                        );
+                      })}
                     </motion.div>
                   </CardContent>
                 </Card>
