@@ -116,7 +116,7 @@ export default function Home() {
                   </div>
               </motion.div>
               <motion.h1 
-                className="text-5xl md:text-7xl font-headline tracking-tighter !leading-tight"
+                className="text-4xl md:text-6xl font-headline tracking-tighter !leading-tight"
                 variants={itemVariants}
               >
                 Liderazgo que inspira.
