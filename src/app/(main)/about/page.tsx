@@ -86,7 +86,7 @@ export default function AboutPage() {
 
   return (
     <>
-      <section className="relative py-32 md:py-48 text-center text-white bg-black">
+      <section className="relative py-24 md:py-32 text-center text-white bg-black">
         <div className="absolute inset-0">
           <Image
             src={aboutHeroImage.imageUrl}
@@ -324,5 +324,5 @@ export default function AboutPage() {
           </div>
       </section>
     </>
-  );
-}
+
+    

@@ -65,7 +65,7 @@ export default function CorporatePage() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
+        staggerChildren: 0.1
       }
     }
   };
@@ -94,7 +94,7 @@ export default function CorporatePage() {
 
   return (
     <>
-      <section className="relative py-32 md:py-48 text-center text-white bg-black">
+      <section className="relative py-24 md:py-32 text-center text-white bg-black">
         <div className="absolute inset-0">
           <Image
             src={corporateHeroImage.imageUrl}
@@ -202,7 +202,7 @@ export default function CorporatePage() {
                   <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-headline">Han confiado en nosotros</motion.h2>
                   <motion.p variants={itemVariants} className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground">
                       Empresas que ya están transformando su comunicación y liderazgo.
-                  </motion.p>
+                  </p>
               </motion.div>
               <div className="md:hidden">
                 <Carousel
@@ -248,5 +248,5 @@ export default function CorporatePage() {
       </section>
 
     </>
-  );
-}
+
+    
