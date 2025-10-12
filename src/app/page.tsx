@@ -95,7 +95,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col bg-background overflow-x-hidden">
-      <section className="relative pt-20 md:pt-32 pb-32 overflow-hidden">
+      <section className="relative pt-20 pb-32 overflow-hidden">
         <div className="container grid lg:grid-cols-2 gap-12 items-center relative z-10">
             <motion.div 
               className="max-w-xl space-y-10 text-center lg:text-left"
