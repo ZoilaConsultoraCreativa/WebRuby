@@ -1,3 +1,5 @@
+
+'use client'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -6,6 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { getPlaceholderImage } from "@/lib/placeholder-images";
 import { ImageDimensions } from "@/components/image-dimensions";
+import { motion } from "framer-motion";
 
 const programsData = [
     {
@@ -61,6 +64,28 @@ const programs = programsData.map(p => ({
 }))
 
 export default function ProgramsPage() {
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.2,
+            },
+        },
+    };
+
+    const itemVariants = {
+        hidden: { y: 20, opacity: 0 },
+        visible: {
+            y: 0,
+            opacity: 1,
+            transition: {
+                duration: 0.6,
+                ease: "easeOut"
+            },
+        },
+    };
+
   return (
     <>
       <section className="relative py-32 md:py-48 text-center text-white bg-black">
@@ -87,7 +112,13 @@ export default function ProgramsPage() {
           <div className="space-y-24">
             {programs.map((program, index) => (
               <div key={program.value} className="grid md:grid-cols-2 gap-16 md:gap-24 items-center">
-                  <div className={`relative h-96 md:h-[600px] w-full rounded-lg ${index % 2 === 1 ? 'md:order-2' : ''}`}>
+                  <motion.div 
+                    className={`relative h-96 md:h-[600px] w-full rounded-lg ${index % 2 === 1 ? 'md:order-2' : ''}`}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                  >
                     <Image
                       src={program.image.imageUrl}
                       alt={program.image.description}
@@ -96,46 +127,56 @@ export default function ProgramsPage() {
                       data-ai-hint={program.image.imageHint}
                     />
                     <ImageDimensions image={program.image} />
-                  </div>
-                  <div className={`space-y-8 ${index % 2 === 1 ? 'md:order-1' : ''}`}>
-                    <h2 className="text-4xl md:text-5xl font-headline !leading-tight">{program.title}</h2>
-                    <p className="text-xl text-primary">{program.subtitle}</p>
-                    <p className="text-lg text-muted-foreground">{program.description}</p>
+                  </motion.div>
+                  <motion.div 
+                    className={`space-y-8 ${index % 2 === 1 ? 'md:order-1' : ''}`}
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.2 }}
+                  >
+                    <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-headline !leading-tight">{program.title}</motion.h2>
+                    <motion.p variants={itemVariants} className="text-xl text-primary">{program.subtitle}</motion.p>
+                    <motion.p variants={itemVariants} className="text-lg text-muted-foreground">{program.description}</motion.p>
                     
-                    <Accordion type="single" collapsible className="w-full border-t">
-                        <AccordionItem value="features" className="border-b">
-                            <AccordionTrigger className="text-lg py-5">¿Qué incluye?</AccordionTrigger>
-                            <AccordionContent className="pt-2 pb-4">
-                                <ul className="space-y-3 pl-2">
-                                {program.features.map((feature, i) => (
-                                    <li key={i} className="flex items-start">
-                                    <CheckCircle className="h-5 w-5 text-primary mt-1 mr-3 flex-shrink-0" />
-                                    <span className="text-muted-foreground text-base">{feature}</span>
-                                    </li>
-                                ))}
-                                </ul>
-                            </AccordionContent>
-                        </AccordionItem>
-                        <AccordionItem value="ideal_for" className="border-b-0">
-                            <AccordionTrigger className="text-lg py-5">¿Es para mí?</AccordionTrigger>
-                            <AccordionContent className="pt-2 pb-4">
-                                <p className="text-muted-foreground text-base">{program.ideal_for}</p>
-                            </AccordionContent>
-                        </AccordionItem>
-                    </Accordion>
+                    <motion.div variants={itemVariants}>
+                      <Accordion type="single" collapsible className="w-full border-t">
+                          <AccordionItem value="features" className="border-b">
+                              <AccordionTrigger className="text-lg py-5">¿Qué incluye?</AccordionTrigger>
+                              <AccordionContent className="pt-2 pb-4">
+                                  <ul className="space-y-3 pl-2">
+                                  {program.features.map((feature, i) => (
+                                      <li key={i} className="flex items-start">
+                                      <CheckCircle className="h-5 w-5 text-primary mt-1 mr-3 flex-shrink-0" />
+                                      <span className="text-muted-foreground text-base">{feature}</span>
+                                      </li>
+                                  ))}
+                                  </ul>
+                              </AccordionContent>
+                          </AccordionItem>
+                          <AccordionItem value="ideal_for" className="border-b-0">
+                              <AccordionTrigger className="text-lg py-5">¿Es para mí?</AccordionTrigger>
+                              <AccordionContent className="pt-2 pb-4">
+                                  <p className="text-muted-foreground text-base">{program.ideal_for}</p>
+                              </AccordionContent>
+                          </AccordionItem>
+                      </Accordion>
+                    </motion.div>
 
-                    <Button asChild size="lg" className="text-base mt-6">
-                         {program.id === 'subscription' ? (
-                          <Link href="https://www.mercadopago.cl/subscriptions/checkout?preapproval_plan_id=1f259e3a9a464ad6a0ecec39f3102440" target="_blank" rel="noopener noreferrer">
-                            Suscribirme
-                          </Link>
-                        ) : program.id === 'individual' ? (
-                            <Link href="/contact">Agendar sesión inicial gratuita</Link>
-                        ) : (
-                          <Link href="/contact">Quiero más información</Link>
-                        )}
-                    </Button>
-                  </div>
+                    <motion.div variants={itemVariants}>
+                      <Button asChild size="lg" className="text-base mt-6">
+                           {program.id === 'subscription' ? (
+                            <Link href="https://www.mercadopago.cl/subscriptions/checkout?preapproval_plan_id=1f259e3a9a464ad6a0ecec39f3102440" target="_blank" rel="noopener noreferrer">
+                              Suscribirme
+                            </Link>
+                          ) : program.id === 'individual' ? (
+                              <Link href="/contact">Agendar sesión inicial gratuita</Link>
+                          ) : (
+                            <Link href="/contact">Quiero más información</Link>
+                          )}
+                      </Button>
+                    </motion.div>
+                  </motion.div>
               </div>
             ))}
           </div>

@@ -1,8 +1,11 @@
+
+'use client'
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { motion } from "framer-motion";
 
 export default function ContactPage() {
   return (
@@ -16,7 +19,13 @@ export default function ContactPage() {
         </div>
       </section>
       <section className="py-24 md:py-32">
-        <div className="container max-w-3xl">
+        <motion.div 
+            className="container max-w-3xl"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           <Card className="p-4 md:p-8 border-none shadow-2xl bg-card">
             <CardHeader>
               <CardTitle className="text-3xl font-headline">Envíame un mensaje</CardTitle>
@@ -48,7 +57,7 @@ export default function ContactPage() {
               </form>
             </CardContent>
           </Card>
-        </div>
+        </motion.div>
       </section>
     </>
   );

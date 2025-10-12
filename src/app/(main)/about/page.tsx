@@ -1,10 +1,12 @@
 
+'use client'
 import Image from 'next/image';
 import { Award, CheckCircle, Eye, Gem, Goal, Handshake, MessageCircle, School, ShieldCheck, Target, Users } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { getPlaceholderImage } from '@/lib/placeholder-images';
 import { ImageDimensions } from '@/components/image-dimensions';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { motion } from 'framer-motion';
 
 const values = [
   "Humanidad estratégica – Lo emocional como ventaja competitiva.",
@@ -38,6 +40,28 @@ const experience = [
 
 
 export default function AboutPage() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      },
+    },
+  };
+
   return (
     <>
       <section className="relative py-32 md:py-48 text-center text-white bg-black">
@@ -62,7 +86,13 @@ export default function AboutPage() {
 
       <section className="py-24 md:py-32">
         <div className="container flex flex-col md:flex-row gap-16 md:gap-24 items-stretch">
-          <div className="w-full md:w-1/2 relative">
+          <motion.div 
+            className="w-full md:w-1/2 relative"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
             <Image
               src={aboutRubyImage.imageUrl}
               alt={aboutRubyImage.description}
@@ -76,51 +106,81 @@ export default function AboutPage() {
               <ShieldCheck className="h-6 w-6 text-primary flex-shrink-0" />
               <span className="text-sm font-semibold text-foreground">Experta Certificada en Ley Karin</span>
             </div>
-          </div>
-          <div className="w-full md:w-1/2 space-y-8">
-            <h2 className="font-headline text-4xl md:text-5xl !leading-tight">Coach Organizacional, de Equipos y Ontológica.</h2>
-            <p className="text-xl text-muted-foreground">Especializada en Comunicación Estratégica y Liderazgo Gerencial.</p>
-            <p className="text-lg text-foreground/80 leading-relaxed">
+          </motion.div>
+          <motion.div 
+            className="w-full md:w-1/2 space-y-8"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
+            <motion.h2 variants={itemVariants} className="font-headline text-4xl md:text-5xl !leading-tight">Coach Organizacional, de Equipos y Ontológica.</motion.h2>
+            <motion.p variants={itemVariants} className="text-xl text-muted-foreground">Especializada en Comunicación Estratégica y Liderazgo Gerencial.</motion.p>
+            <motion.p variants={itemVariants} className="text-lg text-foreground/80 leading-relaxed">
               Cuento con más de <strong>8.000 horas</strong> en procesos de <strong>coaching ejecutivo, liderazgo estratégico, formación de equipos de alto desempeño</strong> y facilitación de talleres y charlas. He trabajado con <strong>líderes de primer nivel en LATAM</strong>, impulsando <strong>transformación cultural, comunicación efectiva y gestión emocional</strong> en contextos corporativos complejos.
-            </p>
-             <p className="text-lg text-foreground/80 leading-relaxed border-l-4 border-primary pl-6">
+            </motion.p>
+             <motion.p variants={itemVariants} className="text-lg text-foreground/80 leading-relaxed border-l-4 border-primary pl-6">
                   Especialista en <strong>diseñar conversaciones de alto impacto</strong>, potenciar la inteligencia relacional y construir confianza en entornos de alta exigencia.
-                </p>
-          </div>
+                </motion.p>
+          </motion.div>
         </div>
       </section>
 
        <section className="py-24 md:py-32 bg-secondary/30">
         <div className="container">
-          <div className="max-w-3xl mx-auto text-center mb-20">
+          <motion.div 
+            className="max-w-3xl mx-auto text-center mb-20"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
              <h2 className="text-4xl md:text-5xl font-headline">Experiencia Destacada</h2>
              <p className="mt-4 text-lg text-muted-foreground">Logros y Resultados Concretos</p>
-          </div>
-          <div className="max-w-4xl mx-auto grid grid-cols-1 gap-12">
+          </motion.div>
+          <motion.div 
+            className="max-w-4xl mx-auto grid grid-cols-1 gap-12"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
             {experience.map((item, index) => (
-              <div key={index} className="flex items-start gap-6">
+              <motion.div key={index} className="flex items-start gap-6" variants={itemVariants}>
                 <div className="flex-shrink-0 w-12 h-12 rounded-full bg-background border flex items-center justify-center shadow-sm">
                   {item.icon}
                 </div>
                 <p className="text-lg text-muted-foreground pt-3">{item.text}</p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
        </section>
 
       <section className="py-24 md:py-32">
         <div className="container">
-           <div className="max-w-3xl mx-auto text-center mb-20">
+           <motion.div 
+              className="max-w-3xl mx-auto text-center mb-20"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
              <h2 className="text-4xl md:text-5xl font-headline">Mi Filosofía</h2>
-          </div>
+          </motion.div>
           <Tabs defaultValue="mission" className="max-w-5xl mx-auto">
             <TabsList className="grid w-full grid-cols-3 bg-secondary/50 h-auto p-2">
               <TabsTrigger value="mission" className="py-3 text-base">Misión</TabsTrigger>
               <TabsTrigger value="vision" className="py-3 text-base">Visión</TabsTrigger>
               <TabsTrigger value="values" className="py-3 text-base">Valores</TabsTrigger>
             </TabsList>
-            <div className="pt-12">
+            <motion.div 
+              className="pt-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
               <TabsContent value="mission">
                 <Card className="shadow-none border-none bg-transparent">
                   <CardHeader className="flex flex-row items-center gap-6 p-0">
@@ -160,29 +220,47 @@ export default function AboutPage() {
                     <CardTitle className="text-3xl font-headline">Valores</CardTitle>
                   </CardHeader>
                   <CardContent className="p-0 mt-8">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <motion.div 
+                      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                      variants={containerVariants}
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true, amount: 0.2 }}
+                    >
                       {values.map((value, index) => (
-                        <div key={index} className="flex items-start gap-4 p-4 rounded-lg bg-secondary/40">
+                        <motion.div key={index} className="flex items-start gap-4 p-4 rounded-lg bg-secondary/40" variants={itemVariants}>
                            <CheckCircle className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
                            <span className="text-muted-foreground">{value}</span>
-                        </div>
+                        </motion.div>
                       ))}
-                    </div>
+                    </motion.div>
                   </CardContent>
                 </Card>
               </TabsContent>
-            </div>
+            </motion.div>
           </Tabs>
         </div>
       </section>
 
       <section className="py-24 md:py-32 bg-secondary/30">
         <div className="container">
-          <div className="max-w-3xl mx-auto text-center mb-20">
+          <motion.div 
+            className="max-w-3xl mx-auto text-center mb-20"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
              <h2 className="text-4xl md:text-5xl font-headline">Mis Credenciales</h2>
              <p className="mt-4 text-lg text-muted-foreground">Formación y experiencia para acompañarte.</p>
-          </div>
-          <div className="max-w-4xl mx-auto">
+          </motion.div>
+          <motion.div 
+            className="max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             <div className="border-t">
               {credentials.map((credential, index) => (
                 <div key={index} className="flex items-center gap-8 p-8 transition-colors duration-300 hover:bg-background group border-b">
@@ -196,7 +274,7 @@ export default function AboutPage() {
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
     </>
