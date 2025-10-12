@@ -63,13 +63,14 @@ export default function AboutPage() {
       <section className="py-24 md:py-32">
         <div className="container flex flex-col md:flex-row gap-16 md:gap-24">
           <div className="w-full md:w-1/2">
-            <div className="relative w-full h-full min-h-[500px]">
+            <div className="relative w-full h-full">
               <Image
                 src={aboutRubyImage.imageUrl}
                 alt={aboutRubyImage.description}
-                fill
+                width={aboutRubyImage.width || 600}
+                height={aboutRubyImage.height || 800}
                 quality={100}
-                className="w-full h-full object-cover rounded-lg shadow-2xl"
+                className="w-full h-auto object-cover rounded-lg shadow-2xl"
                 data-ai-hint={aboutRubyImage.imageHint}
               />
               <ImageDimensions image={aboutRubyImage} />
