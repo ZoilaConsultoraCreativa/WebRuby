@@ -34,6 +34,8 @@ const experience = [
     { title: "+200 líderes", description: "Coaching en Liderazgo Gerencial para más de 200 líderes en LATAM.", icon: <Target className="h-8 w-8 text-primary" /> },
     { title: "+100 empresas", description: "Formación de equipos de Alto Desempeño para más de 100 empresas en LATAM.", icon: <Users className="h-8 w-8 text-primary" /> },
     { title: "+50 empresas", description: "Experiencia cliente y habilidades comerciales para más de 50 empresas en LATAM.", icon: <Handshake className="h-8 w-8 text-primary" /> },
+    { title: "Academias y Diplomados", description: "Diseño de Academias de Liderazgo y Diplomados en industrias de Servicios Financieros y Minería.", icon: <School className="h-8 w-8 text-primary" /> },
+    { title: "Storytelling y Comunicación", description: "Estrategias de Storytelling para mujeres influyentes y líderes de opinión en LATAM.", icon: <MessageCircle className="h-8 w-8 text-primary" /> },
 ];
 
 export default function AboutPage() {
@@ -136,7 +138,7 @@ export default function AboutPage() {
              <p className="mt-4 text-lg text-muted-foreground">Logros y Resultados Concretos</p>
           </motion.div>
             <motion.div
-                className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto"
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="visible"
@@ -149,7 +151,7 @@ export default function AboutPage() {
                                 <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20 mb-6">
                                     {item.icon}
                                 </div>
-                                <CardTitle className="text-4xl">{item.title}</CardTitle>
+                                <CardTitle className="text-3xl">{item.title}</CardTitle>
                             </CardHeader>
                             <CardContent className="p-0 mt-4 flex-grow">
                                 <p className="text-muted-foreground text-lg">{item.description}</p>
