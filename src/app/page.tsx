@@ -10,7 +10,7 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from '@/components/ui/carousel';
 import { getPlaceholderImage } from '@/lib/placeholder-images';
 import { ImageDimensions } from '@/components/image-dimensions';
 
@@ -95,7 +95,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col bg-background overflow-x-hidden">
-      <section className="relative pt-20 pb-24 md:pt-32 md:pb-32 overflow-hidden">
+      <section className="relative pt-20 md:pt-32 pb-32 overflow-hidden">
         <div className="container grid lg:grid-cols-2 gap-12 items-center relative z-10">
             <motion.div 
               className="max-w-xl space-y-10 text-center lg:text-left"
@@ -334,6 +334,8 @@ export default function Home() {
                 </CarouselItem>
               ))}
             </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
           </Carousel>
         </div>
       </section>
@@ -372,7 +374,7 @@ export default function Home() {
                 >
                   <CarouselContent className="-ml-1 flex items-center">
                     {logos.map((logo, index) => (
-                      <CarouselItem key={index} className="basis-auto pl-8 flex justify-center h-16">
+                      <CarouselItem key={index} className="basis-1/2 flex justify-center h-16">
                           <Image src={logo.src} alt={logo.name} width={144} height={64} className="h-10 w-auto object-contain" data-ai-hint="company logo"/>
                       </CarouselItem>
                     ))}
@@ -406,12 +408,12 @@ export default function Home() {
       </section>
 
       <section className="bg-primary text-primary-foreground py-24 md:py-32">
-        <div className="container text-center max-w-4xl mx-auto animate-fade-in-up">
-          <h2 className="text-3xl md:text-5xl font-headline !leading-tight text-balance">
+        <div className="container text-center max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-3xl font-headline !leading-tight text-balance">
             ¿Lista para liderar con estrategia desde quien ya eres?
           </h2>
           <div 
-            className="mt-6 max-w-2xl mx-auto text-primary-foreground/90 text-xl"
+            className="mt-6 max-w-2xl mx-auto text-primary-foreground/90 text-xl space-y-4"
           >
             <p>Descubre si mis programas son para ti.</p>
             <p>Agenda una conversación inicial sin costo y sin compromiso.</p>
