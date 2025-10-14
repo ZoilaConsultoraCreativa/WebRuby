@@ -10,6 +10,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { getNewsletterArticles, type NewsletterArticle } from './actions';
 import { Skeleton } from '@/components/ui/skeleton';
 import Link from 'next/link';
+import { ScrollArea } from '@/components/ui/scroll-area';
 
 function ArticleCard({ article, onClick }: { article: NewsletterArticle, onClick: () => void }) {
   return (
@@ -113,9 +114,9 @@ export default function NewsletterPage() {
         const featured = allArticles.find(a => a.status === 'DESTACAR') || null;
         setArticles(regular);
         setFeaturedArticle(featured);
-      } catch (e) {
+      } catch (e: any) {
         console.error(e);
-        setError("No se pudieron cargar los artículos. Inténtalo de nuevo más tarde.");
+        setError(e.message || "No se pudieron cargar los artículos. Inténtalo de nuevo más tarde.");
       } finally {
         setLoading(false);
       }
@@ -172,7 +173,7 @@ export default function NewsletterPage() {
                   ))}
               </motion.div>
            ) : error ? (
-              <div className="text-center text-red-500">{error}</div>
+              <div className="text-center text-red-500 bg-red-100 border border-red-400 rounded p-4">{error}</div>
            ) : (
             <motion.div
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
@@ -223,11 +224,13 @@ export default function NewsletterPage() {
               <DialogHeader className="p-8 pb-4">
                 <DialogTitle className="text-3xl font-headline">{selectedArticle.title}</DialogTitle>
               </DialogHeader>
-              <DialogDescription className="px-8 pb-8 text-lg text-foreground/80 whitespace-pre-line">
-                {selectedArticle.content}
-              </DialogDescription>
+              <ScrollArea className="max-h-[40vh] px-8">
+                 <DialogDescription className="pr-4 pb-8 text-lg text-foreground/80 whitespace-pre-line">
+                  {selectedArticle.content}
+                </DialogDescription>
+              </ScrollArea>
                {selectedArticle.externalLink && (
-                <div className="px-8 pb-8">
+                <div className="px-8 pb-8 pt-4 border-t">
                   <Button asChild>
                     <Link href={selectedArticle.externalLink} target="_blank" rel="noopener noreferrer">
                       Ver fuente original
