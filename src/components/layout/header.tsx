@@ -15,6 +15,7 @@ const navItems = [
   { label: 'Sobre Mí', href: '/about' },
   { label: 'Programas', href: '/programs' },
   { label: 'Para Empresas', href: '/corporate' },
+  { label: 'Newsletter', href: '/newsletter' },
 ];
 
 export default function Header() {

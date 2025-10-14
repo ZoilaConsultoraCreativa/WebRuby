@@ -83,6 +83,24 @@
       "description": "Image for the Ask Ruby AI persona tool.",
       "imageUrl": "https://images.unsplash.com/photo-1604881991108-a3a35673b7c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxjb252ZXJzYXRpb24lMjBjaGF0fGVufDB8fHx8MTc1ODgwNjQyMnww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "conversation chat"
+    },
+    {
+      "id": "newsletter-1",
+      "description": "Image representing active listening in a professional context.",
+      "imageUrl": "https://picsum.photos/seed/nl1/600/400",
+      "imageHint": "active listening"
+    },
+    {
+      "id": "newsletter-2",
+      "description": "Image representing non-verbal communication and body language.",
+      "imageUrl": "https://picsum.photos/seed/nl2/600/400",
+      "imageHint": "body language"
+    },
+    {
+      "id": "newsletter-3",
+      "description": "Image representing constructive feedback and growth.",
+      "imageUrl": "https://picsum.photos/seed/nl3/600/400",
+      "imageHint": "feedback growth"
     }
   ]
 }
