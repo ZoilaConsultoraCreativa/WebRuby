@@ -49,8 +49,17 @@ export async function getNewsletterArticles(): Promise<NewsletterArticle[]> {
     })).filter(article => article.status === 'MOSTRAR' || article.status === 'DESTACAR');
     
     return articles;
-  } catch (err) {
+  } catch (err: any) {
+    // Check for a specific API disabled error from Google
+    if (err.code === 403 && err.errors?.[0]?.reason === 'accessNotConfigured') {
+        const errorMessage = `Error: The Google Sheets API is not enabled for your project. 
+Please enable it in the Google Cloud Console and try again.
+You can enable it here: https://console.cloud.google.com/apis/library/sheets.googleapis.com`;
+        console.error(errorMessage);
+        throw new Error(errorMessage);
+    }
+    
     console.error('The API returned an error: ' + err);
-    throw new Error('Failed to fetch data from Google Sheets.');
+    throw new Error('Failed to fetch data from Google Sheets. Please check your API Key, Sheet ID, and Sheet permissions.');
   }
 }
