@@ -1,3 +1,4 @@
+'use server';
 
 import { google } from 'googleapis';
 
@@ -16,17 +17,17 @@ const GOOGLE_SHEETS_API_KEY = process.env.GOOGLE_SHEETS_API_KEY;
 const GOOGLE_SHEET_ID = process.env.GOOGLE_SHEET_ID;
 const SHEET_NAME = 'Newsletter'; // The name of the sheet (tab) in your Google Sheet
 
-const sheets = google.sheets({
-  version: 'v4',
-  auth: GOOGLE_SHEETS_API_KEY,
-});
-
 export async function getNewsletterArticles(): Promise<NewsletterArticle[]> {
   if (!GOOGLE_SHEETS_API_KEY || !GOOGLE_SHEET_ID) {
     throw new Error('Google Sheets API Key or Sheet ID is not configured in environment variables.');
   }
 
   try {
+    const sheets = google.sheets({
+      version: 'v4',
+      auth: GOOGLE_SHEETS_API_KEY,
+    });
+    
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId: GOOGLE_SHEET_ID,
       range: `${SHEET_NAME}!A2:F`, // Assumes columns are A:Titulo, B:Imagen, C:Texto Corto, D:Texto largo, E:Link Externo, F:Destacado
