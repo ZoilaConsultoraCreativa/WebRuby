@@ -12,7 +12,7 @@
     --popover-foreground: 20 14.3% 4.1%;
     --primary: 14 65% 50%; /* Richer Terracota */
     --primary-foreground: 33 83% 98%;
-    --secondary: 94 20% 92%; /* Slightly more saturated Verde Salvia light */
+    --secondary: 48 33% 95%; /* #f7f4ea */
     --secondary-foreground: 20 14.3% 4.1%;
     --muted: 94 20% 93%;
     --muted-foreground: 20 8.9% 40.1%;
@@ -35,7 +35,7 @@
     --popover-foreground: 33 83% 94%;
     --primary: 14 55% 60%;
     --primary-foreground: 20 14.3% 4.1%;
-    --secondary: 94 10% 15%;
+    --secondary: 48 15% 15%;
     --secondary-foreground: 33 83% 94%;
     --muted: 94 10% 15%;
     --muted-foreground: 33 20% 60%;
