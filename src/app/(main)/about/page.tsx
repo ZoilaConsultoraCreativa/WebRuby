@@ -101,7 +101,7 @@ export default function AboutPage() {
         </div>
         <div className="container relative z-10 animate-fade-in-up">
           <h1 className="text-4xl md:text-6xl font-headline tracking-tight">Sobre Mí</h1>
-          <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground">
+          <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-foreground">
             Transformando la comunicación en tu mayor activo de liderazgo.
           </p>
         </div>
@@ -327,3 +327,5 @@ export default function AboutPage() {
     </>
   );
 }
+
+    

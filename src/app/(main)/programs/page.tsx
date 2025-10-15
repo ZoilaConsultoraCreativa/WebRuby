@@ -102,7 +102,7 @@ export default function ProgramsPage() {
         </div>
         <div className="container relative z-10 animate-fade-in-up">
           <h1 className="text-4xl md:text-5xl font-headline tracking-tight">Programas para Personas</h1>
-          <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground">
+          <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-foreground">
             Procesos que combinan lo estratégico y lo humano sin perder rigurosidad, para mujeres líderes listas para transformar su impacto.
           </p>
         </div>
@@ -186,3 +186,5 @@ export default function ProgramsPage() {
     </>
   );
 }
+
+    

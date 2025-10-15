@@ -107,7 +107,7 @@ export default function CorporatePage() {
         </div>
         <div className="container relative z-10 animate-fade-in-up">
           <h1 className="text-4xl md:text-6xl font-headline tracking-tight">Soluciones para Empresas</h1>
-          <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground">
+          <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-foreground">
             Transformando la comunicación de tus equipos para construir culturas de alto desempeño, confianza y colaboración.
           </p>
         </div>
@@ -249,3 +249,5 @@ export default function CorporatePage() {
     </>
   );
 }
+
+    
