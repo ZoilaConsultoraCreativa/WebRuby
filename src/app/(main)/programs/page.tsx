@@ -98,7 +98,7 @@ export default function ProgramsPage() {
             priority
             data-ai-hint="people working"
             />
-            <div className="absolute inset-0 bg-background/80" />
+            <div className="absolute inset-0 bg-background/45" />
         </div>
         <div className="container relative z-10 animate-fade-in-up">
           <h1 className="text-4xl md:text-5xl font-headline tracking-tight">Programas para Personas</h1>

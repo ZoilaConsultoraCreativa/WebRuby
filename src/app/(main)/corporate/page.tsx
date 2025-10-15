@@ -103,7 +103,7 @@ export default function CorporatePage() {
             priority
             data-ai-hint="corporate meeting"
           />
-          <div className="absolute inset-0 bg-background/80" />
+          <div className="absolute inset-0 bg-background/45" />
         </div>
         <div className="container relative z-10 animate-fade-in-up">
           <h1 className="text-4xl md:text-6xl font-headline tracking-tight">Soluciones para Empresas</h1>

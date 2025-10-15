@@ -96,7 +96,7 @@ export default function AboutPage() {
             priority
             data-ai-hint={aboutHeroImage.imageHint}
           />
-          <div className="absolute inset-0 bg-background/80" />
+          <div className="absolute inset-0 bg-background/45" />
           <ImageDimensions image={aboutHeroImage} />
         </div>
         <div className="container relative z-10 animate-fade-in-up">
