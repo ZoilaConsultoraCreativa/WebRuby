@@ -94,10 +94,11 @@ export default function ProgramsPage() {
             src="https://firebasestorage.googleapis.com/v0/b/webruby-d89a9.firebasestorage.app/o/Sitio%20RubyVillarroel.cl%2FBanner%20Sobre%20mi%20(5).png?alt=media&token=1127d21b-79a2-414e-97a3-67d6eb89498a"
             alt="Banner de programas"
             fill
-            className="object-cover opacity-20"
+            className="object-cover opacity-100"
             priority
             data-ai-hint="people working"
             />
+            <div className="absolute inset-0 bg-background/80" />
         </div>
         <div className="container relative z-10 animate-fade-in-up">
           <h1 className="text-4xl md:text-5xl font-headline tracking-tight">Programas para Personas</h1>

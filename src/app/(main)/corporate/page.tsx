@@ -99,10 +99,11 @@ export default function CorporatePage() {
             src="https://firebasestorage.googleapis.com/v0/b/webruby-d89a9.firebasestorage.app/o/Sitio%20RubyVillarroel.cl%2FBanner%20Sobre%20mi%20(6).png?alt=media&token=93756425-85a6-45e3-a999-c006a8e2b3ef"
             alt="Corporate solutions background"
             fill
-            className="object-cover opacity-20"
+            className="object-cover opacity-100"
             priority
             data-ai-hint="corporate meeting"
           />
+          <div className="absolute inset-0 bg-background/80" />
         </div>
         <div className="container relative z-10 animate-fade-in-up">
           <h1 className="text-4xl md:text-6xl font-headline tracking-tight">Soluciones para Empresas</h1>

@@ -92,10 +92,11 @@ export default function AboutPage() {
             src={aboutHeroImage.imageUrl}
             alt={aboutHeroImage.description}
             fill
-            className="object-cover opacity-20"
+            className="object-cover opacity-100"
             priority
             data-ai-hint={aboutHeroImage.imageHint}
           />
+          <div className="absolute inset-0 bg-background/80" />
           <ImageDimensions image={aboutHeroImage} />
         </div>
         <div className="container relative z-10 animate-fade-in-up">
