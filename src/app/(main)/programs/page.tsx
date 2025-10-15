@@ -91,7 +91,7 @@ export default function ProgramsPage() {
       <section className="relative py-24 md:py-32 text-center text-white bg-black">
         <div className="absolute inset-0">
             <Image
-            src="https://firebasestorage.googleapis.com/v0/b/webruby-d89a9.firebasestorage.app/o/Sitio%20RubyVillarroel.cl%2FBanner%20Sobre%20mi%20(4).png?alt=media&token=4d767079-3fa1-4778-afed-4993c5dfd0d1"
+            src="https://firebasestorage.googleapis.com/v0/b/webruby-d89a9.firebasestorage.app/o/Sitio%20RubyVillarroel.cl%2FBanner%20Sobre%20mi%20(5).png?alt=media&token=1127d21b-79a2-414e-97a3-67d6eb89498a"
             alt="Banner de programas"
             fill
             className="object-cover opacity-40"
