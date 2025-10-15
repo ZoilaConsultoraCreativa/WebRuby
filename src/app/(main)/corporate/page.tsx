@@ -56,7 +56,6 @@ const logos = [
 ];
 
 const safeWorkplaceImage = getPlaceholderImage('corporate-safe-workplace');
-const corporateHeroImage = getPlaceholderImage('about-hero');
 
 export default function CorporatePage() {
 
@@ -94,10 +93,10 @@ export default function CorporatePage() {
 
   return (
     <>
-      <section className="relative py-24 md:py-32 text-center text-white bg-black">
+      <section className="relative py-24 text-center text-white bg-black md:py-32">
         <div className="absolute inset-0">
           <Image
-            src={corporateHeroImage.imageUrl}
+            src="https://firebasestorage.googleapis.com/v0/b/webruby-d89a9.firebasestorage.app/o/Sitio%20RubyVillarroel.cl%2FBanner%20Sobre%20mi%20(6).png?alt=media&token=93756425-85a6-45e3-a999-c006a8e2b3ef"
             alt="Corporate solutions background"
             fill
             className="object-cover opacity-40"
@@ -249,3 +248,5 @@ export default function CorporatePage() {
     </>
   );
 }
+
+    
