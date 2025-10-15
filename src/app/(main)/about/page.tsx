@@ -110,7 +110,7 @@ export default function AboutPage() {
       <section className="py-24 md:py-32">
         <div className="container flex flex-col md:flex-row gap-16 md:gap-24 items-center">
            <motion.div 
-            className="w-full md:w-1/2 relative h-96 md:h-auto"
+            className="w-full md:w-1/2 relative h-96 md:h-[600px]"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, amount: 0.3 }}
