@@ -88,20 +88,20 @@ export default function ProgramsPage() {
 
   return (
     <>
-      <section className="relative py-24 md:py-32 text-center text-white bg-black">
+      <section className="relative py-20 md:py-24 text-center text-foreground bg-background">
         <div className="absolute inset-0">
             <Image
             src="https://firebasestorage.googleapis.com/v0/b/webruby-d89a9.firebasestorage.app/o/Sitio%20RubyVillarroel.cl%2FBanner%20Sobre%20mi%20(5).png?alt=media&token=1127d21b-79a2-414e-97a3-67d6eb89498a"
             alt="Banner de programas"
             fill
-            className="object-cover opacity-40"
+            className="object-cover opacity-20"
             priority
             data-ai-hint="people working"
             />
         </div>
         <div className="container relative z-10 animate-fade-in-up">
-          <h1 className="text-4xl md:text-6xl font-headline tracking-tight">Programas para Personas</h1>
-          <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-white/80">
+          <h1 className="text-4xl md:text-5xl font-headline tracking-tight">Programas para Personas</h1>
+          <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground">
             Procesos que combinan lo estratégico y lo humano sin perder rigurosidad, para mujeres líderes listas para transformar su impacto.
           </p>
         </div>

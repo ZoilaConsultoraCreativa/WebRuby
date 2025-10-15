@@ -86,13 +86,13 @@ export default function AboutPage() {
 
   return (
     <>
-      <section className="relative py-24 md:py-32 text-center text-white bg-black">
+      <section className="relative py-20 md:py-24 text-center text-foreground bg-background">
         <div className="absolute inset-0">
           <Image
             src={aboutHeroImage.imageUrl}
             alt={aboutHeroImage.description}
             fill
-            className="object-cover opacity-40"
+            className="object-cover opacity-20"
             priority
             data-ai-hint={aboutHeroImage.imageHint}
           />
@@ -100,7 +100,7 @@ export default function AboutPage() {
         </div>
         <div className="container relative z-10 animate-fade-in-up">
           <h1 className="text-4xl md:text-6xl font-headline tracking-tight">Sobre Mí</h1>
-          <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-white/80">
+          <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground">
             Transformando la comunicación en tu mayor activo de liderazgo.
           </p>
         </div>
