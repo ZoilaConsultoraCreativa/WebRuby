@@ -210,35 +210,37 @@ export default function NewsletterPage() {
       </section>
 
       <Dialog open={!!selectedArticle} onOpenChange={() => setSelectedArticle(null)}>
-        <DialogContent className="max-w-3xl p-0">
+        <DialogContent className="max-w-5xl p-0">
           {selectedArticle && (
-            <>
-              <div className="relative h-80">
-                <Image
-                  src={selectedArticle.image}
-                  alt={selectedArticle.title}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <DialogHeader className="p-8 pb-4">
-                <DialogTitle className="text-3xl font-headline">{selectedArticle.title}</DialogTitle>
-              </DialogHeader>
-              <ScrollArea className="max-h-[40vh] px-8">
-                 <DialogDescription className="pr-4 pb-8 text-lg text-foreground/80 whitespace-pre-line">
-                  {selectedArticle.content}
-                </DialogDescription>
-              </ScrollArea>
-               {selectedArticle.externalLink && (
-                <div className="px-8 pb-8 pt-4 border-t">
-                  <Button asChild>
-                    <Link href={selectedArticle.externalLink} target="_blank" rel="noopener noreferrer">
-                      Ver fuente original
-                    </Link>
-                  </Button>
+            <div className="grid grid-cols-1 md:grid-cols-2">
+                <div className="relative h-64 md:h-full min-h-[400px]">
+                    <Image
+                    src={selectedArticle.image}
+                    alt={selectedArticle.title}
+                    fill
+                    className="object-cover"
+                    />
                 </div>
-              )}
-            </>
+                <div className="flex flex-col">
+                    <DialogHeader className="p-8 pb-4">
+                        <DialogTitle className="text-3xl font-headline">{selectedArticle.title}</DialogTitle>
+                    </DialogHeader>
+                    <ScrollArea className="max-h-[50vh] px-8">
+                        <DialogDescription className="pr-4 pb-8 text-lg text-foreground/80 whitespace-pre-line">
+                        {selectedArticle.content}
+                        </DialogDescription>
+                    </ScrollArea>
+                    {selectedArticle.externalLink && (
+                        <div className="px-8 pb-8 pt-4 border-t mt-auto">
+                        <Button asChild>
+                            <Link href={selectedArticle.externalLink} target="_blank" rel="noopener noreferrer">
+                            Ver fuente original
+                            </Link>
+                        </Button>
+                        </div>
+                    )}
+                </div>
+            </div>
           )}
         </DialogContent>
       </Dialog>
