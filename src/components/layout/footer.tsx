@@ -13,7 +13,7 @@ export default function Footer() {
               Comunicación estratégica y liderazgo emocional.
             </p>
             <div className="flex space-x-4">
-              <Link href="#" aria-label="LinkedIn" className="p-2 rounded-full hover:bg-secondary/50 transition-colors">
+              <Link href="https://www.linkedin.com/in/rubyvillarroel/" aria-label="LinkedIn" className="p-2 rounded-full hover:bg-secondary/50 transition-colors" target="_blank" rel="noopener noreferrer">
                 <Linkedin className="h-6 w-6 text-muted-foreground hover:text-primary" />
               </Link>
               <Link href="https://www.instagram.com/rubyvillarroelg/" aria-label="Instagram" className="p-2 rounded-full hover:bg-secondary/50 transition-colors" target="_blank" rel="noopener noreferrer">
