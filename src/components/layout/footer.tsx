@@ -16,7 +16,7 @@ export default function Footer() {
               <Link href="#" aria-label="LinkedIn" className="p-2 rounded-full hover:bg-secondary/50 transition-colors">
                 <Linkedin className="h-6 w-6 text-muted-foreground hover:text-primary" />
               </Link>
-              <Link href="#" aria-label="Instagram" className="p-2 rounded-full hover:bg-secondary/50 transition-colors">
+              <Link href="https://www.instagram.com/rubyvillarroelg/" aria-label="Instagram" className="p-2 rounded-full hover:bg-secondary/50 transition-colors" target="_blank" rel="noopener noreferrer">
                 <Instagram className="h-6 w-6 text-muted-foreground hover:text-primary" />
               </Link>
               <Link href="#" aria-label="YouTube" className="p-2 rounded-full hover:bg-secondary/50 transition-colors">
