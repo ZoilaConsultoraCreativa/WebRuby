@@ -157,7 +157,7 @@ export default function NewsletterPage() {
         </div>
       </section>
 
-      <section className="py-24 md:py-32">
+      <section className="py-12 md:py-16">
         <div className="container">
            {loading ? (
              <motion.div
