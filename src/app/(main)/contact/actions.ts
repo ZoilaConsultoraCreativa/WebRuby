@@ -8,7 +8,7 @@ import ContactEmail from '@/emails/contact-email';
 const contactEmail = process.env.CONTACT_EMAIL || 'coaching@rubyvillarroel.cl';
 
 // Define the schema for the form data
-export const sendEmailSchema = z.object({
+const sendEmailSchema = z.object({
   name: z.string().min(2, { message: 'Tu nombre debe tener al menos 2 caracteres.' }),
   email: z.string().email({ message: 'Por favor, introduce un email válido.' }),
   message: z.string().min(10, { message: 'Tu mensaje debe tener al menos 10 caracteres.' }),

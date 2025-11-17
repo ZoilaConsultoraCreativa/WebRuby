@@ -14,12 +14,25 @@ import { ImageDimensions } from "@/components/image-dimensions";
 import { useFormState, useFormStatus } from 'react-dom';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { sendEmail, sendEmailSchema, type SendEmailFormState } from './actions';
+import { sendEmail } from './actions';
 import { useEffect } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
 
 const contactImage = getPlaceholderImage("contact-hero");
+
+// Define the schema for the form data
+const sendEmailSchema = z.object({
+  name: z.string().min(2, { message: 'Tu nombre debe tener al menos 2 caracteres.' }),
+  email: z.string().email({ message: 'Por favor, introduce un email válido.' }),
+  message: z.string().min(10, { message: 'Tu mensaje debe tener al menos 10 caracteres.' }),
+});
+
+type SendEmailFormState = {
+  message: string;
+  status: 'idle' | 'success' | 'error';
+  errors?: Record<string, string[]>;
+};
 
 const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
