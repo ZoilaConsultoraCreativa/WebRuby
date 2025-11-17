@@ -1,6 +1,9 @@
+
 'use server';
 
 import { google } from 'googleapis';
+import { config } from 'dotenv';
+config();
 
 export type NewsletterArticle = {
   id: string;
