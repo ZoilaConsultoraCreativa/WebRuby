@@ -101,7 +101,7 @@ export default function ContactPage() {
                   </Link>
                   <a href="http://l.rubyvillarroel.cl/Escribeme" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors font-medium bg-secondary/50 p-2 rounded-md">
                       <WhatsAppIcon className="h-5 w-5"/>
-                      <span>WhatsApp</span>
+                      <span>Envía WhatsApp</span>
                   </a>
               </div>
           </motion.div>
