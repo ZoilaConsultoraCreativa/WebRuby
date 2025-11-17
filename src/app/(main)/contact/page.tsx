@@ -16,9 +16,10 @@ import { useFormState, useFormStatus } from 'react-dom';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { sendEmail, type SendEmailFormState } from './actions';
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const contactImage = getPlaceholderImage("contact-hero");
 
@@ -179,8 +180,29 @@ function ContactPageComponent() {
   );
 }
 
+function ContactPageFallback() {
+    return (
+        <div className="relative min-h-[calc(100vh-theme(height.20))] flex items-center justify-center">
+            <div className="absolute inset-0 bg-background/60"></div>
+            <div className="relative z-10 w-full max-w-md mx-auto">
+                <div className="bg-background/80 border border-border/30 rounded-lg p-6 md:p-8 shadow-2xl backdrop-blur-sm space-y-4">
+                    <Skeleton className="h-8 w-1/3" />
+                    <Skeleton className="h-12 w-full" />
+                    <Skeleton className="h-8 w-1/3" />
+                    <Skeleton className="h-12 w-full" />
+                    <Skeleton className="h-8 w-1/3" />
+                    <Skeleton className="h-24 w-full" />
+                    <Skeleton className="h-14 w-full" />
+                </div>
+            </div>
+        </div>
+    )
+}
+
 export default function ContactPage() {
     return (
-        <ContactPageComponent />
+        <Suspense fallback={<ContactPageFallback />}>
+            <ContactPageComponent />
+        </Suspense>
     );
 }
