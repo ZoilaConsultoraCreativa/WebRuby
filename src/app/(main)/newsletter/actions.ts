@@ -25,9 +25,10 @@ export async function getNewsletterArticles(): Promise<NewsletterArticle[]> {
   }
 
   try {
+    const auth = google.auth.fromAPIKey(GOOGLE_SHEETS_API_KEY);
     const sheets = google.sheets({
       version: 'v4',
-      auth: GOOGLE_SHEETS_API_KEY,
+      auth: auth,
     });
     
     const response = await sheets.spreadsheets.values.get({
@@ -61,6 +62,8 @@ export async function getNewsletterArticles(): Promise<NewsletterArticle[]> {
             errorMessage = `Error: The Google Sheets API is not enabled for your project. Please enable it in the Google Cloud Console for project. You can enable it here: https://console.cloud.google.com/apis/library/sheets.googleapis.com`;
         } else if (reason === 'forbidden') {
             errorMessage = `Error: Permission denied. Please ensure your Google Sheet's sharing setting is set to 'Anyone with the link' can 'Viewer'. The API Key does not have permission to access this private sheet.`;
+        } else {
+             errorMessage = `Error: Permission denied to access the sheet. Please ensure the Google Sheets API is enabled and your sheet is public (viewable by anyone with the link). Details: ${err.message}`;
         }
         
         console.error(errorMessage, err);
