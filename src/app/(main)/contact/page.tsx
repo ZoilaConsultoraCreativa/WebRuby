@@ -10,11 +10,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { getPlaceholderImage } from "@/lib/placeholder-images";
 import { ImageDimensions } from "@/components/image-dimensions";
+import { useSearchParams } from 'next/navigation';
 
 import { useFormState, useFormStatus } from 'react-dom';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { sendEmail } from './actions';
+import { sendEmail, type SendEmailFormState } from './actions';
 import { useEffect } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
@@ -28,19 +29,14 @@ const sendEmailSchema = z.object({
   message: z.string().min(10, { message: 'Tu mensaje debe tener al menos 10 caracteres.' }),
 });
 
-type SendEmailFormState = {
-  message: string;
-  status: 'idle' | 'success' | 'error';
-  errors?: Record<string, string[]>;
-};
+type ValidationSchema = z.infer<typeof sendEmailSchema>;
+
 
 const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
         <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
     </svg>
 )
-
-type ValidationSchema = z.infer<typeof sendEmailSchema>;
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -51,24 +47,39 @@ function SubmitButton() {
   );
 }
 
-export default function ContactPage() {
+function ContactPageComponent() {
   const { toast } = useToast();
   const [formState, formAction] = useFormState<SendEmailFormState, FormData>(sendEmail, {
     message: '',
     status: 'idle',
   });
 
-  const { register, formState: { errors } } = useForm<ValidationSchema>({
+  const searchParams = useSearchParams();
+  const messageParam = searchParams.get('message');
+
+  const { register, formState: { errors }, setValue, reset } = useForm<ValidationSchema>({
     resolver: zodResolver(sendEmailSchema),
     mode: 'onTouched',
+    defaultValues: {
+      name: '',
+      email: '',
+      message: messageParam || '',
+    }
   });
   
+  useEffect(() => {
+    if (messageParam) {
+      setValue('message', messageParam);
+    }
+  }, [messageParam, setValue]);
+
   useEffect(() => {
     if (formState.status === 'success') {
       toast({
         title: "Mensaje Enviado",
         description: formState.message,
       });
+      reset();
     } else if (formState.status === 'error') {
       toast({
         variant: "destructive",
@@ -76,7 +87,7 @@ export default function ContactPage() {
         description: formState.message,
       });
     }
-  }, [formState, toast]);
+  }, [formState, toast, reset]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -147,9 +158,6 @@ export default function ContactPage() {
                       {errors.message && <p className="text-red-500 text-sm">{errors.message.message}</p>}
                   </div>
                   <SubmitButton />
-                   {formState.status === 'success' && (
-                    <p className="text-green-600 text-center font-semibold">{formState.message}</p>
-                  )}
               </form>
           </motion.div>
 
@@ -169,4 +177,10 @@ export default function ContactPage() {
       </motion.div>
     </div>
   );
+}
+
+export default function ContactPage() {
+    return (
+        <ContactPageComponent />
+    );
 }

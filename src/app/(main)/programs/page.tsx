@@ -173,7 +173,7 @@ export default function ProgramsPage() {
                           ) : program.id === 'individual' ? (
                               <Link href="/contact">Agendar sesión inicial gratuita</Link>
                           ) : (
-                            <Link href="/contact">Quiero más información</Link>
+                            <Link href={`/contact?message=${encodeURIComponent('Hola, estoy interesada en el Programa Grupal Intensivo y quisiera más información.')}`}>Quiero más información</Link>
                           )}
                       </Button>
                     </motion.div>
