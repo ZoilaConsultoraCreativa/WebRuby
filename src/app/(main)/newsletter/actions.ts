@@ -15,7 +15,6 @@ export type NewsletterArticle = {
   status: 'MOSTRAR' | 'DESTACAR' | 'OCULTAR';
 };
 
-// Ensure you have these environment variables set in your .env.local file
 const GOOGLE_SHEETS_API_KEY = process.env.GOOGLE_SHEETS_API_KEY;
 const GOOGLE_SHEET_ID = process.env.GOOGLE_SHEET_ID;
 const SHEET_NAME = 'Newsletter'; // The name of the sheet (tab) in your Google Sheet
@@ -53,16 +52,22 @@ export async function getNewsletterArticles(): Promise<NewsletterArticle[]> {
     
     return articles;
   } catch (err: any) {
-    // Check for a specific API disabled error from Google
-    if (err.code === 403 && err.errors?.[0]?.reason === 'accessNotConfigured') {
-        const errorMessage = `Error: The Google Sheets API is not enabled for your project. 
-Please enable it in the Google Cloud Console and try again.
-You can enable it here: https://console.cloud.google.com/apis/library/sheets.googleapis.com`;
-        console.error(errorMessage);
+    // Check for specific API permission errors from Google
+    if (err.code === 403) {
+        const reason = err.errors?.[0]?.reason;
+        let errorMessage = `Error: The request to Google Sheets was denied. (Code: 403)`;
+
+        if (reason === 'accessNotConfigured') {
+            errorMessage = `Error: The Google Sheets API is not enabled for your project. Please enable it in the Google Cloud Console for project. You can enable it here: https://console.cloud.google.com/apis/library/sheets.googleapis.com`;
+        } else if (reason === 'forbidden') {
+            errorMessage = `Error: Permission denied. Please ensure your Google Sheet's sharing setting is set to 'Anyone with the link' can 'Viewer'. The API Key does not have permission to access this private sheet.`;
+        }
+        
+        console.error(errorMessage, err);
         throw new Error(errorMessage);
     }
     
-    console.error('The API returned an error: ' + err);
-    throw new Error('Failed to fetch data from Google Sheets. Please check your API Key, Sheet ID, and Sheet permissions.');
+    console.error('The API returned an error: ', err);
+    throw new Error('Failed to fetch data from Google Sheets. Please check your API Key, Sheet ID, and that the Sheet is publicly viewable.');
   }
 }
