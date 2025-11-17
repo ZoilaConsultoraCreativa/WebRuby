@@ -134,7 +134,7 @@ export default function CorporatePage() {
               </motion.p>
               <motion.div variants={itemVariants}>
                 <Button size="lg" asChild className="text-base">
-                  <Link href="/contact">Saber más</Link>
+                  <Link href={`/contact?message=${encodeURIComponent('Hola, estoy interesado/a en sus programas sobre Ley Karin y quisiera más información.')}`}>Quiero más información</Link>
                 </Button>
               </motion.div>
             </motion.div>
