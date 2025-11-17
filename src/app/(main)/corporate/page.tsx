@@ -244,14 +244,10 @@ export default function CorporatePage() {
                 Conversemos sobre cómo podemos diseñar una solución a la medida de tu organización para llevar a tus líderes y equipos al siguiente nivel.
             </p>
             <Button size="lg" variant="secondary" asChild className="mt-10 text-base">
-                <Link href="/contact">Contacto para Empresas</Link>
+                <Link href={`/contact?message=${encodeURIComponent('Hola, estoy interesado/a en los servicios para empresas y quisiera más información.')}`}>Contacto para Empresas</Link>
             </Button>
         </div>
       </section>
     </>
   );
 }
-
-    
-
-    
