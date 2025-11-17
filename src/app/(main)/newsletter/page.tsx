@@ -24,7 +24,7 @@ function ArticleCard({ article, onClick }: { article: NewsletterArticle, onClick
         />
       </div>
       <CardHeader>
-        <CardTitle className="text-2xl h-20">{article.title}</CardTitle>
+        <CardTitle className="text-2xl h-16">{article.title}</CardTitle>
       </CardHeader>
       <CardContent className="flex-grow">
         <CardDescription className="text-base">{article.summary}</CardDescription>
@@ -148,7 +148,7 @@ export default function NewsletterPage() {
 
   return (
     <>
-      <section className="py-24 md:py-32 text-center bg-secondary/30">
+      <section className="py-20 md:py-24 text-center bg-secondary/30">
         <div className="container animate-fade-in-up">
           <h1 className="text-4xl md:text-6xl font-headline tracking-tight">Artículos de Interés</h1>
           <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground">
@@ -157,7 +157,7 @@ export default function NewsletterPage() {
         </div>
       </section>
 
-      <section className="py-12 md:py-16">
+      <section className="py-12">
         <div className="container">
            {loading ? (
              <motion.div
@@ -192,7 +192,7 @@ export default function NewsletterPage() {
         </div>
       </section>
 
-      <section className="py-24 md:py-32 bg-secondary/30">
+      <section className="py-24 md:py-24 bg-secondary/30">
         <div className="container">
            {loading ? (
              <FeaturedArticleSkeleton />
