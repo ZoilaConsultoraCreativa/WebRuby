@@ -7,6 +7,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { motion } from "framer-motion";
 import { Mail, Calendar } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
+import { getPlaceholderImage } from "@/lib/placeholder-images";
+import { ImageDimensions } from "@/components/image-dimensions";
+
+const contactImage = getPlaceholderImage("contact-hero");
 
 export default function ContactPage() {
   const containerVariants = {
@@ -33,34 +38,33 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="container py-16 md:py-24 min-h-[calc(100vh-theme(height.20))] flex items-center">
+    <div className="flex flex-col lg:flex-row min-h-[calc(100vh-theme(height.20))]">
+      <div className="relative w-full lg:w-1/2 h-64 lg:h-auto">
+        <Image
+          src={contactImage.imageUrl}
+          alt={contactImage.description}
+          fill
+          className="object-cover"
+          data-ai-hint={contactImage.imageHint}
+          priority
+        />
+        <ImageDimensions image={contactImage} />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent lg:bg-gradient-to-r" />
+      </div>
       <motion.div 
-        className="grid md:grid-cols-2 gap-16 md:gap-24 w-full items-center"
+        className="w-full lg:w-1/2 flex flex-col justify-center p-8 md:p-16"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        <motion.div className="space-y-6" variants={itemVariants}>
-          <h1 className="text-4xl md:text-6xl font-headline tracking-tight">Contacto</h1>
-          <p className="text-lg md:text-xl text-muted-foreground">
-            ¿Lista para dar el siguiente paso? Conversemos sobre cómo puedo ayudarte a potenciar tu liderazgo y comunicación.
-          </p>
-          <div className="space-y-4 pt-4 border-t border-border/50">
-             <h3 className="text-lg font-semibold text-foreground">Otras formas de conectar:</h3>
-             <div className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors">
-                <Calendar className="h-5 w-5"/>
-                <Link href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0WEGseIdr_qscy_KLTOU5-XzSE9iHzTA2G_nVICz2LuuSh9KcmaIYgefx-ZgFxkwffFP1bJ6nl" target="_blank" rel="noopener noreferrer" className="font-semibold">
-                    Agendar una sesión directamente
-                </Link>
-             </div>
-             <div className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors">
-                <Mail className="h-5 w-5"/>
-                <a href="mailto:hola@rubyvillarroel.cl" className="font-semibold">hola@rubyvillarroel.cl</a>
-             </div>
+        <motion.div className="max-w-md w-full space-y-8" variants={itemVariants}>
+          <div>
+            <h1 className="text-4xl md:text-5xl font-headline tracking-tight">Contacto</h1>
+            <p className="mt-4 text-lg text-muted-foreground">
+              ¿Lista para dar el siguiente paso? Hablemos sobre cómo puedo ayudarte.
+            </p>
           </div>
-        </motion.div>
-
-        <motion.div variants={itemVariants}>
+          
           <form className="space-y-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="space-y-2">
@@ -73,15 +77,25 @@ export default function ContactPage() {
               </div>
             </div>
             <div className="space-y-2">
-              <Label htmlFor="subject" className="text-base">Asunto</Label>
-              <Input id="subject" placeholder="Ej: Consulta sobre programa 1:1" className="h-12 text-base"/>
-            </div>
-            <div className="space-y-2">
               <Label htmlFor="message" className="text-base">Mensaje</Label>
-              <Textarea id="message" placeholder="Cuéntame un poco sobre tus desafíos y lo que buscas..." rows={5} className="text-base"/>
+              <Textarea id="message" placeholder="Cuéntame sobre tus desafíos..." rows={4} className="text-base"/>
             </div>
             <Button type="submit" size="lg" className="w-full text-base h-14">Enviar Mensaje</Button>
           </form>
+
+          <div className="space-y-4 pt-6 border-t border-border/50 text-center">
+             <h3 className="text-base font-semibold text-foreground">Otras formas de conectar</h3>
+             <div className="flex justify-center items-center gap-6 text-sm">
+                <Link href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0WEGseIdr_qscy_KLTOU5-XzSE9iHzTA2G_nVICz2LuuSh9KcmaIYgefx-ZgFxkwffFP1bJ6nl" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors font-medium">
+                    <Calendar className="h-5 w-5"/>
+                    <span>Agendar Sesión</span>
+                </Link>
+                <a href="mailto:hola@rubyvillarroel.cl" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors font-medium">
+                    <Mail className="h-5 w-5"/>
+                    <span>Enviar Email</span>
+                </a>
+             </div>
+          </div>
         </motion.div>
       </motion.div>
     </div>
