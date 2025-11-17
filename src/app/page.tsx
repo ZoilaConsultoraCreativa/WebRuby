@@ -276,7 +276,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-24 md:py-32 bg-secondary/30">
+      {/* <section className="py-24 md:py-32 bg-secondary/30">
         <div className="container">
           <div className="text-center max-w-4xl mx-auto">
              <motion.h2 
@@ -338,7 +338,7 @@ export default function Home() {
             <CarouselNext />
           </Carousel>
         </div>
-      </section>
+      </section> */}
 
       <section className="py-24 md:py-32">
           <div className="container">
