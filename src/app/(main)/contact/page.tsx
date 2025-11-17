@@ -140,7 +140,7 @@ function ContactPageComponent() {
           
           <motion.div variants={itemVariants} className="bg-background/80 border border-border/30 rounded-lg p-6 md:p-8 shadow-2xl backdrop-blur-sm">
               <form action={formAction} className="space-y-4">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 gap-4">
                       <div className="space-y-2">
                           <Label htmlFor="name" className="text-base">Nombre</Label>
                           <Input id="name" {...register('name')} placeholder="Tu nombre" className="h-12 text-base bg-secondary/50"/>
