@@ -48,7 +48,7 @@ export default function ContactPage() {
         priority
       />
       <ImageDimensions image={contactImage} />
-      <div className="absolute inset-0 bg-background/60 backdrop-blur-sm"></div>
+      <div className="absolute inset-0 bg-background/60"></div>
 
       <motion.div 
           className="relative z-10 w-full max-w-md mx-auto"
@@ -63,7 +63,7 @@ export default function ContactPage() {
               </p>
           </motion.div>
           
-          <motion.div variants={itemVariants} className="bg-background/80 border border-border/30 rounded-lg p-6 md:p-8 shadow-2xl">
+          <motion.div variants={itemVariants} className="bg-background/80 border border-border/30 rounded-lg p-6 md:p-8 shadow-2xl backdrop-blur-sm">
               <form className="space-y-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       <div className="space-y-2">
