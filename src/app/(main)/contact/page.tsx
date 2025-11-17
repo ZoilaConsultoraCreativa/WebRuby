@@ -13,6 +13,12 @@ import { ImageDimensions } from "@/components/image-dimensions";
 
 const contactImage = getPlaceholderImage("contact-hero");
 
+const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+    </svg>
+)
+
 export default function ContactPage() {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -88,7 +94,7 @@ export default function ContactPage() {
 
           <motion.div variants={itemVariants} className="space-y-4 pt-8 text-center">
               <h3 className="text-base font-semibold text-foreground">Otras formas de conectar</h3>
-              <div className="flex justify-center items-center gap-6 text-sm">
+              <div className="flex justify-center items-center gap-4 text-sm flex-wrap">
                   <Link href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0WEGseIdr_qscy_KLTOU5-XzSE9iHzTA2G_nVICz2LuuSh9KcmaIYgefx-ZgFxkwffFP1bJ6nl" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors font-medium bg-secondary/50 p-2 rounded-md">
                       <Calendar className="h-5 w-5"/>
                       <span>Agendar Sesión</span>
@@ -96,6 +102,10 @@ export default function ContactPage() {
                   <a href="mailto:hola@rubyvillarroel.cl" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors font-medium bg-secondary/50 p-2 rounded-md">
                       <Mail className="h-5 w-5"/>
                       <span>Enviar Email</span>
+                  </a>
+                  <a href="https://wa.me/56999999999" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors font-medium bg-secondary/50 p-2 rounded-md">
+                      <WhatsAppIcon className="h-5 w-5"/>
+                      <span>WhatsApp</span>
                   </a>
               </div>
           </motion.div>
