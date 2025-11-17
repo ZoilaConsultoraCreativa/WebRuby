@@ -5,6 +5,8 @@ import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { Toaster } from '@/components/ui/toaster';
 import { Playfair_Display, PT_Sans } from 'next/font/google';
+import { FirebaseClientProvider } from '@/firebase/client-provider';
+import { firebaseConfig } from '@/firebase/config';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -35,12 +37,14 @@ export default function RootLayout({
   return (
     <html lang="es" suppressHydrationWarning>
       <body className={cn('min-h-screen bg-background font-body antialiased', playfair.variable, ptSans.variable)}>
-        <div className="relative flex min-h-dvh flex-col">
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </div>
-        <Toaster />
+        <FirebaseClientProvider config={firebaseConfig}>
+          <div className="relative flex min-h-dvh flex-col">
+            <Header />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </div>
+          <Toaster />
+        </FirebaseClientProvider>
       </body>
     </html>
   );
