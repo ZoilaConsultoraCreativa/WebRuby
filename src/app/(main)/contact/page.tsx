@@ -1,15 +1,23 @@
 
-'use client'
+'use client';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { motion } from "framer-motion";
-import { Calendar } from "lucide-react";
+import { Calendar, Loader2 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { getPlaceholderImage } from "@/lib/placeholder-images";
 import { ImageDimensions } from "@/components/image-dimensions";
+
+import { useFormState, useFormStatus } from 'react-dom';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { sendEmail, sendEmailSchema, type SendEmailFormState } from './actions';
+import { useEffect } from "react";
+import { useToast } from "@/hooks/use-toast";
+import { z } from "zod";
 
 const contactImage = getPlaceholderImage("contact-hero");
 
@@ -19,7 +27,44 @@ const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
     </svg>
 )
 
+type ValidationSchema = z.infer<typeof sendEmailSchema>;
+
+function SubmitButton() {
+  const { pending } = useFormStatus();
+  return (
+    <Button type="submit" size="lg" className="w-full text-base h-14" disabled={pending}>
+      {pending ? <Loader2 className="mr-2 h-6 w-6 animate-spin" /> : 'Enviar Mensaje'}
+    </Button>
+  );
+}
+
 export default function ContactPage() {
+  const { toast } = useToast();
+  const [formState, formAction] = useFormState<SendEmailFormState, FormData>(sendEmail, {
+    message: '',
+    status: 'idle',
+  });
+
+  const { register, formState: { errors } } = useForm<ValidationSchema>({
+    resolver: zodResolver(sendEmailSchema),
+    mode: 'onTouched',
+  });
+  
+  useEffect(() => {
+    if (formState.status === 'success') {
+      toast({
+        title: "Mensaje Enviado",
+        description: formState.message,
+      });
+    } else if (formState.status === 'error') {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: formState.message,
+      });
+    }
+  }, [formState, toast]);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -73,22 +118,28 @@ export default function ContactPage() {
           </motion.div>
           
           <motion.div variants={itemVariants} className="bg-background/80 border border-border/30 rounded-lg p-6 md:p-8 shadow-2xl backdrop-blur-sm">
-              <form className="space-y-6">
+              <form action={formAction} className="space-y-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       <div className="space-y-2">
                           <Label htmlFor="name" className="text-base">Nombre</Label>
-                          <Input id="name" placeholder="Tu nombre" className="h-12 text-base bg-secondary/50"/>
+                          <Input id="name" {...register('name')} placeholder="Tu nombre" className="h-12 text-base bg-secondary/50"/>
+                          {errors.name && <p className="text-red-500 text-sm">{errors.name.message}</p>}
                       </div>
                       <div className="space-y-2">
                           <Label htmlFor="email" className="text-base">Email</Label>
-                          <Input id="email" type="email" placeholder="tu@email.com" className="h-12 text-base bg-secondary/50"/>
+                          <Input id="email" type="email" {...register('email')} placeholder="tu@email.com" className="h-12 text-base bg-secondary/50"/>
+                          {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
                       </div>
                   </div>
                   <div className="space-y-2">
                       <Label htmlFor="message" className="text-base">Mensaje</Label>
-                      <Textarea id="message" placeholder="Cuéntame sobre tus desafíos..." rows={5} className="text-base bg-secondary/50"/>
+                      <Textarea id="message" {...register('message')} placeholder="Cuéntame sobre tus desafíos..." rows={5} className="text-base bg-secondary/50"/>
+                      {errors.message && <p className="text-red-500 text-sm">{errors.message.message}</p>}
                   </div>
-                  <Button type="submit" size="lg" className="w-full text-base h-14">Enviar Mensaje</Button>
+                  <SubmitButton />
+                   {formState.status === 'success' && (
+                    <p className="text-green-600 text-center font-semibold">{formState.message}</p>
+                  )}
               </form>
           </motion.div>
 
