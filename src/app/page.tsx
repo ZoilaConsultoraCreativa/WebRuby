@@ -133,7 +133,7 @@ export default function Home() {
               </motion.p>
               <motion.div variants={itemVariants}>
                 <Button size="lg" asChild className="text-base h-14 px-10">
-                  <Link href="/contact">Agenda una Sesión</Link>
+                  <Link href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0WEGseIdr_qscy_KLTOU5-XzSE9iHzTA2G_nVICz2LuuSh9KcmaIYgefx-ZgFxkwffFP1bJ6nl" target="_blank" rel="noopener noreferrer">Agenda una Sesión</Link>
                 </Button>
               </motion.div>
             </motion.div>
@@ -432,5 +432,7 @@ export default function Home() {
 }
  
 
+
+    
 
     
