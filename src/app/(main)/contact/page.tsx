@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { motion } from "framer-motion";
-import { Mail, Calendar } from "lucide-react";
+import { Calendar } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { getPlaceholderImage } from "@/lib/placeholder-images";
@@ -99,11 +99,7 @@ export default function ContactPage() {
                       <Calendar className="h-5 w-5"/>
                       <span>Agendar Sesión</span>
                   </Link>
-                  <a href="mailto:hola@rubyvillarroel.cl" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors font-medium bg-secondary/50 p-2 rounded-md">
-                      <Mail className="h-5 w-5"/>
-                      <span>Enviar Email</span>
-                  </a>
-                  <a href="https://wa.me/56999999999" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors font-medium bg-secondary/50 p-2 rounded-md">
+                  <a href="http://l.rubyvillarroel.cl/Escribeme" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors font-medium bg-secondary/50 p-2 rounded-md">
                       <WhatsAppIcon className="h-5 w-5"/>
                       <span>WhatsApp</span>
                   </a>
