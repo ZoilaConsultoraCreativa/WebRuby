@@ -39,7 +39,7 @@ export default function ContactPage() {
 
   return (
     <div className="flex flex-col lg:flex-row min-h-[calc(100vh-theme(height.20))]">
-      <div className="relative w-full lg:w-1/2 h-64 lg:h-auto">
+      <div className="relative w-full lg:w-1/3 h-64 lg:h-auto">
         <Image
           src={contactImage.imageUrl}
           alt={contactImage.description}
@@ -52,12 +52,12 @@ export default function ContactPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent lg:bg-gradient-to-r" />
       </div>
       <motion.div 
-        className="w-full lg:w-1/2 flex flex-col justify-center p-8 md:p-16"
+        className="w-full lg:w-2/3 flex flex-col justify-center p-8 md:p-16"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        <motion.div className="max-w-md w-full space-y-8" variants={itemVariants}>
+        <motion.div className="max-w-md w-full mx-auto space-y-8" variants={itemVariants}>
           <div>
             <h1 className="text-4xl md:text-5xl font-headline tracking-tight">Contacto</h1>
             <p className="mt-4 text-lg text-muted-foreground">
