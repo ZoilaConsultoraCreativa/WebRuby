@@ -102,7 +102,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="relative min-h-[calc(100vh-theme(height.20))] flex items-center justify-center py-12 md:py-24">
+    <div className="relative min-h-[calc(100vh-theme(height.20))] flex items-center justify-center">
       <Image
         src={contactImage.imageUrl}
         alt={contactImage.description}
@@ -120,19 +120,16 @@ export default function ContactPage() {
           initial="hidden"
           animate="visible"
       >
-          <motion.div className="text-center space-y-4 mb-10" variants={itemVariants}>
+          <motion.div className="text-center space-y-2 mb-8" variants={itemVariants}>
               <h1 className="text-4xl md:text-5xl font-headline tracking-tight">Contacto</h1>
               <p className="text-lg text-muted-foreground">
-                  ¿Lista para dar el siguiente paso?
-              </p>
-              <p className="text-lg text-muted-foreground">
-                  Hablemos sobre cómo puedo ayudarte.
+                  ¿Lista para dar el siguiente paso? Hablemos.
               </p>
           </motion.div>
           
           <motion.div variants={itemVariants} className="bg-background/80 border border-border/30 rounded-lg p-6 md:p-8 shadow-2xl backdrop-blur-sm">
-              <form action={formAction} className="space-y-6">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <form action={formAction} className="space-y-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="space-y-2">
                           <Label htmlFor="name" className="text-base">Nombre</Label>
                           <Input id="name" {...register('name')} placeholder="Tu nombre" className="h-12 text-base bg-secondary/50"/>
@@ -146,7 +143,7 @@ export default function ContactPage() {
                   </div>
                   <div className="space-y-2">
                       <Label htmlFor="message" className="text-base">Mensaje</Label>
-                      <Textarea id="message" {...register('message')} placeholder="Cuéntame sobre tus desafíos..." rows={5} className="text-base bg-secondary/50"/>
+                      <Textarea id="message" {...register('message')} placeholder="Cuéntame sobre tus desafíos..." rows={4} className="text-base bg-secondary/50"/>
                       {errors.message && <p className="text-red-500 text-sm">{errors.message.message}</p>}
                   </div>
                   <SubmitButton />
@@ -156,7 +153,7 @@ export default function ContactPage() {
               </form>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="space-y-4 pt-8 text-center">
+          <motion.div variants={itemVariants} className="space-y-3 pt-6 text-center">
               <h3 className="text-base font-semibold text-foreground">Otras formas de conectar</h3>
               <div className="flex justify-center items-center gap-4 text-sm flex-wrap">
                   <Link href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0WEGseIdr_qscy_KLTOU5-XzSE9iHzTA2G_nVICz2LuuSh9KcmaIYgefx-ZgFxkwffFP1bJ6nl" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors font-medium bg-secondary/50 p-2 rounded-md">
