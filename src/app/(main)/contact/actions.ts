@@ -5,8 +5,6 @@ import { z } from 'zod';
 import { Resend } from 'resend';
 import ContactEmail from '@/emails/contact-email';
 
-// Initialize Resend
-const resend = new Resend(process.env.RESEND_API_KEY);
 const contactEmail = process.env.CONTACT_EMAIL || 'coaching@rubyvillarroel.cl';
 
 // Define the schema for the form data
@@ -26,6 +24,15 @@ export async function sendEmail(
   prevState: SendEmailFormState,
   formData: FormData
 ): Promise<SendEmailFormState> {
+
+  if (!process.env.RESEND_API_KEY) {
+    console.error('RESEND_API_KEY is not set.');
+    return {
+      message: 'El envío de correos no está configurado en el servidor.',
+      status: 'error',
+    };
+  }
+
   // Validate form data
   const validatedFields = sendEmailSchema.safeParse({
     name: formData.get('name'),
@@ -45,6 +52,7 @@ export async function sendEmail(
   const { name, email, message } = validatedFields.data;
 
   try {
+    const resend = new Resend(process.env.RESEND_API_KEY);
     const { data, error } = await resend.emails.send({
       from: 'Web Ruby <no-reply@rubyvillarroel.cl>',
       to: [contactEmail],
@@ -74,4 +82,3 @@ export async function sendEmail(
     };
   }
 }
-
