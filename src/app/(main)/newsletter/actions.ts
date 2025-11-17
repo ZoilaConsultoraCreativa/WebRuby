@@ -2,8 +2,6 @@
 'use server';
 
 import { google } from 'googleapis';
-import { config } from 'dotenv';
-config();
 
 export type NewsletterArticle = {
   id: string;
@@ -15,12 +13,14 @@ export type NewsletterArticle = {
   status: 'MOSTRAR' | 'DESTACAR' | 'OCULTAR';
 };
 
-const GOOGLE_SHEETS_API_KEY = process.env.GOOGLE_SHEETS_API_KEY;
-const GOOGLE_SHEET_ID = process.env.GOOGLE_SHEET_ID;
 const SHEET_NAME = 'Newsletter'; // The name of the sheet (tab) in your Google Sheet
 
 export async function getNewsletterArticles(): Promise<NewsletterArticle[]> {
+  const GOOGLE_SHEETS_API_KEY = process.env.GOOGLE_SHEETS_API_KEY;
+  const GOOGLE_SHEET_ID = process.env.GOOGLE_SHEET_ID;
+
   if (!GOOGLE_SHEETS_API_KEY || !GOOGLE_SHEET_ID) {
+    console.error('Google Sheets API Key or Sheet ID is missing in environment variables.');
     throw new Error('Google Sheets API Key or Sheet ID is not configured in environment variables.');
   }
 
@@ -58,9 +58,7 @@ export async function getNewsletterArticles(): Promise<NewsletterArticle[]> {
         const reason = err.errors?.[0]?.reason;
         let errorMessage = `Error: The request to Google Sheets was denied. (Code: 403)`;
 
-        if (reason === 'accessNotConfigured') {
-            errorMessage = `Error: The Google Sheets API is not enabled for your project. Please enable it in the Google Cloud Console for project. You can enable it here: https://console.cloud.google.com/apis/library/sheets.googleapis.com`;
-        } else if (reason === 'forbidden') {
+        if (reason === 'accessNotConfigured' || reason === 'forbidden') {
             errorMessage = `Error: Permission denied. Please ensure your Google Sheet's sharing setting is set to 'Anyone with the link' can 'Viewer'. The API Key does not have permission to access this private sheet.`;
         } else {
              errorMessage = `Error: Permission denied to access the sheet. Please ensure the Google Sheets API is enabled and your sheet is public (viewable by anyone with the link). Details: ${err.message}`;
