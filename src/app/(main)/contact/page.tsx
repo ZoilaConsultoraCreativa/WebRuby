@@ -97,7 +97,7 @@ export default function ContactPage() {
               <div className="flex justify-center items-center gap-4 text-sm flex-wrap">
                   <Link href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0WEGseIdr_qscy_KLTOU5-XzSE9iHzTA2G_nVICz2LuuSh9KcmaIYgefx-ZgFxkwffFP1bJ6nl" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors font-medium bg-secondary/50 p-2 rounded-md">
                       <Calendar className="h-5 w-5"/>
-                      <span>Agendar Sesión</span>
+                      <span>Agenda Sesión</span>
                   </Link>
                   <a href="http://l.rubyvillarroel.cl/Escribeme" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors font-medium bg-secondary/50 p-2 rounded-md">
                       <WhatsAppIcon className="h-5 w-5"/>
