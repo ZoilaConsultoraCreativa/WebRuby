@@ -37,10 +37,10 @@ export default function PrivacyPolicyPage() {
             >
                 <motion.div variants={itemVariants} className="text-center mb-16">
                     <h1 className="text-4xl md:text-5xl font-headline tracking-tight">Política de Privacidad</h1>
-                    <p className="text-lg text-muted-foreground mt-4">Última actualización: 17-11-2025</p>
+                    <p className="text-base text-muted-foreground mt-4">Última actualización: 17-11-2025</p>
                 </motion.div>
 
-                <motion.div variants={itemVariants} className="space-y-10 text-lg leading-relaxed text-foreground/80">
+                <motion.div variants={itemVariants} className="space-y-10 text-base leading-relaxed text-foreground/80">
                     <section className="space-y-4">
                         <p>En Ruby Villarroel Gallardo (“yo”, “mi”, “la marca”), respeto profundamente tu privacidad y me comprometo a proteger los datos personales que compartas al utilizar mi sitio web www.rubyvillarroel.cl (el “Sitio”).</p>
                         <p>Esta Política de Privacidad explica de manera clara cómo recopilo, uso, protejo y gestiono tu información personal, en cumplimiento con la legislación chilena vigente, especialmente la Ley N° 19.628 sobre Protección de la Vida Privada.</p>
