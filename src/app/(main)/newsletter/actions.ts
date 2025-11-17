@@ -2,6 +2,8 @@
 'use server';
 
 import { google } from 'googleapis';
+import fs from 'fs';
+import path from 'path';
 
 export type NewsletterArticle = {
   id: string;
@@ -15,7 +17,32 @@ export type NewsletterArticle = {
 
 const SHEET_NAME = 'Newsletter'; // The name of the sheet (tab) in your Google Sheet
 
+// Function to load environment variables from .env file
+function loadEnvVars() {
+  const envPath = path.resolve(process.cwd(), '.env');
+  if (fs.existsSync(envPath)) {
+    const envFileContent = fs.readFileSync(envPath, 'utf8');
+    const envConfig = envFileContent.split('\n').reduce((acc, line) => {
+      const [key, ...valueParts] = line.split('=');
+      if (key && valueParts.length > 0) {
+        const value = valueParts.join('=').trim().replace(/^['"]|['"]$/g, '');
+        acc[key.trim()] = value;
+      }
+      return acc;
+    }, {} as Record<string, string>);
+
+    for (const key in envConfig) {
+      if (!process.env[key]) {
+        process.env[key] = envConfig[key];
+      }
+    }
+  }
+}
+
+
 export async function getNewsletterArticles(): Promise<NewsletterArticle[]> {
+  loadEnvVars();
+  
   const GOOGLE_SHEETS_API_KEY = process.env.GOOGLE_SHEETS_API_KEY;
   const GOOGLE_SHEET_ID = process.env.GOOGLE_SHEET_ID;
 
