@@ -171,7 +171,7 @@ export default function ProgramsPage() {
                               Suscribirme
                             </Link>
                           ) : program.id === 'individual' ? (
-                              <Link href="/contact">Agendar sesión inicial gratuita</Link>
+                              <Link href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0WEGseIdr_qscy_KLTOU5-XzSE9iHzTA2G_nVICz2LuuSh9KcmaIYgefx-ZgFxkwffFP1bJ6nl" target="_blank" rel="noopener noreferrer">Agendar sesión inicial gratuita</Link>
                           ) : (
                             <Link href={`/contact?message=${encodeURIComponent('Hola, estoy interesada en el Programa Grupal Intensivo y quisiera más información.')}`}>Quiero más información</Link>
                           )}
