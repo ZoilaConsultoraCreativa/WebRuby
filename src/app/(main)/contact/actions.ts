@@ -2,10 +2,9 @@
 'use server';
 
 import { z } from 'zod';
-import { Resend } from 'resend';
-import ContactEmail from '@/emails/contact-email';
+import { google } from 'googleapis';
 
-const contactEmail = process.env.CONTACT_EMAIL || 'coaching@rubyvillarroel.cl';
+const contactEmail = 'coaching@rubyvillarroel.cl';
 
 // Define the schema for the form data
 const sendEmailSchema = z.object({
@@ -24,11 +23,12 @@ export async function sendEmail(
   prevState: SendEmailFormState,
   formData: FormData
 ): Promise<SendEmailFormState> {
+  const { GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, GOOGLE_REFRESH_TOKEN } = process.env;
 
-  if (!process.env.RESEND_API_KEY) {
-    console.error('RESEND_API_KEY is not set.');
+  if (!GOOGLE_CLIENT_ID || !GOOGLE_CLIENT_SECRET || !GOOGLE_REFRESH_TOKEN) {
+    console.error('Google API credentials are not set in environment variables.');
     return {
-      message: 'El envío de correos no está configurado en el servidor.',
+      message: 'El servicio de correo no está configurado correctamente en el servidor.',
       status: 'error',
     };
   }
@@ -52,23 +52,48 @@ export async function sendEmail(
   const { name, email, message } = validatedFields.data;
 
   try {
-    const resend = new Resend(process.env.RESEND_API_KEY);
-    const { data, error } = await resend.emails.send({
-      from: 'Web Ruby <no-reply@rubyvillarroel.cl>',
-      to: [contactEmail],
-      reply_to: email,
-      subject: `Nuevo mensaje de ${name} desde tu web`,
-      react: ContactEmail({ name, email, message }),
-      text: `Nombre: ${name}\nEmail: ${email}\nMensaje: ${message}`,
-    });
+    const oAuth2Client = new google.auth.OAuth2(
+      GOOGLE_CLIENT_ID,
+      GOOGLE_CLIENT_SECRET
+    );
+    oAuth2Client.setCredentials({ refresh_token: GOOGLE_REFRESH_TOKEN });
 
-    if (error) {
-      console.error('Resend error:', error);
-      return {
-        message: 'Ocurrió un error al enviar el mensaje. Por favor, intenta de nuevo.',
-        status: 'error',
-      };
+    const { token: accessToken } = await oAuth2Client.getAccessToken();
+
+    if (!accessToken) {
+        throw new Error('Failed to get access token');
     }
+
+    const gmail = google.gmail({ version: 'v1', auth: oAuth2Client });
+
+    const emailBody = [
+      `From: "Web Ruby" <${contactEmail}>`,
+      `To: ${contactEmail}`,
+      `Reply-To: ${email}`,
+      `Subject: Nuevo mensaje de ${name} desde tu web`,
+      'Content-Type: text/html; charset=utf-8',
+      '',
+      '<html><body>',
+      `<h2>Nuevo Mensaje desde tu Página Web</h2>`,
+      '<hr>',
+      `<p><b>Nombre:</b> ${name}</p>`,
+      `<p><b>Email:</b> ${email}</p>`,
+      '<hr>',
+      `<p><b>Mensaje:</b></p>`,
+      `<p style="white-space: pre-wrap;">${message}</p>`,
+      '<hr>',
+      '<p><small>Este mensaje fue enviado desde el formulario de contacto de rubyvillarroel.cl</small></p>',
+      '</body></html>',
+    ].join('\n');
+
+    const encodedMessage = Buffer.from(emailBody).toString('base64').replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+    
+    await gmail.users.messages.send({
+      userId: 'me',
+      requestBody: {
+        raw: encodedMessage,
+      },
+    });
 
     return {
       message: '¡Gracias por tu mensaje! Te responderé pronto.',
