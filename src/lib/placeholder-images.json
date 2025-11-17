@@ -86,9 +86,9 @@
     },
     {
       "id": "contact-hero",
-      "description": "A professional woman in a bright, modern office setting, smiling warmly.",
-      "imageUrl": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxtb2Rlcm4lMjBvZmZpY2V8ZW58MHx8fHwxNzU4ODE4Mzg4fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "modern office"
+      "description": "Background image for the contact page",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/webruby-d89a9.firebasestorage.app/o/Sitio%20RubyVillarroel.cl%2FDise%C3%B1o%20sin%20t%C3%ADtulo%20(1).png?alt=media&token=eff71ea9-d36f-4cca-9b20-e893e4b06fba",
+      "imageHint": "desk background"
     }
   ]
 }
