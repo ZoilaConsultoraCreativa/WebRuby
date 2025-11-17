@@ -59,7 +59,10 @@ export default function ContactPage() {
           <motion.div className="text-center space-y-4 mb-10" variants={itemVariants}>
               <h1 className="text-4xl md:text-5xl font-headline tracking-tight">Contacto</h1>
               <p className="text-lg text-muted-foreground">
-                  ¿Lista para dar el siguiente paso? Hablemos sobre cómo puedo ayudarte.
+                  ¿Lista para dar el siguiente paso?
+              </p>
+              <p className="text-lg text-muted-foreground">
+                  Hablemos sobre cómo puedo ayudarte.
               </p>
           </motion.div>
           
