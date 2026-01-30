@@ -12,15 +12,24 @@ import { Skeleton } from '@/components/ui/skeleton';
 import Link from 'next/link';
 import { ScrollArea } from '@/components/ui/scroll-area';
 
+// Helper to build the proxy URL
+const getProxyImageUrl = (url: string) => {
+  if (!url || url.startsWith('/') || !url.startsWith('http')) {
+    return url; // Don't proxy local or invalid URLs
+  }
+  return `/api/image-proxy?url=${encodeURIComponent(url)}`;
+};
+
 function ArticleCard({ article, onClick }: { article: NewsletterArticle, onClick: () => void }) {
   return (
     <Card className="flex flex-col h-full overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
       <div className="relative h-64 w-full">
         <Image
-          src={article.image}
+          src={getProxyImageUrl(article.image)}
           alt={article.title}
           fill
           className="object-cover"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </div>
       <CardHeader>
@@ -43,10 +52,11 @@ function FeaturedArticleCard({ article, onClick }: { article: NewsletterArticle,
     <Card className="overflow-hidden shadow-2xl md:grid md:grid-cols-2">
       <div className="relative h-80 md:h-auto">
         <Image
-          src={article.image}
+          src={getProxyImageUrl(article.image)}
           alt={article.title}
           fill
           className="object-cover"
+          sizes="(max-width: 768px) 100vw, 50vw"
         />
       </div>
       <div className="p-8 md:p-12">
@@ -215,10 +225,11 @@ export default function NewsletterPage() {
             <div className="grid grid-cols-1 md:grid-cols-2">
                 <div className="relative h-64 md:h-full min-h-[400px]">
                     <Image
-                    src={selectedArticle.image}
+                    src={getProxyImageUrl(selectedArticle.image)}
                     alt={selectedArticle.title}
                     fill
                     className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     />
                 </div>
                 <div className="flex flex-col">

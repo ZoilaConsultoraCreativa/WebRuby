@@ -98,7 +98,7 @@ export default function CorporatePage() {
       <section className="relative py-20 md:py-24 text-center text-foreground bg-background">
         <div className="absolute inset-0">
           <Image
-            src="https://firebasestorage.googleapis.com/v0/b/webruby-d89a9.firebasestorage.app/o/Sitio%20RubyVillarroel.cl%2FBanner%20Sobre%20mi%20(6).png?alt=media&token=93756425-85a6-45e3-a999-c006a8e2b3ef"
+            src="https://firebasestorage.googleapis.com/v0/b/webruby-d89a9.firebasestorage.app/o/Sitio%20RubyVillarroel.cl%2FBanner%20Sobre%20mi%20(9).png?alt=media&token=bdc0b2e2-215f-41fe-ab14-98eaff6075be"
             alt="Corporate solutions background"
             fill
             className="object-cover opacity-100"

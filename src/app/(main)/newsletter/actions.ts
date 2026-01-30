@@ -25,7 +25,7 @@ function loadEnvVars() {
     const envConfig = envFileContent.split('\n').reduce((acc, line) => {
       const [key, ...valueParts] = line.split('=');
       if (key && valueParts.length > 0) {
-        const value = valueParts.join('=').trim().replace(/^['"]|['"]$/g, '');
+        const value = valueParts.join('=').trim().replace(/^[\'"]|[\'"]$/g, '');
         acc[key.trim()] = value;
       }
       return acc;
@@ -38,7 +38,6 @@ function loadEnvVars() {
     }
   }
 }
-
 
 export async function getNewsletterArticles(): Promise<NewsletterArticle[]> {
   loadEnvVars();
@@ -80,13 +79,12 @@ export async function getNewsletterArticles(): Promise<NewsletterArticle[]> {
     
     return articles;
   } catch (err: any) {
-    // Check for specific API permission errors from Google
     if (err.code === 403) {
         const reason = err.errors?.[0]?.reason;
         let errorMessage = `Error: The request to Google Sheets was denied. (Code: 403)`;
 
         if (reason === 'accessNotConfigured' || reason === 'forbidden') {
-            errorMessage = `Error: Permission denied. Please ensure your Google Sheet's sharing setting is set to 'Anyone with the link' can 'Viewer'. The API Key does not have permission to access this private sheet.`;
+            errorMessage = `Error: Permission denied. Please ensure your Google Sheet\'s sharing setting is set to \'Anyone with the link\' can \'Viewer\'. The API Key does not have permission to access this private sheet.`;
         } else {
              errorMessage = `Error: Permission denied to access the sheet. Please ensure the Google Sheets API is enabled and your sheet is public (viewable by anyone with the link). Details: ${err.message}`;
         }
